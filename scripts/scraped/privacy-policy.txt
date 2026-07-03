@@ -1,0 +1,144 @@
+Privacy Policy
+
+The following Privacy Policy governs the online information collection practices of Zypp Electric("Company", "we" or "us"). It outlines the types of information that we gather about you while you are using our website.
+
+https://zypp.app/(the "Sites") and the ways in which we use this information. Zypp Electric is a web-based SaaS model which helps users who have created Zypp Electric accounts ("User(s)") to share their content such as information, files and folders ("Content") and analyze their pre-existing customers, prospective customers and third parties ("Viewer(s)") on the basis of the content viewed by them, as and when applicable. The viewers are the non-registered users of the web-services and product offerings ("Service(s)") provided by Zypp Electric. We process your data in accordance with the applicable laws and regulations following industry best practices.
+
+PURPOSE AND SCOPE
+
+The Privacy Policy applies primarily to information that we collect online; however, it may apply to some of the data that you provide to us offline and/or through other means, as well (for example, via telephone, What'sApp or through the e-mail).
+
+The Privacy Policy documents and describes the manner in which our organisation collects information from all our Users/Viewers of our Services. While providing our Services on behalf of our registered users, we collect information related to Viewers. The use of information collected on behalf of our Users is governed primarily by our contract for the engagement with them and the privacy policies governing their organization. We are not accountable for the privacy policies and practices undertaken by our users or any other third parties
+
+HOW WE COLLECT DATA ABOUT YOU
+
+Data provided by registered users:
+
+Account creation and login	When you create an account or login into your account, we collect personal information such as first name, last name, email address and password etc.
+
+Data provided by non-registered users:
+
+Access pre-existing user's content	When you request to view a pre-existing User's content, the user may ask for personal information such as email address in order to open aZypp Electric's link. Zypp Electric collects and stores this personal information on behalf of its Users. When you provide this personal information, you do so in accordance with that User's privacy practices and policies. Zypp Electric is not responsible for the privacy practices of its Users, and only processes this information in accordance with the applicable agreement it has with each User. For any issues pertaining to processing of such personal information, please contact the User directly.
+
+Data collected through automated means:
+
+System data	Technical data about your computer or device, like device type, operation system etc. This data helps us improve the delivery of our web pages and to measure traffic on the Site.The collection of data will also depend on the individual settings of your device and software. It is recommended to refer to the policies of your device manufacturer or software provider to learn about information they might share with us.
+
+User Generated Data:
+
+Account Creation, Login and Usage as a viewer	We collect information and material (user generated content) provided to us voluntarily by our users or the viewers to publish and process on our platform. The user generated content is inclusive of text, photos & videos associated with the accounts/ emails used to create an account with Zypp Electric or to access links as viewers.
+
+Data Collected from Third Parties:
+
+Integration of Third Parties such as Google Drive, OneDrive, Dropbox, Box	When you connect your existing cloud storage such as Google Drive, we access your account on your behalf to get information about your files & folders. When you choose to create a Google Drive file link inZypp Electric, we download the selected file(s) from your Google Drive and store it in our own storage for reliability purposes.
+
+Data collected during transactions:
+
+Transactional Data	On the basis of types of services requested, Zypp Electric also collects information such as: For the purpose of promotion of it's related services,
+- type of service that has been requested
+- order details for such a request
+- payment & transaction information (such as merchant's name, payment method, chargeable amount for the service)
+- date and time the service provided
+-records of assets and services provided
+-background verifications and record checks
+
+If you have any questions about this Privacy Policy, you can contact us atZypp Electric website or at help@zypp.app
+
+THE TYPES OF INFORMATION WE COLLECT AND STORE
+
+We may collect personal and sensitive personal information about you and store this information in connection with the provision and fulfilment of our services to you. Personal information may include:
+
+First name and last name
+KYC details- which may include but not limited to Aadhar Card, PAN Card, Driving License or any other Identification Proof
+Account/ payment method details
+Email address
+Contact details
+Location
+IP Address
+Nomination Details which may include but not limited to KYC
+Relative Details which may include but not limited to KYC
+HOW WE USE YOUR PERSONAL INFORMATION
+
+The above personal information may be used for the following purposes:
+
+To provide you with information about our services;
+To respond to your requests;
+For creation or development of business intelligence or data analytics in relation to the services provided by us (for this purpose we may share the Personal Information with certain software or tools available online or third party vendors);
+To manage our relationship with you;
+For background verifications or criminal record check or police verification or educational or previous work experience check
+For internal record keeping;
+To provide you with authorization to login and use your user account;
+To verify your identity;
+To maintain correct and up-to-date information about you;
+To identify you as a contracting party;
+To improve our website;
+To enable automated handling of the subscriptions;
+To otherwise be able to provide the services to you and
+To comply with our legal or statutory obligations.
+WHO HAS ACCESS TO YOUR DATA WITHIN OUR ORGANIZATION?
+
+Within our organization, access to your data is limited to those persons who require access in order to provide you with the Services, which you purchase from us or for engaging with us, to contact you, and to respond to your inquiries, including requests for refunds or cancelations. Those staff members may be on teams such as: marketing, events, development, executive, customer support, IT, software, data, human resource, finance or legal. Employees only have access to data that is relevant to their team, on a ‘need to know' basis.
+
+WHO DO WE SHARE YOUR DATA WITH OUTSIDE OUR ORGANIZATION AND WHY?
+
+Processors
+
+We may use service providers & third parties for operating and improving the Sites, to assist with certain functions, such as payment processing, email transmission, conducting surveys, data hosting and analysis, managing our ads, third-party solutions for marketing and analytics, background verification, criminal record check or police verification, providing related services and some aspects of our technical and customer support. We take measures to ensure that these service providers access, process, and store information about you only for the purposes we authorize, through the execution of Service Agreements or NDAs.
+
+Authorities
+
+We may access, preserve, and disclose information about you to third parties, including the content of messages if we believe disclosure is in accordance with or required by, applicable law, regulation, statutory or governmental authority, legal process, or audits. We may also disclose information about you if we believe that your actions are inconsistent with our Terms of Service or related guidelines and policies, or if necessary to protect the rights, property, or safety of, or prevent fraud or abuse of, Company, Company assets or others.
+
+Transfer of business
+
+If we (or our assets) are acquired, or if we go out of business, enter bankruptcy, or go through some other change of control, personal information could be one of the assets transferred to or acquired by a third party.
+
+WHY AND FOR HOW LONG DO WE STORE INFORMATION WE COLLECT FROM YOU?
+
+We retain your information collected from you while you are a member on the Site and until specifically ask for the deletion of your acccount, and in certain cases where you have deleted your account, for the following reasons:
+
+So that you can use our Sites;
+To ensure that we do not communicate with you if you have asked us not to;
+To provide you with a refund, if entitled;
+To better understand the traffic to our Sites so that we can provide all members with the best possible experience;
+To detect and prevent abuse of our Sites, illegal activities and breaches of our Terms of Service; and
+To comply with applicable legal, statutory, tax or accounting requirements.
+
+We retain user data for as long as necessary for the purposes described above. This means that we retain different categories of data for different periods of time depending on the type of data, the category of user to whom the data relates to, and the purposes for which we collected the data.
+
+SECURITY
+
+We implement a variety of administrative, managerial, and technical security measures to help protect your personal information. Our Company has various internal control standards which relate specifically to the handling of personal information. These include certain controls to help safeguard the information we collect online. Our employees are trained to understand and comply with these controls and we communicate our Privacy Policy to our employees. However, while we strive to protect your personal information, you must also take steps to protect your information. We urge you to take every precaution to protect your personal information while you are on the Internet.
+
+YOUR RIGHTS UNDER THE GDPR
+
+You have certain rights if you are within the EU this includes:
+
+Right to access. This right allows you to obtain a copy of your personal data, as well as other supplementary information.
+Right to rectification. You have the right to have any incomplete or inaccurate information we hold about you corrected.
+Right to object to processing. The right to object allows you to stop or prevent us from processing your personal data. This right exists where we are relying on a legitimate interest as the legal basis for processing your Personal Data. You also have the right to object where we are processing your Personal data for direct marketing purposes.
+Right to erasure. You have the right to ask us to delete or remove Personal data when the personal data is no longer necessary for the purpose which you originally collected or processed.
+
+To exercise your rights, you can contact us at www.zypp.app
+
+OUR POLICY CONCERNING CHILDREN & THEIR DATA
+
+Our Sites are not directed to children under the age of eighteen and we do not knowingly collect personally identifiable information from children or distribute such information to third parties. We screen users who wish to provide personal information in order to prevent children from providing such information. If we become aware that we have inadvertently received personally identifiable information from a child, we will delete such information from our records. If we change our practices in the future, we will obtain prior, verifiable parental consent before collecting any personally identifiable information from children.
+
+LINKS TO OTHER WEBSITES
+
+Our Sites may contain links to other websites that are not operated by us. If you click on a third-party link, you will be directed to that third party's site. We strongly advise you to review the Privacy Policy of every site you visit.
+
+Third parties are under no obligation to comply with this Privacy Policy with respect to Personal Data that you provide directly to those third parties or that those third parties collect for themselves. We do not control the third-party sites that may be accessible through our Services. Thus, this Privacy Policy does not apply to information you provide to third-party sites or gathered by the third parties that operate them.
+
+COMBINATION OF YOUR PERSONAL INFORMATION
+
+We use the information from one portion of the App on other portions of the App or elsewhere in our network of Apps, apps, and other interactive features, or reports and analysis, all of which are owned and operated by Zypp, and we may combine information gathered from multiple portions of the App into a single customer record or analysis or report. We also use and/or combine information that we collect offline or we collect or receive from third-party sources to enhance, expand, and check the accuracy of your customer records.
+
+CHANGES TO THIS POLICY
+
+We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page. If we make any material changes to the Policy, we will notify you via email, through a notification posted on the Services, or as required by applicable law. You can see when the Policy was last updated by checking the date at the bottom of this page. You are advised to review this Privacy Policy periodically for any changes. Changes to this Privacy Policy are effective from when they are posted on this page.
+
+CONTACT US
+
+If you have any questions about this Privacy Policy, you can contact us atwww.zypp.app

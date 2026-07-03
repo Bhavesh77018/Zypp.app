@@ -1,0 +1,14 @@
+User-agent: *
+Allow: /
+
+# Disallow admin / internal paths
+Disallow: /admin/
+Disallow: /api/
+Disallow: /internal/
+Disallow: /_next/
+
+# Sitemap
+Sitemap: https://zypp.app/sitemap.xml
+
+# Crawl-delay
+Crawl-delay: 1

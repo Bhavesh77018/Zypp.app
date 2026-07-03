@@ -1,0 +1,363 @@
+{
+  "announcementBars": [],
+  "dynamicPages": [
+    {
+      "id": "5a7fc0f0-0b61-4037-8080-ea95595417b7",
+      "slug": "promo-template-test",
+      "title": "Promo Template Test",
+      "metaDescription": "",
+      "published": false,
+      "createdAt": "2026-04-30T10:52:51.876Z",
+      "updatedAt": "2026-04-30T10:52:51.876Z",
+      "sections": [
+        {
+          "id": "izasn421khb",
+          "type": "heading_h1",
+          "data": {
+            "text": "Special Offer — Limited Time",
+            "align": "center"
+          }
+        },
+        {
+          "id": "dcsybed7akv",
+          "type": "image_block",
+          "data": {
+            "url": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200",
+            "alt": "Zypp Promo",
+            "width": "100",
+            "align": "center",
+            "caption": ""
+          }
+        },
+        {
+          "id": "favjk6c06u",
+          "type": "rich_text",
+          "data": {
+            "text": "Don't miss out on this exclusive Zypp offer. Terms and conditions apply.",
+            "size": "base"
+          }
+        },
+        {
+          "id": "z37n3v6ytsq",
+          "type": "button_row",
+          "data": {
+            "buttons": [
+              {
+                "label": "Claim Offer",
+                "link": "/contact",
+                "style": "primary",
+                "newTab": false
+              },
+              {
+                "label": "Learn More",
+                "link": "/about",
+                "style": "outline",
+                "newTab": false
+              }
+            ],
+            "align": "center"
+          }
+        },
+        {
+          "id": "bt0ahjy1mof",
+          "type": "cta_banner",
+          "data": {
+            "headline": "Limited time only!",
+            "subheadline": "Act fast before this offer expires.",
+            "ctaText": "Get the App",
+            "ctaLink": "/contact"
+          }
+        }
+      ],
+      "navSettings": {
+        "showInMenu": false,
+        "menuLabel": "",
+        "menuGroup": "none",
+        "openInNewTab": false,
+        "menuIcon": "🔗",
+        "menuDescription": ""
+      }
+    }
+  ],
+  "globalCTA": {
+    "enabled": true,
+    "label": "Get the App",
+    "link": "/contact",
+    "openInNewTab": false,
+    "style": "primary",
+    "floatingEnabled": false,
+    "floatingLabel": "Get the App",
+    "floatingLink": "/contact",
+    "floatingOpenInNewTab": false,
+    "floatingPosition": "bottom-right"
+  },
+  "pageContent": {
+    "home": {},
+    "investors": {},
+    "about": {
+      "hero": {
+        "badge": "Our Story",
+        "heading": "8 Years. 22 Pivots. One Mission.",
+        "subtitle": "Started in Jaipur with an idea and no blueprint. Today, Zypp is India's largest EV-powered gig logistics network — and we're building the operating system for India's gig economy.",
+        "primaryCtaLabel": "Join as a Rider",
+        "primaryCtaLink": "/riders",
+        "secondaryCtaLabel": "Work with Us",
+        "secondaryCtaLink": "/careers"
+      },
+      "statsBar": {
+        "stats": [
+          {
+            "val": "2.5L+",
+            "label": "Lives Enabled"
+          },
+          {
+            "val": "26K+",
+            "label": "EVs on Road"
+          },
+          {
+            "val": "8",
+            "label": "Cities"
+          },
+          {
+            "val": "55M+ kg",
+            "label": "Carbon Saved"
+          }
+        ]
+      },
+      "whoWeAre": {
+        "eyebrow": "Our Mission",
+        "heading": "Zero Pollution Mobility for 100M Gig Entrepreneurs",
+        "body1": "We started with EVs because mobility is where the gig worker's income begins and ends. Zero-pollution mobility for India's 100 million gig entrepreneurs is our foundation.",
+        "body2": "We're expanding into financial identity, credit, housing, and AI — because the gig worker deserves a full economic platform, not just a vehicle. That's HustleOS: India's first gig economy operating system.",
+        "linkLabel": "Our Environmental Impact",
+        "linkHref": "/environment",
+        "cards": [
+          {
+            "icon": "🚀",
+            "title": "Founded 2018",
+            "desc": "Started Mission Zero Emission with India's first e-bike sharing app"
+          },
+          {
+            "icon": "🌍",
+            "title": "NCR · Bengaluru · Mumbai",
+            "desc": "Pan-India presence and expanding to tier-2 cities"
+          },
+          {
+            "icon": "📈",
+            "title": "EBITDA+ Company",
+            "desc": "Profitable and scaling, now with a B2C model"
+          },
+          {
+            "icon": "🤝",
+            "title": "1000+ Team",
+            "desc": "A tribe building India's sustainable future"
+          }
+        ]
+      },
+      "timeline": {
+        "eyebrow": "Our Journey",
+        "heading": "From Jaipur to India.",
+        "milestones": [
+          {
+            "year": "2017",
+            "title": "The Spark — Jaipur",
+            "desc": "Akash Gupta starts with a bicycle-sharing idea in Jaipur. The market says no. The first pivot begins."
+          },
+          {
+            "year": "2018–19",
+            "title": "Pivots 1–8 — Finding the Market",
+            "desc": "B2C cycles, e-bikes, corporate campuses, delivery logistics. Each pivot teaches something. Nothing sticks yet."
+          },
+          {
+            "year": "2020",
+            "title": "COVID + EV Pivot — The Breakthrough",
+            "desc": "The pandemic accelerates quick commerce. Zypp pivots to EV-powered last-mile delivery. First 100 EVs in Delhi. This one sticks."
+          },
+          {
+            "year": "2021–22",
+            "title": "Series A + Scale — 3 Cities",
+            "desc": "Raised Series A. Expanded to Bangalore and Hyderabad. Built the hub-and-spoke model. Hit 3,000 EVs."
+          },
+          {
+            "year": "2023",
+            "title": "B2C Shift + FleetEase Launch",
+            "desc": "Shifted from B2B2C to direct B2C. Launched FleetEase.ai as a standalone SaaS product. Hit 10,000 EVs."
+          },
+          {
+            "year": "2024",
+            "title": "Gen3 Fleet + EBITDA Positive",
+            "desc": "Launched Gen3 battery-swapping fleet — the most efficient cohort yet. Turned EBITDA positive in July 2025. Hit 20,000+ EVs."
+          },
+          {
+            "year": "2025–26",
+            "title": "Pre-IPO + 26,000 EVs + 8 Cities",
+            "desc": "EBITDA +10.08%. NRR ₹243 Cr (+92% YoY). Gen3 cohort PAT positive. Franchise expansion. IPO bankers appointed."
+          },
+          {
+            "year": "FY28",
+            "title": "IPO — India's Gig Economy Goes Public",
+            "desc": "Target listing on Indian stock exchanges. The story that goes public: India's first gig economy operating system."
+          }
+        ]
+      },
+      "leadership": {
+        "eyebrow": "The Team",
+        "heading": "Built by Operators. For Operators.",
+        "people": [
+          {
+            "name": "Akash Gupta",
+            "role": "Co-Founder & CEO",
+            "initials": "AG"
+          },
+          {
+            "name": "Rashi Agarwal",
+            "role": "Co-Founder & CBO",
+            "initials": "RA"
+          },
+          {
+            "name": "Tushar Mehta",
+            "role": "Co-Founder & COO",
+            "initials": "TM"
+          },
+          {
+            "name": "Mukesh Singla",
+            "role": "CFO",
+            "initials": "MS"
+          }
+        ]
+      },
+      "ctaBanner": {
+        "heading": "Join us in making India Zero Emission",
+        "body": "Whether you're a rider, partner, investor, or talent — there's a place for you at Zypp.",
+        "primaryCtaLabel": "View Open Positions",
+        "primaryCtaLink": "/careers",
+        "secondaryCtaLabel": "Partner With Us",
+        "secondaryCtaLink": "/contact"
+      }
+    }
+  },
+  "cities": [
+    {
+      "id": "gurgaon",
+      "name": "Gurgaon",
+      "state": "Haryana",
+      "region": "North",
+      "status": "active",
+      "riders": "6500+",
+      "hubs": [
+        {
+          "id": "ggn-hq",
+          "name": "Zypp HQ — Sector 66",
+          "address": "Spaze Business Park, Tower A, 2nd Floor, Sector 66, Badshapur, Gurugram, Haryana 122018",
+          "phone": "+91 9289 222 111",
+          "mapUrl": "https://www.google.com/maps/search/?api=1&query=Spaze+Business+Park+Sector+66+Gurugram"
+        }
+      ]
+    },
+    {
+      "id": "delhi",
+      "name": "Delhi",
+      "state": "Delhi",
+      "region": "North",
+      "status": "active",
+      "riders": "4493+",
+      "hubs": [
+        {
+          "id": "del-cp",
+          "name": "Delhi Hub — Connaught Place",
+          "address": "Connaught Place, New Delhi 110001",
+          "phone": "+91 9289 222 112",
+          "mapUrl": "https://www.google.com/maps/search/?api=1&query=Connaught+Place+New+Delhi"
+        }
+      ]
+    },
+    {
+      "id": "noida",
+      "name": "Noida",
+      "state": "Uttar Pradesh",
+      "region": "North",
+      "status": "active",
+      "riders": "2026+",
+      "hubs": []
+    },
+    {
+      "id": "faridabad",
+      "name": "Faridabad",
+      "state": "Haryana",
+      "region": "North",
+      "status": "active",
+      "riders": "80+",
+      "hubs": []
+    },
+    {
+      "id": "jaipur",
+      "name": "Jaipur",
+      "state": "Rajasthan",
+      "region": "North",
+      "status": "active",
+      "riders": "227+",
+      "hubs": []
+    },
+    {
+      "id": "bengaluru",
+      "name": "Bengaluru",
+      "state": "Karnataka",
+      "region": "South",
+      "status": "active",
+      "riders": "7497+",
+      "hubs": [
+        {
+          "id": "blr-kor",
+          "name": "Bengaluru Hub — Koramangala",
+          "address": "611, 3rd Floor, 80 Feet Road, 6th Block, Koramangala, Bengaluru, Karnataka 560095",
+          "phone": "+91 9289 222 113",
+          "mapUrl": "https://www.google.com/maps/search/?api=1&query=Koramangala+80+Feet+Road+Bengaluru"
+        }
+      ]
+    },
+    {
+      "id": "hyderabad",
+      "name": "Hyderabad",
+      "state": "Telangana",
+      "region": "South",
+      "status": "active",
+      "riders": "1319+",
+      "hubs": []
+    },
+    {
+      "id": "mumbai",
+      "name": "Mumbai",
+      "state": "Maharashtra",
+      "region": "West",
+      "status": "active",
+      "riders": "3451+",
+      "hubs": [
+        {
+          "id": "mum-gkp",
+          "name": "Mumbai Hub — Ghatkopar",
+          "address": "12, Kurla Industrial Estate, Nari Seva Sadan Road, Off L B S Marg, Ghatkopar, Mumbai 400086",
+          "phone": "+91 9289 222 111",
+          "mapUrl": "https://www.google.com/maps/search/?api=1&query=Kurla+Industrial+Estate+Ghatkopar+Mumbai"
+        }
+      ]
+    },
+    {
+      "id": "pune",
+      "name": "Pune",
+      "state": "Maharashtra",
+      "region": "West",
+      "status": "coming-soon",
+      "riders": "—",
+      "hubs": []
+    },
+    {
+      "id": "chennai",
+      "name": "Chennai",
+      "state": "Tamil Nadu",
+      "region": "South",
+      "status": "coming-soon",
+      "riders": "—",
+      "hubs": []
+    }
+  ]
+}
