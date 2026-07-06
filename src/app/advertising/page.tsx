@@ -115,7 +115,7 @@ export default function AdvertisingPage() {
                 <Megaphone size={14} />
                 ZyppAds · Mobility Advertising
               </div>
-              <h1 className="text-[clamp(3rem,6.5vw,5.4rem)] font-black text-white leading-[0.96] tracking-[-0.04em] mb-7">
+              <h1 className="text-[clamp(2.2rem,4.4vw,3.6rem)] font-black text-white leading-[0.96] tracking-[-0.04em] mb-7">
                 Put Your Brand<br />
                 <span className="text-orange-400">Where India Moves.</span>
               </h1>

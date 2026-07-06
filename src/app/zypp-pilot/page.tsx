@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight, Zap, Shield, TrendingUp, Clock, Bike, BarChart3, Star } from "lucide-react";
+import { ArrowRight, Zap, Shield, TrendingUp, Clock, Bike, BarChart3, Star, IdCard, Heart, BadgeCheck } from "lucide-react";
 import { getContent } from "@/lib/cms";
 import { Reveal, RevealStagger, RevealItem } from "@/components/motion/Reveal";
 import SavingsCalculator from "@/components/home/SavingsCalculator";
@@ -10,6 +10,8 @@ import FAQSection from "@/components/home/FAQSection";
 import StepsSection from "@/components/StepsSection";
 import KycDocsSection from "@/components/KycDocsSection";
 import CitiesPresence from "@/components/CitiesPresence";
+import PilotVsRental from "@/components/PilotVsRental";
+import ScooterSpecs from "@/components/ScooterSpecs";
 import HeroVideoBackdrop from "@/components/HeroVideoBackdrop";
 
 type Platform = { name: string; color: string; orders: string };
@@ -73,7 +75,7 @@ export default function ZyppPilotPage() {
                 <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
                 {String(hero.badge ?? "For Gig Entrepreneurs")}
               </div>
-              <h1 className="text-[clamp(3rem,6.5vw,5.4rem)] font-black text-white leading-[0.96] tracking-[-0.04em] mb-7">
+              <h1 className="text-[clamp(2.2rem,4.4vw,3.6rem)] font-black text-white leading-[0.96] tracking-[-0.04em] mb-7">
                 {String(hero.titlePrefix ?? "Earn More.")}<br />
                 <span className="text-primary">{String(hero.titleHighlight ?? "Ride Zypp.")}</span>
               </h1>
@@ -157,6 +159,50 @@ export default function ZyppPilotPage() {
         </div>
       </section>
 
+      {/* ── NO CLIENT? ZYPP HANDLES IT — the B2B promise ── */}
+      <section className="py-24 bg-white dark:bg-slate-950">
+        <div className="container mx-auto px-4 max-w-6xl">
+          {/* Headline banner */}
+          <Reveal className="mb-8 rounded-3xl bg-gradient-to-br from-primary to-emerald-600 text-white p-8 md:p-10 relative overflow-hidden">
+            <div className="absolute -right-16 -top-16 w-64 h-64 bg-white/15 rounded-full blur-3xl" />
+            <div className="relative grid grid-cols-1 md:grid-cols-[auto_1fr] gap-6 items-center">
+              <span className="w-16 h-16 rounded-2xl bg-white/20 flex items-center justify-center shrink-0"><IdCard size={32} /></span>
+              <div>
+                <h3 className="text-2xl md:text-3xl font-black mb-2">No Client? No Problem. Zypp Gets You One.</h3>
+                <p className="text-white/85 leading-relaxed max-w-2xl">
+                  You don&apos;t need to hunt for delivery work. <strong>Zypp creates your client ID with India&apos;s biggest
+                  brands</strong> — Blinkit, Zepto, Swiggy, Zomato and more. You show up, ride, and earn from day one.
+                  We handle the rest.
+                </p>
+                <div className="flex flex-wrap gap-2 mt-4">
+                  {["Blinkit", "Zepto", "Swiggy", "Zomato", "Porter", "BigBasket"].map((b) => (
+                    <span key={b} className="px-3 py-1.5 rounded-full bg-white/15 border border-white/25 text-xs font-bold">{b}</span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </Reveal>
+
+          {/* Supporting promise cards */}
+          <RevealStagger className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            {[
+              { Icon: IdCard, t: "Zypp Creates Your Client ID", d: "We onboard you directly with a big-brand platform — no applications, no waiting, no jugaad." },
+              { Icon: BadgeCheck, t: "Guaranteed Work, Day One", d: "Demand from 25+ platform partners means your EV never sits idle. Activate and start delivering." },
+              { Icon: TrendingUp, t: "Incentivised Payouts by Zypp", d: "Weekly or monthly payouts plus performance incentives — the more you deliver, the lower your rent." },
+              { Icon: Heart, t: "Earn for Your Family", d: "Average Pilots take home ₹35–45K/month. Riders like Shivam (₹48K/mo) built their own house on it." },
+            ].map((f) => (
+              <RevealItem key={f.t}>
+                <div className="h-full bg-gray-50 dark:bg-slate-900 border border-gray-100 dark:border-slate-800 rounded-2xl p-6 hover:border-primary/40 hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                  <span className="w-11 h-11 rounded-xl bg-primary/10 text-primary flex items-center justify-center mb-4"><f.Icon size={22} /></span>
+                  <h3 className="font-bold text-gray-900 dark:text-white mb-2">{f.t}</h3>
+                  <p className="text-sm text-gray-500 dark:text-gray-400 leading-relaxed">{f.d}</p>
+                </div>
+              </RevealItem>
+            ))}
+          </RevealStagger>
+        </div>
+      </section>
+
       {/* ── RIDER STORY TESTIMONIAL ── */}
       {!!benefitsSec?.testimonialQuote && (
         <section className="py-20 bg-white dark:bg-slate-950">
@@ -186,6 +232,9 @@ export default function ZyppPilotPage() {
         </section>
       )}
 
+      {/* ── SCOOTER SPECIFICATIONS + SWAP NETWORK ── */}
+      <ScooterSpecs />
+
       {/* ── WHAT YOU'LL NEED FOR KYC ── */}
       <KycDocsSection />
 
@@ -197,6 +246,9 @@ export default function ZyppPilotPage() {
         steps={steps}
         className="py-24 bg-white dark:bg-slate-950"
       />
+
+      {/* ── PILOT VS RENTAL head-to-head ── */}
+      <PilotVsRental highlight="pilot" />
 
       {/* ── WE ARE PRESENT IN ── */}
       <CitiesPresence className="py-24 bg-gray-50 dark:bg-slate-900 border-y border-border" />

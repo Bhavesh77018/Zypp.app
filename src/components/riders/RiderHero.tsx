@@ -79,7 +79,12 @@ export default function RiderHero({ content }: { content: Hero }) {
               transition={{ duration: 0.7, ease: "easeOut" }}
               className="relative w-full max-w-md"
             >
-              <RiderScene reduce={!!reduce} />
+              {/* Real Zypp hub photo — branded fleet under the #MissionZeroEmission wall */}
+              <div className="relative rounded-[2rem] overflow-hidden shadow-2xl border border-gray-200/60 dark:border-slate-700">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src="/media/zypp-hub-real.jpg" alt="Zypp electric scooters lined up at a Zypp hub" className="w-full h-[380px] object-cover" />
+                <div className="absolute inset-0 bg-gradient-to-t from-emerald-950/50 via-transparent to-transparent" />
+              </div>
 
               {/* Earnings card */}
               <motion.div

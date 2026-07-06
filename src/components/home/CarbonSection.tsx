@@ -101,7 +101,7 @@ export default function CarbonSection({ content }: { content?: Partial<CarbonCon
               <div className="mb-4 text-white/60 text-lg font-semibold uppercase tracking-widest">
                 {activeMetric.label}
               </div>
-              <div className="text-[clamp(2.5rem,6vw,5.5rem)] font-black text-white mb-3 leading-none tracking-tight">
+              <div className="text-[clamp(2rem,4.5vw,4rem)] font-black text-white mb-3 leading-none tracking-tight">
                 <LiveCounter base={activeMetric.baseValue} increment={activeMetric.increment} suffix={activeMetric.suffix} />
               </div>
               <p className="text-white/60 text-lg">{activeMetric.caption}</p>

@@ -1,6 +1,6 @@
 import { MapPin } from "lucide-react";
 import { getCities } from "@/lib/cms";
-import { Reveal, RevealStagger, RevealItem } from "@/components/motion/Reveal";
+import { Reveal } from "@/components/motion/Reveal";
 
 /** "We are present in" — operational city footprint, driven by the CMS cities
  *  registry so it stays in sync with the admin dashboard. Server component. */
@@ -20,11 +20,11 @@ export default function CitiesPresence({
           <p className="text-muted text-lg mt-4 max-w-2xl mx-auto">{subheading}</p>
         </Reveal>
 
-        <RevealStagger className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
           {cities.map((city) => {
             const live = city.status === "active";
             return (
-              <RevealItem key={city.id}>
+              <div key={city.id}>
                 <div className={`group h-full rounded-2xl border p-5 text-center transition-all duration-300 ${live ? "bg-gray-50 dark:bg-slate-900 border-border hover:border-primary/40 hover:shadow-lg" : "bg-transparent border-dashed border-border opacity-70"}`}>
                   <div className={`mx-auto w-11 h-11 rounded-xl flex items-center justify-center mb-3 ${live ? "bg-primary/10 text-primary" : "bg-gray-100 dark:bg-slate-800 text-muted"}`}>
                     <MapPin size={20} />
@@ -39,10 +39,10 @@ export default function CitiesPresence({
                     <div className="mt-2 text-[11px] font-bold text-muted uppercase tracking-wide">Coming Soon</div>
                   )}
                 </div>
-              </RevealItem>
+              </div>
             );
           })}
-        </RevealStagger>
+        </div>
       </div>
     </section>
   );

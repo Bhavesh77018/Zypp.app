@@ -1,66 +1,80 @@
 import Link from "next/link";
 
-
-const BRAND = "#00bc84"; // Zypp Electric brand green (matched to the real app logo)
-
-/**
- * The Zypp mark — green speech-bubble + bold white lightning bolt with spark
- * ticks. Faithfully matched to the real Zypp app icon.
- */
-export function LogoMark({ size = 36, className = "" }: { size?: number; className?: string }) {
+export function ZyppIcon({ size = 34, className = "" }: { size?: number; className?: string }) {
+  // viewBox tightly bounds the top icon portion of the official SVG
   return (
-    <svg width={size} height={(size * 74) / 64} viewBox="0 0 64 74" fill="none" className={className} role="img" aria-label="Zypp Electric">
-      {/* round speech bubble with a short pointed tail at the bottom */}
-      <path
-        d="M32 2C15.46 2 2.5 14.96 2.5 31.5c0 14.2 9.96 26.06 23.2 28.86L32 72l6.3-11.64C51.54 57.56 61.5 45.7 61.5 31.5 61.5 14.96 48.54 2 32 2Z"
-        fill={BRAND}
-      />
-      {/* bold lightning bolt */}
-      <path d="M38 12 19 39h11.3L25 56 46 27H34.4L40 12z" fill="#fff" />
-      {/* spark ticks — top-right and bottom-left */}
-      <path d="M44.5 15.5l6-4.5M20 51l-6 4.5" stroke="#fff" strokeWidth="2.6" strokeLinecap="round" />
+    <svg width={size} height={size * (48/43)} viewBox="12 0 43 48" fill="none" className={className} xmlns="http://www.w3.org/2000/svg">
+      <path d="M28.4466 19.0523L18.1782 6.97974C14.9176 10.6265 12.9348 15.4191 12.9348 20.6722C12.9348 30.9109 20.4539 39.4095 30.3228 41.0548L33.8154 47.0433L37.3073 41.0548C41.9289 40.2843 46.0352 38.0108 49.0952 34.7592L19.7837 22.3434L28.4466 19.0523Z" fill="#00BC84"/>
+      <path d="M33.8147 -0.000976562C28.267 -0.000976562 23.2283 2.14498 19.489 5.63991L47.8453 18.0443L39.184 21.3344L50.1592 33.5317C52.9968 30.0012 54.6947 25.5331 54.6947 20.6712C54.6947 9.25507 45.3467 -0.000976562 33.8147 -0.000976562Z" fill="#00BC84"/>
+      <path d="M19.4893 5.64031L14.1172 2.92542L18.1785 6.97914L15.8805 4.23094L19.4893 5.64031Z" fill="#49AA4A"/>
+      <path d="M49.0949 34.7591L54.4841 37.347L50.1595 33.5315L52.6598 36.1262L49.0949 34.7591Z" fill="#49AA4A"/>
+    </svg>
+  );
+}
+
+export function ZyppText({ height = 16, className = "" }: { height?: number; className?: string }) {
+  // viewBox tightly bounds the "ZYPP" text portion of the official SVG
+  return (
+    <svg height={height} width={height * (68/17)} viewBox="0 51 68 17" fill="none" className={className} xmlns="http://www.w3.org/2000/svg">
+      <path d="M3.43041 55.637H10.2678L1.02017 63.5305L0 67.2941H14.6711L15.8532 62.8882H8.73816L18.0086 54.9947L19.0288 51.2311H4.63581L3.43041 55.637Z" fill="#00BC84"/>
+      <path d="M30.9406 51.2311L26.7225 56.6005L25.4014 51.2311H19.6998L22.8749 61.1667L21.2295 67.2935H26.653L28.1365 61.8327L37.3608 51.2311H30.9406Z" fill="#00BC84"/>
+      <path d="M50.0153 52.9983C48.8105 51.8051 46.9793 51.2311 43.9894 51.2311H38.5426L34.1855 67.2941H39.609L40.791 62.9339H43.0855C48.2309 62.9339 51.2902 60.2495 51.2902 56.2336C51.2902 54.9715 50.873 53.8472 50.0153 52.9983ZM42.8074 59.102H41.834L42.784 55.5224H43.8042C44.4066 55.5224 45.0558 55.6601 45.4262 56.027C45.6816 56.2793 45.8206 56.6236 45.8206 56.9679C45.8206 58.1843 44.87 59.102 42.8074 59.102Z" fill="#00BC84"/>
+      <path d="M66.3533 52.9983C65.1491 51.8051 63.3179 51.2311 60.328 51.2311H54.8812L50.5235 67.2941H55.947L57.1296 62.9339H59.4241C64.5695 62.9339 67.6283 60.2495 67.6283 56.2336C67.6283 54.9715 67.2117 53.8472 66.3533 52.9983ZM59.146 59.102H58.1726L59.1226 55.5224H60.1422C60.7452 55.5224 61.3944 55.6601 61.7643 56.027C62.0202 56.2793 62.1587 56.6236 62.1587 56.9679C62.1587 58.1843 61.208 59.102 59.146 59.102Z" fill="#00BC84"/>
+    </svg>
+  );
+}
+
+export function ZyppElectricText({ size = 38, className = "" }: { size?: number; className?: string }) {
+  // To perfectly align the width of ELECTRIC with ZYPP:
+  // ZYPP width = (size * 0.45) * 4 = size * 1.8
+  // ELECTRIC width = height * 6.8
+  // height = (size * 1.8) / 6.8 ≈ size * 0.265
+  const height = size * 0.265;
+  return (
+    <svg height={height} width={height * 6.8} viewBox="0 72 68 10" fill="none" className={className} xmlns="http://www.w3.org/2000/svg">
+      <path d="M9.8291 72.0542V82H17.7409V80.9626H11.0151V72.0542H9.8291Z" fill="currentColor"/>
+      <path d="M35.9923 80.9977C35.7455 81.2026 35.4805 81.3775 35.1961 81.5232C34.9123 81.6688 34.6068 81.7822 34.2814 81.8641C33.9554 81.9465 33.5917 81.9871 33.1905 81.9871C32.555 81.9871 31.9703 81.8596 31.4357 81.605C30.9005 81.3504 30.4366 81.0022 30.0439 80.5608C29.6507 80.12 29.3435 79.599 29.1224 78.9985C28.9007 78.3979 28.7901 77.7522 28.7901 77.0608C28.7901 76.3784 28.9007 75.7372 29.1224 75.1367C29.3435 74.5361 29.6507 74.0106 30.0439 73.5602C30.4366 73.1098 30.9045 72.7553 31.4477 72.4963C31.9908 72.2366 32.5847 72.1068 33.2281 72.1068C33.6294 72.1068 33.9907 72.1435 34.3127 72.2163C34.6341 72.2891 34.9328 72.3913 35.2086 72.5234C35.4845 72.6554 35.7392 72.8146 35.9735 73.0009C36.2077 73.1877 36.4328 73.3943 36.6506 73.6217L35.9735 74.4131C35.5979 74.0309 35.1938 73.7171 34.7635 73.4716C34.3332 73.2261 33.8174 73.103 33.2156 73.103C32.7306 73.103 32.2815 73.2035 31.8677 73.4033C31.4539 73.6037 31.0949 73.8808 30.79 74.2358C30.4845 74.5909 30.2463 75.0068 30.0753 75.4843C29.9037 75.9624 29.8182 76.4783 29.8182 77.0331C29.8182 77.5885 29.9037 78.1067 30.0753 78.5893C30.2463 79.0713 30.4845 79.4895 30.79 79.8445C31.0949 80.1996 31.4539 80.479 31.8677 80.6839C32.2815 80.8887 32.7306 80.9909 33.2156 80.9909C33.8174 80.9909 34.3355 80.8707 34.7704 80.6291C35.2046 80.3886 35.6309 80.0494 36.0487 79.6126L36.7007 80.3085C36.475 80.5636 36.2391 80.7934 35.9923 80.9977Z" fill="currentColor"/>
+      <path d="M42.7714 81.9672H41.6418V73.0882H38.2804V72.0542H46.1329V73.0882H42.7714V81.9672Z" fill="currentColor"/>
+      <path d="M54.3079 81.9676L51.5096 78.1283H48.7528V81.9676H47.6642V72.0873H51.8128C52.3456 72.0873 52.8261 72.1578 53.2535 72.2989C53.6804 72.44 54.0463 72.6399 54.3495 72.8989C54.6521 73.158 54.8864 73.469 55.0522 73.8314C55.2175 74.1937 55.3002 74.5962 55.3002 75.0387C55.3002 75.4529 55.2358 75.8221 55.1069 76.1472C54.9781 76.4717 54.7969 76.7545 54.5627 76.9944C54.3284 77.2349 54.0503 77.4347 53.7289 77.5944C53.4069 77.7547 53.0581 77.8676 52.6813 77.9331L55.645 81.9676H54.3079ZM53.5619 73.6344C53.1287 73.2901 52.5212 73.1174 51.7381 73.1174H48.7528V77.14H51.7239C52.0829 77.14 52.4146 77.0932 52.7184 76.9984C53.0233 76.9041 53.2855 76.7692 53.5066 76.5948C53.7277 76.4204 53.9004 76.2053 54.0247 75.9502C54.1489 75.6951 54.211 75.4072 54.211 75.0861C54.211 74.4629 53.9945 73.9792 53.5619 73.6344Z" fill="currentColor"/>
+      <rect x="57.3496" y="72.062" width="1.13017" height="9.91304" fill="currentColor"/>
+      <path d="M67.2909 80.9781C67.0441 81.183 66.7791 81.358 66.4947 81.5036C66.2109 81.6492 65.9054 81.7627 65.58 81.8445C65.254 81.9269 64.8904 81.9676 64.4891 81.9676C63.8537 81.9676 63.2689 81.84 62.7343 81.5855C62.1992 81.3309 61.7352 80.9827 61.3426 80.5413C60.9493 80.1004 60.6421 79.5795 60.421 78.9789C60.1993 78.3784 60.0887 77.7327 60.0887 77.0413C60.0887 76.3589 60.1993 75.7177 60.421 75.1171C60.6421 74.5166 60.9493 73.9911 61.3426 73.5407C61.7352 73.0903 62.2032 72.7358 62.7463 72.4767C63.2894 72.2171 63.8833 72.0873 64.5268 72.0873C64.928 72.0873 65.2893 72.124 65.6113 72.1968C65.9328 72.2696 66.2314 72.3717 66.5073 72.5038C66.7831 72.6359 67.0379 72.7951 67.2721 72.9813C67.5063 73.1682 67.7315 73.3747 67.9492 73.6022L67.2721 74.3935C66.8965 74.0114 66.4924 73.6976 66.0621 73.4521C65.6318 73.2065 65.1161 73.0835 64.5142 73.0835C64.0292 73.0835 63.5801 73.184 63.1663 73.3838C62.7526 73.5841 62.3935 73.8613 62.0886 74.2163C61.7831 74.5713 61.5449 74.9873 61.3739 75.4648C61.2024 75.9429 61.1169 76.4588 61.1169 77.0136C61.1169 77.569 61.2024 78.0871 61.3739 78.5697C61.5449 79.0517 61.7831 79.47 62.0886 79.825C62.3935 80.18 62.7526 80.4594 63.1663 80.6643C63.5801 80.8692 64.0292 80.9714 64.5142 80.9714C65.1161 80.9714 65.6341 80.8511 66.069 80.6096C66.5033 80.3686 66.9296 80.0299 67.3473 79.593L67.9993 80.289C67.7736 80.5441 67.5377 80.7738 67.2909 80.9781Z" fill="currentColor"/>
+      <path d="M0.370468 72.0542H8.28052C8.28052 72.0542 7.96193 73.0162 7.01585 73.0925H1.8255C1.8255 73.0925 0.641755 72.8925 0.370468 72.0542Z" fill="currentColor"/>
+      <path d="M0.370468 76.5085H8.28052C8.28052 76.5085 7.96193 77.4706 7.01585 77.5468H1.8255C1.8255 77.5468 0.641755 77.3468 0.370468 76.5085Z" fill="currentColor"/>
+      <path d="M0.370468 80.963H8.28052C8.28052 80.963 7.96193 81.925 7.01585 82.0013H1.8255C1.8255 82.0013 0.641755 81.8013 0.370468 80.963Z" fill="currentColor"/>
+      <path d="M19.2899 72.0542H27.2C27.2 72.0542 26.8814 73.0162 25.9353 73.0925H20.745C20.745 73.0925 19.5612 72.8925 19.2899 72.0542Z" fill="currentColor"/>
+      <path d="M19.2899 76.5085H27.2C27.2 76.5085 26.8814 77.4706 25.9353 77.5468H20.745C20.745 77.5468 19.5612 77.3468 19.2899 76.5085Z" fill="currentColor"/>
+      <path d="M19.2899 80.963H27.2C27.2 80.963 26.8814 81.925 25.9353 82.0013H20.745C20.745 82.0013 19.5612 81.8013 19.2899 80.963Z" fill="currentColor"/>
     </svg>
   );
 }
 
 /**
- * Full logo: mark + wordmark. `tone="light"` renders the sub-line in white
- * (for dark backgrounds like the footer); default adapts to theme.
+ * The official horizontal Zypp Electric logo.
+ * Combines the isolated Icon and Text SVGs into a sleek side-by-side flex layout.
  */
 export function Logo({
-  size = 34,
-  showText = true,
-  tone = "auto",
+  size = 42,
   className = "",
 }: {
   size?: number;
-  showText?: boolean;
-  tone?: "auto" | "light";
   className?: string;
 }) {
   return (
-    <span className={`inline-flex items-center gap-2 ${className}`}>
-      <LogoMark size={size} />
-      {showText && (
-        <span className="flex flex-col leading-none">
-          <span className="font-black italic tracking-tight" style={{ color: BRAND, fontSize: size * 0.56 }}>ZYPP</span>
-          <span
-            className={`font-bold tracking-[0.34em] ${tone === "light" ? "text-white/90" : "text-foreground/80"}`}
-            style={{ fontSize: size * 0.19, marginTop: size * 0.05 }}
-          >
-            ELECTRIC
-          </span>
-        </span>
-      )}
-    </span>
+    <div className={`flex items-center gap-3 ${className}`}>
+      <ZyppIcon size={size} />
+      <div className="flex flex-col items-start gap-[1px] mt-[1px]">
+        <ZyppText height={size * 0.45} />
+        <ZyppElectricText size={size} className="text-foreground/80" />
+      </div>
+    </div>
   );
 }
 
-/** Convenience: the logo wrapped in a link to home. */
-export function LogoLink({ size = 34, tone = "auto", className = "" }: { size?: number; tone?: "auto" | "light"; className?: string }) {
+/** Convenience: the horizontal logo wrapped in a link to home. */
+export function LogoLink({ size = 46, className = "" }: { size?: number; className?: string }) {
   return (
-    <Link href="/" aria-label="Zypp Electric — home" className={`shrink-0 ${className}`}>
-      <Logo size={size} tone={tone} />
+    <Link href="/" aria-label="Zypp Electric — home" className={`shrink-0 transition-transform hover:scale-[1.02] active:scale-[0.98] ${className}`}>
+      <Logo size={size} />
     </Link>
   );
 }

@@ -1,10 +1,15 @@
 import Link from "next/link";
-import { ArrowRight, CheckCircle2 } from "lucide-react";
+import { ArrowRight, CheckCircle2, Wallet, Fuel, ShieldCheck, Headphones, IndianRupee, Leaf } from "lucide-react";
 import { getContent } from "@/lib/cms";
 import { Reveal, RevealStagger, RevealItem } from "@/components/motion/Reveal";
 import KycDocsSection from "@/components/KycDocsSection";
 import CitiesPresence from "@/components/CitiesPresence";
+import PilotVsRental from "@/components/PilotVsRental";
+import ScooterSpecs from "@/components/ScooterSpecs";
 import HeroVideoBackdrop from "@/components/HeroVideoBackdrop";
+import SavingsCalculator from "@/components/home/SavingsCalculator";
+import GigKiAwaazSection from "@/components/home/GigKiAwaazSection";
+import TestimonialsSection from "@/components/home/TestimonialsSection";
 
 type Plan = { name: string; highlight: boolean; features: string };
 type FAQ = { q: string; a: string };
@@ -38,7 +43,7 @@ export default function ZyppRentalPage() {
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/20 text-primary text-sm font-semibold mb-6 border border-primary/30">
             {hero.badge}
           </div>
-          <h1 className="text-[clamp(2.75rem,6vw,5rem)] font-black leading-[0.98] tracking-[-0.04em] text-white mb-7">
+          <h1 className="text-[clamp(2.1rem,4.2vw,3.4rem)] font-black leading-[0.98] tracking-[-0.04em] text-white mb-7">
             {hero.titlePrefix}<span className="text-primary">{hero.titleHighlight}</span>
           </h1>
           <p className="text-xl text-white/70 max-w-2xl mx-auto mb-10">
@@ -50,6 +55,53 @@ export default function ZyppRentalPage() {
             </Link>
           </div>
         </Reveal>
+      </section>
+
+      {/* The All-Inclusive B2C Prepaid Plan — direct payout front and center */}
+      <section className="py-24 bg-white dark:bg-slate-950">
+        <div className="container mx-auto px-4 max-w-6xl">
+          <Reveal className="text-center mb-14">
+            <div className="text-sm font-bold text-primary uppercase tracking-[0.2em] mb-3">The B2C Model</div>
+            <h2 className="text-3xl md:text-5xl font-black text-gray-900 dark:text-white">The All-Inclusive <span className="text-primary">Prepaid Plan.</span></h2>
+            <p className="text-gray-500 dark:text-gray-400 text-lg mt-4 max-w-2xl mx-auto">
+              Your ride, your rules, your independent vehicle — a fixed plan that covers everything you need to succeed on the road.
+            </p>
+          </Reveal>
+
+          {/* Direct Payout — the headline B2C feature */}
+          <Reveal className="mb-8 rounded-3xl bg-gradient-to-br from-primary to-emerald-600 text-white p-8 md:p-10 relative overflow-hidden">
+            <div className="absolute -right-16 -top-16 w-64 h-64 bg-white/15 rounded-full blur-3xl" />
+            <div className="relative grid grid-cols-1 md:grid-cols-[auto_1fr] gap-6 items-center">
+              <span className="w-16 h-16 rounded-2xl bg-white/20 flex items-center justify-center shrink-0"><Wallet size={32} /></span>
+              <div>
+                <h3 className="text-2xl md:text-3xl font-black mb-2">Direct Payout, On Your Own ID.</h3>
+                <p className="text-white/85 leading-relaxed max-w-2xl">
+                  Unlike the B2B plan, your client — Zomato, Swiggy, Blinkit, Zepto, anyone — pays <strong>you directly</strong> on
+                  your own client ID. No middleman, no cuts on earnings. You pay a fixed prepaid rent; every rupee you earn is yours.
+                </p>
+              </div>
+            </div>
+          </Reveal>
+
+          <RevealStagger className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            {[
+              { Icon: Fuel, t: "No Fuel / No Maintenance", d: "Save more with unlimited battery swapping — Zypp covers all servicing and repairs." },
+              { Icon: IndianRupee, t: "Fixed Affordable Rent", d: "Starting at just ₹180*/day, prepaid. No surprise costs, total predictability." },
+              { Icon: CheckCircle2, t: "Work Your Own Hours", d: "Full independence — choose your platform, your shifts, your zones." },
+              { Icon: ShieldCheck, t: "Insurance Included", d: "Sum insured up to ₹2,00,000 (opt-in) — ride covered, every day." },
+              { Icon: Headphones, t: "24×7 Customer Support", d: "Chatbots and in-app tickets — help is always one tap away." },
+              { Icon: Leaf, t: "Environment Friendly", d: "100% electric scooter — reduce your carbon footprint while you earn." },
+            ].map((f) => (
+              <RevealItem key={f.t}>
+                <div className="h-full bg-gray-50 dark:bg-slate-900 border border-gray-100 dark:border-slate-800 rounded-2xl p-6 hover:border-primary/40 hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                  <span className="w-11 h-11 rounded-xl bg-primary/10 text-primary flex items-center justify-center mb-4"><f.Icon size={22} /></span>
+                  <h3 className="font-bold text-gray-900 dark:text-white mb-2">{f.t}</h3>
+                  <p className="text-sm text-gray-500 dark:text-gray-400 leading-relaxed">{f.d}</p>
+                </div>
+              </RevealItem>
+            ))}
+          </RevealStagger>
+        </div>
       </section>
 
       {/* Rental paths — benefits first, with plan details shared after enquiry */}
@@ -83,11 +135,26 @@ export default function ZyppRentalPage() {
         </div>
       </section>
 
+      {/* Pilot vs Rental head-to-head */}
+      <PilotVsRental highlight="rental" />
+
+      {/* Scooter specifications + swap network */}
+      <ScooterSpecs className="py-24 bg-white dark:bg-slate-950" />
+
       {/* What you'll need for KYC */}
       <KycDocsSection />
 
       {/* We are present in */}
       <CitiesPresence />
+
+      {/* ── SAVINGS CALCULATOR ── */}
+      <SavingsCalculator />
+
+      {/* ── GIG KI AWAAZ ── */}
+      <GigKiAwaazSection />
+
+      {/* ── TESTIMONIALS (The Badlav) ── */}
+      <TestimonialsSection />
 
       {/* FAQ */}
       <section className="py-20 bg-gray-50 dark:bg-slate-900 border-y border-gray-100 dark:border-slate-800">

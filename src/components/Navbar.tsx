@@ -16,11 +16,12 @@ interface Featured { eyebrow: string; title: string; desc: string; href: string;
 const GROUP_KEY_MAP: Record<string, string> = { riders: "For Riders", partners: "For Business", company: "Company", more: "Company" };
 
 const navGroups: {
-  label: string; accentClass: string; gradient: string; items: NavItem[]; featured: Featured;
+  label: string; accentClass: string; bgClass: string; gradient: string; items: NavItem[]; featured: Featured;
 }[] = [
   {
     label: "For Riders",
-    accentClass: "text-primary",
+    accentClass: "text-primary dark:text-emerald-400",
+    bgClass: "bg-primary/10 dark:bg-primary/20",
     gradient: "from-primary to-emerald-600",
     items: [
       { label: "Earn with Zypp", href: "/riders", desc: "Maximize your daily earnings effortlessly", icon: "🛵" },
@@ -36,12 +37,14 @@ const navGroups: {
   },
   {
     label: "For Business",
-    accentClass: "text-blue-500",
+    accentClass: "text-blue-600 dark:text-blue-400",
+    bgClass: "bg-blue-500/10 dark:bg-blue-500/20",
     gradient: "from-blue-500 to-indigo-600",
     items: [
       { label: "EV for Delivery", href: "/ev-for-delivery", desc: "Reliable last-mile delivery fleets", icon: "📦" },
       { label: "FleetEase.ai", href: "/fleetease", desc: "AI-powered fleet management OS", icon: "🖥️" },
-      { label: "Franchise (FOFO)", href: "/franchise", desc: "Own a city hub, high ROI potential", icon: "🏢" },
+      { label: "Franchise Models", href: "/franchise", desc: "Compare FOFO and FOCO franchise models", icon: "🏢" },
+      { label: "FOFO Franchise", href: "/fofo", desc: "Own a hub, high ROI potential", icon: "🛠️" },
       { label: "FOCO Investment", href: "/foco", desc: "Invest in EVs, we handle operations", icon: "📈" },
       { label: "Advertising", href: "/advertising", desc: "Put your brand across urban delivery routes", icon: "📢" },
       { label: "Technologies", href: "/technologies", desc: "Explore our IoT & Deep-Tech core", icon: "⚡" },
@@ -50,15 +53,16 @@ const navGroups: {
   },
   {
     label: "Company",
-    accentClass: "text-purple-500",
+    accentClass: "text-purple-600 dark:text-purple-400",
+    bgClass: "bg-purple-500/10 dark:bg-purple-500/20",
     gradient: "from-purple-500 to-fuchsia-600",
     items: [
       { label: "Our Story", href: "/about", desc: "8 years of transforming mobility", icon: "🌱" },
       { label: "HustleOS", href: "/hustleos", desc: "The operating system for gig workers", icon: "🚀" },
-      { label: "Environment", href: "/environment", desc: "Carbon reduced, cleaner cities", icon: "🌍" },
-      { label: "ESG Impact", href: "/esg-impact", desc: "Measurable sustainability goals", icon: "🌏" },
+      { label: "ESG & Environment", href: "/environment", desc: "Carbon reduction & sustainability goals", icon: "🌍" },
       { label: "Careers", href: "/careers", desc: "Join the revolution in mobility", icon: "🎯" },
       { label: "Life at Zypp", href: "/life-at-zypp", desc: "Our culture, perks, and people", icon: "❤️" },
+      { label: "Blogs", href: "/blogs", desc: "Latest updates, stories, and EV insights", icon: "✍️" },
       { label: "News & Media", href: "/zyppNews", desc: "Latest press and announcements", icon: "📰" },
       { label: "Gig Ki Awaaz", href: "https://youtube.com/@GigKiAwaaz", desc: "Our official rider podcast", icon: "🎙", newTab: true },
     ],
@@ -198,7 +202,7 @@ export default function Navbar() {
                           onClick={() => setOpenGroup(null)}
                           className="flex items-start gap-4 p-3 rounded-2xl hover:bg-muted/30 transition-colors group/item"
                         >
-                          <span className={`mt-0.5 shrink-0 w-11 h-11 rounded-xl bg-gradient-to-br ${group.gradient} bg-opacity-10 flex items-center justify-center group-hover/item:scale-110 group-hover/item:shadow-md transition-all`}>
+                          <span className={`mt-0.5 shrink-0 w-11 h-11 rounded-xl flex items-center justify-center group-hover/item:scale-110 group-hover/item:shadow-md transition-all ${group.bgClass} ${group.accentClass}`}>
                             <EmojiIcon glyph={item.icon} size={22} />
                           </span>
                           <div className="min-w-0 flex flex-col justify-center">
@@ -301,7 +305,7 @@ export default function Navbar() {
                       onClick={closeMobile}
                       className="flex items-center gap-4 px-4 py-3.5 mb-1 rounded-xl hover:bg-muted/10 transition-colors"
                     >
-                      <span className={`shrink-0 w-10 h-10 rounded-lg bg-gradient-to-br ${group.gradient} bg-opacity-20 flex items-center justify-center shadow-sm`}>
+                      <span className={`shrink-0 w-10 h-10 rounded-lg flex items-center justify-center shadow-sm ${group.bgClass} ${group.accentClass}`}>
                         <EmojiIcon glyph={item.icon} size={20} />
                       </span>
                       <div className="flex flex-col justify-center">

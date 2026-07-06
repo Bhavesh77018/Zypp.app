@@ -1,6 +1,7 @@
 import { ArrowRight, Check, TrendingUp, Package, Fuel, CircleDot, Play } from "lucide-react";
 import { getContent } from "@/lib/cms";
 import { Reveal, RevealStagger, RevealItem } from "@/components/motion/Reveal";
+import GrowthChart from "@/components/investors/GrowthChart";
 import HeroVideoBackdrop from "@/components/HeroVideoBackdrop";
 
 export const metadata = {
@@ -39,7 +40,7 @@ export default function InvestorsPage() {
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/20 text-primary text-sm font-semibold mb-6 border border-primary/30">
               <span className="w-2 h-2 rounded-full bg-primary animate-pulse" /> {hero.badge}
             </div>
-            <h1 className="text-[clamp(3rem,6vw,5.2rem)] font-black text-white leading-[0.98] tracking-[-0.04em] mb-7">
+            <h1 className="text-[clamp(2.2rem,4.2vw,3.5rem)] font-black text-white leading-[0.98] tracking-[-0.04em] mb-7">
               {hero.titleLine1} <span className="text-primary">{hero.titleHighlight}</span>
             </h1>
             <p className="text-lg md:text-xl text-white/70 max-w-2xl mb-8 leading-relaxed">{hero.subtitle}</p>
@@ -125,6 +126,8 @@ export default function InvestorsPage() {
               </Reveal>
             ))}
           </div>
+          {/* Self-drawing growth chart — NRR + EBITDA trajectory */}
+          <GrowthChart />
           <Reveal className="mt-8 flex items-stretch gap-5 bg-primary/5 border border-primary/15 rounded-2xl p-7">
             <div className="w-1 rounded-full bg-primary shrink-0" />
             <div>

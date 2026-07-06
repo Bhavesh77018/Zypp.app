@@ -65,7 +65,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
       <div className="min-h-screen flex items-center justify-center bg-slate-950 px-4">
         <div className="w-full max-w-sm">
           <div className="flex flex-col items-center mb-8">
-            <Logo size={44} tone="light" />
+            <Logo size={24} />
             <p className="text-slate-400 mt-3 text-sm font-medium tracking-wider uppercase">Marketing Dashboard</p>
           </div>
           <div className="bg-slate-900 border border-slate-800 rounded-2xl p-8">
@@ -115,7 +115,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
       >
         <div className="p-6 border-b border-slate-800">
           <Link href="/" target="_blank" className="flex items-center gap-2">
-            <Logo size={26} tone="light" />
+            <Logo size={26} />
             <span className="text-xs text-slate-500 font-medium uppercase tracking-wider">Admin</span>
           </Link>
         </div>

@@ -10,6 +10,7 @@ import FAQSection from "@/components/home/FAQSection";
 import GetInTouchSection from "@/components/home/GetInTouchSection";
 import GigKiAwaazSection from "@/components/home/GigKiAwaazSection";
 import StepsSection from "@/components/StepsSection";
+import LoaderSpecs from "@/components/LoaderSpecs";
 
 type Stat = { val: string; label: string };
 type Benefit = { icon: string; title: string; desc: string };
@@ -119,7 +120,10 @@ export default function ThreeWheelerPage() {
         </div>
       </section>
 
-      {/* 4. KYC Steps */}
+      {/* 4. Loader Vehicles — L3 + L5 model showcase */}
+      <LoaderSpecs />
+
+      {/* 5. KYC Steps */}
       <StepsSection
         eyebrow={String(kycSec?.eyebrow ?? "Get Started")}
         heading={String(kycSec?.heading ?? "4 Steps to")}

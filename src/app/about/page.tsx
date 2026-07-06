@@ -5,6 +5,7 @@ import AboutTimelineSVG from "@/components/animations/AboutTimelineSVG";
 import GetInTouchSection from "@/components/home/GetInTouchSection";
 import EditorialMediaSection from "@/components/EditorialMediaSection";
 import HeroVideoBackdrop from "@/components/HeroVideoBackdrop";
+import FoundersSection from "@/components/about/FoundersSection";
 
 export const metadata = {
   title: "About Zypp Electric — 8 Years, 22 Pivots, India's Gig Economy OS",
@@ -12,10 +13,15 @@ export const metadata = {
 };
 
 const TEAM = [
-  { initials: "AG", name: "Akash Gupta", role: "Co-Founder & CEO", bio: "8 years, 22 pivots. IMT Ghaziabad Distinguished Alumni. 500K+ followers. HarperCollins book deal. Host of Gig Ki Awaaz." },
-  { initials: "RA", name: "Rashi Agarwal", role: "Co-Founder & CBO", bio: "Drives business development, enterprise partnerships, and revenue strategy. Built Zypp's platform relationships with India's largest delivery apps." },
-  { initials: "TM", name: "Tushar Mehta", role: "Co-Founder & COO", bio: "Runs Zypp's 8-city operations, 21 hubs, 400-person field team. The architect of Zypp's 96% fleet uptime and 20-minute breakdown response." },
-  { initials: "MS", name: "Mukesh Singla", role: "CFO", bio: "Leads financial strategy, IPO readiness, and investor relations. Driving Zypp toward PAT positivity and the FY28 public listing." },
+  { initials: "AG", name: "Akash Gupta", role: "Co-Founder & CEO", img: "/media/akash-gupta.jpg", bio: "8 years, 22 pivots. IMT Ghaziabad Distinguished Alumni. 500K+ followers. HarperCollins book deal. Host of Gig Ki Awaaz." },
+  { initials: "RA", name: "Rashi Agarwal", role: "Co-Founder & CBO", img: "/media/rashi-agarwal.jpg", bio: "Drives business development, enterprise partnerships, and revenue strategy. Built Zypp's platform relationships with India's largest delivery apps." },
+  { initials: "TM", name: "Tushar Mehta", role: "Co-Founder & COO", img: "", bio: "Runs Zypp's 8-city operations, 21 hubs, 400-person field team. The architect of Zypp's 96% fleet uptime and 20-minute breakdown response." },
+  { initials: "MS", name: "Mukesh Singla", role: "CFO", img: "", bio: "Leads financial strategy, IPO readiness, and investor relations. Driving Zypp toward PAT positivity and the FY28 public listing." },
+];
+
+const FOUNDER_SPOTLIGHT = [
+  { initials: "AG", name: "Akash Gupta", role: "Co-Founder & CEO", imageSrc: "/media/akash-gupta.jpg", bio: "Started in Jaipur with a bicycle-sharing idea and no blueprint. 8 years and 22 pivots later, he leads India's largest EV gig platform — and hosts Gig Ki Awaaz, the country's only podcast by gig workers." },
+  { initials: "RA", name: "Rashi Agarwal", role: "Co-Founder & CBO", imageSrc: "/media/rashi-agarwal.jpg", bio: "The force behind Zypp's enterprise engine — building the partnerships with Zomato, Swiggy, Blinkit and Zepto that turned Zypp into the supply infrastructure of India's 10-minute economy." },
 ];
 
 const INVESTORS = [
@@ -30,7 +36,7 @@ export default function AboutPage() {
       {/* ── HERO ── dark gradient */}
       <section className="relative w-full min-h-[calc(100svh-64px)] flex items-center overflow-hidden pt-24 pb-16 md:pt-28 md:pb-20">
         <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-emerald-950/70 to-slate-900" />
-        <HeroVideoBackdrop image="/media/founder-short.jpg" accent="green" />
+        <HeroVideoBackdrop image="/media/city-india.jpg" accent="green" />
         <div className="absolute inset-0 opacity-20" style={{ backgroundImage: "radial-gradient(circle at 65% 35%, #00BC84 0%, transparent 55%)" }} />
         <div className="absolute inset-0 opacity-[0.04]" style={{ backgroundImage: "linear-gradient(rgba(0,188,132,1) 1px,transparent 1px),linear-gradient(90deg,rgba(0,188,132,1) 1px,transparent 1px)", backgroundSize: "60px 60px" }} />
 
@@ -39,7 +45,7 @@ export default function AboutPage() {
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/20 text-primary text-sm font-bold uppercase tracking-widest mb-8 border border-primary/30">
               Our Story
             </div>
-            <h1 className="text-[clamp(3rem,6.5vw,5.4rem)] font-black text-white leading-[0.98] tracking-[-0.04em] mb-7">
+            <h1 className="text-[clamp(2.2rem,4.4vw,3.6rem)] font-black text-white leading-[0.98] tracking-[-0.04em] mb-7">
               <span className="text-white/50">8 Years.</span><br />
               <span className="text-white">22 Pivots.</span><br />
               <span className="text-primary">One Mission.</span>
@@ -109,6 +115,9 @@ export default function AboutPage() {
       {/* ── TIMELINE ── uses redesigned component */}
       <AboutTimelineSVG />
 
+      {/* ── FOUNDERS SPOTLIGHT ── real photos + highlights + socials */}
+      <FoundersSection people={FOUNDER_SPOTLIGHT} />
+
       {/* ── TEAM ── */}
       <section className="py-20 bg-white dark:bg-slate-950">
         <div className="container mx-auto px-4">
@@ -123,9 +132,14 @@ export default function AboutPage() {
           <RevealStagger className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
             {TEAM.map((t) => (
               <RevealItem key={t.initials} className="bg-gray-50 dark:bg-slate-900 border border-gray-100 dark:border-slate-800 rounded-3xl p-8 hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
-                <div className="w-16 h-16 rounded-full bg-primary/10 text-primary border-2 border-primary flex items-center justify-center font-black text-xl mb-5">
-                  {t.initials}
-                </div>
+                {t.img ? (
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img src={t.img} alt={t.name} className="w-16 h-16 rounded-full object-cover border-2 border-primary mb-5" />
+                ) : (
+                  <div className="w-16 h-16 rounded-full bg-primary/10 text-primary border-2 border-primary flex items-center justify-center font-black text-xl mb-5">
+                    {t.initials}
+                  </div>
+                )}
                 <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-1">{t.name}</h3>
                 <div className="text-xs font-bold text-primary uppercase tracking-wider mb-4">{t.role}</div>
                 <p className="text-gray-500 dark:text-gray-400 text-sm leading-relaxed">{t.bio}</p>

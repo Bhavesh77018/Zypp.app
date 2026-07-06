@@ -18,14 +18,14 @@ export default function TechPipelineSVG() {
   };
 
   return (
-    <div className="relative w-full max-w-6xl mx-auto min-h-[800px] lg:min-h-[600px] py-12 flex flex-col items-center justify-center">
+    <div className="relative w-full max-w-6xl mx-auto py-12 lg:py-0 flex flex-col lg:block items-center justify-center lg:aspect-[2/1]">
       
       {/* Background SVG Canvas */}
       <div className="absolute inset-0 z-0 hidden lg:block">
-        <svg viewBox="0 0 1200 600" className="w-full h-full overflow-visible">
+        <svg viewBox="0 0 1200 600" className="w-full h-full overflow-visible" preserveAspectRatio="none">
           {/* Path 1: IoT to AI (Left to Center) */}
           <motion.path
-            d="M 250 300 C 400 300, 450 150, 600 150"
+            d="M 250 300 C 400 300, 450 200, 600 200"
             fill="transparent"
             stroke="url(#gradient-blue-purple)"
             strokeWidth="4"
@@ -48,12 +48,12 @@ export default function TechPipelineSVG() {
               repeat: Infinity,
               ease: "linear"
             }}
-            style={{ filter: "blur(2px)", offsetPath: "path('M 250 300 C 400 300, 450 150, 600 150')" } as any}
+            style={{ filter: "blur(2px)", offsetPath: "path('M 250 300 C 400 300, 450 200, 600 200')" } as any}
           />
 
           {/* Path 2: AI to BMS (Center to Right) */}
           <motion.path
-            d="M 600 150 C 750 150, 800 450, 950 450"
+            d="M 600 200 C 750 200, 800 400, 950 400"
             fill="transparent"
             stroke="url(#gradient-purple-emerald)"
             strokeWidth="4"
@@ -77,12 +77,12 @@ export default function TechPipelineSVG() {
               repeat: Infinity,
               ease: "linear"
             }}
-            style={{ filter: "blur(2px)", offsetPath: "path('M 600 150 C 750 150, 800 450, 950 450')" } as any}
+            style={{ filter: "blur(2px)", offsetPath: "path('M 600 200 C 750 200, 800 400, 950 400')" } as any}
           />
 
           {/* Path 3: BMS back to IoT (Right to Left loop) */}
           <motion.path
-            d="M 950 450 C 950 600, 250 600, 250 300"
+            d="M 950 400 C 950 550, 250 550, 250 300"
             fill="transparent"
             stroke="url(#gradient-emerald-blue)"
             strokeWidth="2"
@@ -116,8 +116,8 @@ export default function TechPipelineSVG() {
       <div className="relative z-10 w-full h-full flex flex-col lg:block">
         
         {/* IoT Node */}
-        <Reveal direction="left" delay={0.2} className="lg:absolute lg:top-[300px] lg:left-[250px] lg:-translate-x-1/2 lg:-translate-y-1/2 w-full lg:w-80 mb-12 lg:mb-0">
-          <div className="bg-white/5 dark:bg-slate-900/60 backdrop-blur-xl border border-blue-500/30 p-8 rounded-3xl shadow-[0_0_40px_-10px_rgba(59,130,246,0.3)]">
+        <Reveal direction="left" delay={0.2} className="lg:absolute lg:top-[50%] lg:left-[20.83%] lg:-translate-x-1/2 lg:-translate-y-1/2 w-full lg:w-80 mb-12 lg:mb-0">
+          <div className="bg-white dark:bg-slate-900 border border-blue-500/30 p-8 rounded-3xl shadow-[0_0_40px_-10px_rgba(59,130,246,0.3)]">
             <div className="flex items-center gap-4 mb-4">
               <Icon3D glyph="📡" size={48} tint="from-blue-500/30 to-transparent" />
               <h3 className="text-2xl font-black text-foreground">IoT Node</h3>
@@ -127,8 +127,8 @@ export default function TechPipelineSVG() {
         </Reveal>
 
         {/* AI Node */}
-        <Reveal direction="up" delay={0.4} className="lg:absolute lg:top-[150px] lg:left-[600px] lg:-translate-x-1/2 lg:-translate-y-1/2 w-full lg:w-80 mb-12 lg:mb-0">
-          <div className="bg-white/5 dark:bg-slate-900/60 backdrop-blur-xl border border-purple-500/30 p-8 rounded-3xl shadow-[0_0_40px_-10px_rgba(168,85,247,0.3)]">
+        <Reveal direction="up" delay={0.4} className="lg:absolute lg:top-[33.33%] lg:left-[50%] lg:-translate-x-1/2 lg:-translate-y-1/2 w-full lg:w-80 mb-12 lg:mb-0">
+          <div className="bg-white dark:bg-slate-900 border border-purple-500/30 p-8 rounded-3xl shadow-[0_0_40px_-10px_rgba(168,85,247,0.3)]">
             <div className="flex items-center gap-4 mb-4">
               <Icon3D glyph="🧠" size={48} tint="from-purple-500/30 to-transparent" />
               <h3 className="text-2xl font-black text-foreground">AI Engine</h3>
@@ -138,8 +138,8 @@ export default function TechPipelineSVG() {
         </Reveal>
 
         {/* BMS Node */}
-        <Reveal direction="right" delay={0.6} className="lg:absolute lg:top-[450px] lg:left-[950px] lg:-translate-x-1/2 lg:-translate-y-1/2 w-full lg:w-80">
-          <div className="bg-white/5 dark:bg-slate-900/60 backdrop-blur-xl border border-emerald-500/30 p-8 rounded-3xl shadow-[0_0_40px_-10px_rgba(16,185,129,0.3)]">
+        <Reveal direction="right" delay={0.6} className="lg:absolute lg:top-[66.67%] lg:left-[79.17%] lg:-translate-x-1/2 lg:-translate-y-1/2 w-full lg:w-80">
+          <div className="bg-white dark:bg-slate-900 border border-emerald-500/30 p-8 rounded-3xl shadow-[0_0_40px_-10px_rgba(16,185,129,0.3)]">
             <div className="flex items-center gap-4 mb-4">
               <Icon3D glyph="🔋" size={48} tint="from-emerald-500/30 to-transparent" />
               <h3 className="text-2xl font-black text-foreground">Smart BMS</h3>

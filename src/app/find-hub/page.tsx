@@ -1,6 +1,7 @@
 import { getCities } from "@/lib/cms";
 import FindHub from "@/components/FindHub";
 import HeroVideoBackdrop from "@/components/HeroVideoBackdrop";
+import HubMap from "@/components/HubMap";
 
 export const metadata = {
   title: "Find a Zypp Hub Near You",
@@ -23,14 +24,17 @@ export default function FindHubPage() {
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/20 text-primary text-sm font-semibold mb-6 border border-primary/30">
             📍 Across India
           </div>
-          <h1 className="text-[clamp(2.75rem,6vw,5rem)] font-black leading-[0.98] tracking-[-0.04em] text-white mb-6">Find a Zypp Hub Near You</h1>
+          <h1 className="text-[clamp(2.1rem,4.2vw,3.4rem)] font-black leading-[0.98] tracking-[-0.04em] text-white mb-6">Find a Zypp Hub Near You</h1>
           <p className="text-lg text-white/70 max-w-2xl mx-auto">
             Pick up your EV, swap batteries, and get rider support — Zypp is live in {active} cities with {hubs}+ hubs and expanding across India.
           </p>
         </div>
       </section>
 
-      <section className="pb-24">
+      {/* Accurate India map with pulsing hub pins */}
+      <HubMap />
+
+      <section className="pb-24 pt-16">
         <FindHub cities={cities} />
       </section>
     </div>

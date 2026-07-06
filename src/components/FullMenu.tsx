@@ -10,35 +10,37 @@ const COLUMNS = [
   {
     title: "For Riders",
     links: [
-      { label: "Earn with Zypp", href: "/riders" },
-      { label: "Zypp Pilot (B2B)", href: "/zypp-pilot" },
-      { label: "Zypp Rental (B2C)", href: "/zypp-rental" },
-      { label: "Rent to Own", href: "/rent-to-own" },
-      { label: "3W Loader", href: "/3w-Service-Zypp-Pilot" },
-      { label: "Find a Hub", href: "/find-hub" },
+      { label: "Earn with Zypp", href: "/riders", icon: "🛵" },
+      { label: "Zypp Pilot (B2B)", href: "/zypp-pilot", icon: "💼" },
+      { label: "Zypp Rental (B2C)", href: "/zypp-rental", icon: "🔑" },
+      { label: "Rent to Own", href: "/rent-to-own", icon: "🏆" },
+      { label: "3W Loader", href: "/3w-Service-Zypp-Pilot", icon: "🚛" },
+      { label: "Find a Hub", href: "/find-hub", icon: "📍" },
     ],
   },
   {
     title: "For Business",
     links: [
-      { label: "EV for Delivery", href: "/ev-for-delivery" },
-      { label: "FleetEase.ai", href: "/fleetease" },
-      { label: "Franchise (FOFO)", href: "/franchise" },
-      { label: "FOCO Investment", href: "/foco" },
-      { label: "Advertising", href: "/advertising" },
-      { label: "Technologies", href: "/technologies" },
+      { label: "EV for Delivery", href: "/ev-for-delivery", icon: "📦" },
+      { label: "FleetEase.ai", href: "/fleetease", icon: "🖥️" },
+      { label: "Franchise Models", href: "/franchise", icon: "🏢" },
+      { label: "FOFO Franchise", href: "/fofo", icon: "🛠️" },
+      { label: "FOCO Investment", href: "/foco", icon: "📈" },
+      { label: "Advertising", href: "/advertising", icon: "📢" },
+      { label: "Technologies", href: "/technologies", icon: "⚡" },
     ],
   },
   {
     title: "Company",
     links: [
-      { label: "About Us", href: "/about" },
-      { label: "HustleOS", href: "/hustleos" },
-      { label: "Impact", href: "/environment" },
-      { label: "Investors", href: "/investors" },
-      { label: "Careers", href: "/careers" },
-      { label: "Life at Zypp", href: "/life-at-zypp" },
-      { label: "News", href: "/zyppNews" },
+      { label: "About Us", href: "/about", icon: "🌱" },
+      { label: "HustleOS", href: "/hustleos", icon: "🚀" },
+      { label: "ESG & Environment", href: "/environment", icon: "🌍" },
+      { label: "Investors", href: "/investors", icon: "📈" },
+      { label: "Careers", href: "/careers", icon: "🎯" },
+      { label: "Life at Zypp", href: "/life-at-zypp", icon: "❤️" },
+      { label: "Blogs", href: "/blogs", icon: "✍️" },
+      { label: "News", href: "/zyppNews", icon: "📰" },
     ],
   },
 ];
@@ -100,9 +102,10 @@ export default function FullMenu({ open, onClose }: { open: boolean; onClose: ()
                       {col.links.map((l) => (
                         <li key={l.label}>
                           <Link href={l.href} onClick={onClose}
-                            className="group inline-flex items-center gap-2 text-lg md:text-xl font-bold text-foreground hover:text-primary transition-colors">
-                            {l.label}
-                            <ArrowRight size={15} className="opacity-0 -translate-x-1.5 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-200" />
+                            className="group inline-flex items-center gap-2.5 text-base md:text-lg font-medium text-muted hover:text-foreground transition-colors py-1">
+                            <span className="text-xl leading-none opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all">{l.icon}</span>
+                            <span>{l.label}</span>
+                            <ArrowRight size={14} className="opacity-0 -translate-x-1 text-primary group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-200" />
                           </Link>
                         </li>
                       ))}

@@ -1,6 +1,7 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useRef } from "react";
+import { motion, useScroll, useSpring } from "framer-motion";
 import { Reveal, RevealItem } from "@/components/motion/Reveal";
 import { CheckCircle2, Circle, Star } from "lucide-react";
 
@@ -90,6 +91,11 @@ function getStyle(m: Milestone, isLast: boolean) {
 }
 
 export default function AboutTimelineSVG({ milestones = [] }: { milestones?: Milestone[] }) {
+  // Scroll-drawn spine: the green line grows as the reader travels the journey.
+  const spineRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({ target: spineRef, offset: ["start 0.75", "end 0.55"] });
+  const spine = useSpring(scrollYProgress, { stiffness: 90, damping: 25 });
+
   // Merge CMS data with fallback
   const items: Milestone[] = milestones.length > 0 ? milestones : JOURNEY;
 
@@ -128,9 +134,13 @@ export default function AboutTimelineSVG({ milestones = [] }: { milestones?: Mil
         </Reveal>
 
         {/* Timeline */}
-        <div className="relative">
-          {/* Vertical line */}
+        <div className="relative" ref={spineRef}>
+          {/* Vertical line — grey base + scroll-drawn green progress */}
           <div className="absolute left-[19px] top-2 bottom-2 w-0.5 bg-gray-200 dark:bg-slate-700 rounded-full" />
+          <motion.div
+            className="absolute left-[19px] top-2 bottom-2 w-0.5 bg-gradient-to-b from-primary via-primary to-amber-400 rounded-full origin-top"
+            style={{ scaleY: spine }}
+          />
 
           <div className="flex flex-col gap-0">
             {enriched.map((m, i) => {

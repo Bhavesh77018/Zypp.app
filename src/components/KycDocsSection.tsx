@@ -1,4 +1,4 @@
-import { Reveal, RevealStagger, RevealItem } from "@/components/motion/Reveal";
+import { Reveal } from "@/components/motion/Reveal";
 import { CreditCard, FileText, IdCard, Landmark, ArrowRight, type LucideIcon } from "lucide-react";
 
 const DOCS: { Icon: LucideIcon; title: string; note: string }[] = [
@@ -24,10 +24,10 @@ export default function KycDocsSection({
           <p className="text-muted text-lg mt-4 max-w-2xl mx-auto">{subheading}</p>
         </Reveal>
 
-        <RevealStagger className="flex flex-col md:flex-row items-stretch justify-center gap-4">
+        <div className="flex flex-col md:flex-row items-stretch justify-center gap-4">
           {DOCS.map((d, i) => (
-            <RevealItem key={d.title} className="flex items-center gap-4 md:flex-col md:gap-0 flex-1">
-              <div className="group w-full bg-white dark:bg-slate-950 border border-border rounded-2xl p-6 text-center hover:border-primary/40 hover:shadow-lg transition-all duration-300">
+            <div key={d.title} className="flex items-center gap-4 md:gap-2 flex-1">
+              <div className="group w-full bg-white dark:bg-slate-950 border border-border rounded-2xl p-6 text-center hover:border-primary/40 hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
                 <div className="mx-auto w-14 h-14 rounded-2xl bg-primary/10 text-primary flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
                   <d.Icon size={26} strokeWidth={2} />
                 </div>
@@ -35,11 +35,11 @@ export default function KycDocsSection({
                 <p className="text-muted text-xs mt-1">{d.note}</p>
               </div>
               {i < DOCS.length - 1 && (
-                <ArrowRight className="hidden md:block text-primary/40 shrink-0 mx-1 self-center" size={22} />
+                <ArrowRight className="hidden md:block text-primary/40 shrink-0 self-center" size={22} />
               )}
-            </RevealItem>
+            </div>
           ))}
-        </RevealStagger>
+        </div>
       </div>
     </section>
   );

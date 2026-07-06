@@ -78,6 +78,38 @@ export default function FleetEasePage() {
       {/* 4. Real stats, client logos, features and deployment paths */}
       <FleetEaseFeatures />
 
+      {/* 4b. Company Fleet Package — apps + master wallet */}
+      <section className="py-24 bg-slate-950 text-white relative overflow-hidden">
+        <div className="absolute -top-32 right-0 w-[480px] h-[480px] bg-blue-500/10 rounded-full blur-[110px]" />
+        <div className="container relative mx-auto px-4 max-w-6xl">
+          <Reveal className="mb-12 text-center">
+            <div className="text-sm font-bold text-blue-400 uppercase tracking-[0.2em] mb-3">Run Your Company Fleet on Zypp</div>
+            <h2 className="text-3xl md:text-5xl font-black">One Package. <span className="text-blue-400">Apps, Wallet &amp; Control.</span></h2>
+            <p className="text-white/55 text-lg mt-4 max-w-2xl mx-auto">
+              Hand us your company fleet and get the full Zypp software kit — the same tools that run 30,000+ EVs, branded for your team.
+            </p>
+          </Reveal>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            {[
+              { t: "Rider App", d: "Your riders get the full Pilot experience — earnings, trips, swaps and support, under your fleet." },
+              { t: "Mechanic App", d: "Field maintenance logging, inspection checklists and service TATs for your own technicians." },
+              { t: "Master Wallet", d: "One company wallet across the fleet — rentals, payouts, deductions and recharges, fully reconciled." },
+              { t: "Command Dashboard", d: "Live fleet health, utilisation, per-vehicle P&L and rider analytics on the FleetEase dashboard." },
+            ].map((c) => (
+              <div key={c.t} className="rounded-2xl border border-white/10 bg-white/[0.04] p-6 hover:border-blue-400/40 transition-colors">
+                <h3 className="font-black mb-2">{c.t}</h3>
+                <p className="text-sm text-white/55 leading-relaxed">{c.d}</p>
+              </div>
+            ))}
+          </div>
+          <Reveal className="mt-10 text-center">
+            <a href="#contact-sales" className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-blue-500 text-white font-bold hover:bg-blue-600 transition-colors">
+              Get the Company Fleet Package
+            </a>
+          </Reveal>
+        </div>
+      </section>
+
       {/* 5. Contact Sales Lead Gen */}
       <div id="contact-sales">
         <GetInTouchSection

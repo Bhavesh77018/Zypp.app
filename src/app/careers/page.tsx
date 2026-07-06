@@ -28,7 +28,7 @@ export default function CareersPage() {
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/20 text-primary text-sm font-semibold mb-6 border border-primary/30">
             {hero.badge}
           </div>
-          <h1 className="text-[clamp(2.75rem,6vw,5rem)] font-black leading-[0.98] tracking-[-0.04em] text-white mb-7">
+          <h1 className="text-[clamp(2.1rem,4.2vw,3.4rem)] font-black leading-[0.98] tracking-[-0.04em] text-white mb-7">
             {hero.titlePrefix}<span className="text-primary">{hero.titleHighlight}</span>
           </h1>
           <p className="text-xl text-white/70 max-w-2xl mx-auto mb-10">{hero.subtitle}</p>

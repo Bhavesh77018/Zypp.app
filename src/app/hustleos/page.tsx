@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight, Bike, CreditCard, Home, Bot, GraduationCap, Smartphone, Wallet, type LucideIcon } from "lucide-react";
 import { Reveal, RevealStagger, RevealItem } from "@/components/motion/Reveal";
+import FlywheelSVG from "@/components/hustleos/FlywheelSVG";
 import HeroSection from "@/components/home/HeroSection";
 
 export const metadata: Metadata = {
@@ -118,6 +119,9 @@ export default function HustleOSPage() {
           </RevealStagger>
         </div>
       </section>
+
+      {/* The Flywheel — animated SVG */}
+      <FlywheelSVG />
 
       {/* Rider Journey */}
       <section className="py-24 bg-white dark:bg-slate-950 overflow-hidden">

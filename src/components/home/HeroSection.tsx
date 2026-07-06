@@ -48,9 +48,10 @@ export default function HeroSection({ content }: { content?: Partial<HeroContent
         )}
         <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-800 to-emerald-950" />
         <HeroVideoBackdrop
-          image={pathname === "/fleetease" || pathname === "/technologies" ? "/media/fleet-control.webp" : "/media/life-rider.webp"}
+          video="/media/city-traffic.mp4"
+          image={pathname === "/fleetease" || pathname === "/technologies" ? "/media/zypp-fleetease-real.jpg" : "/media/zypp-hub-real.jpg"}
           accent={pathname === "/technologies" ? "blue" : "green"}
-          videoOpacity={0.28}
+          videoOpacity={0.34}
         />
         <div className="absolute inset-0 bg-black/30" />
         {/* The original animated mobility scene remains the page-specific visual layer. */}
@@ -91,7 +92,7 @@ export default function HeroSection({ content }: { content?: Partial<HeroContent
           initial="hidden"
           animate="show"
           variants={fadeUp}
-          className="max-w-5xl text-[clamp(2.75rem,7vw,5.5rem)] font-black text-white leading-[0.98] mb-7 tracking-[-0.04em]"
+          className="max-w-5xl text-[clamp(2.1rem,4.6vw,3.8rem)] font-black text-white leading-[0.98] mb-7 tracking-[-0.04em]"
         >
           {c.titleLine1}{" "}
           <span className="text-primary">{c.titleHighlight}</span>

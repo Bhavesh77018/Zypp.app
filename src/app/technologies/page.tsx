@@ -2,11 +2,14 @@ import HeroSection from "@/components/home/HeroSection";
 import { Reveal, RevealItem, RevealStagger } from "@/components/motion/Reveal";
 import { Icon3D } from "@/components/Icon3D";
 import MagneticButton from "@/components/MagneticButton";
+import Image from "next/image";
 import TechPipelineSVG from "@/components/animations/TechPipelineSVG";
 import EditorialMediaSection from "@/components/EditorialMediaSection";
 import ScooterSpecificationSection from "@/components/technology/ScooterSpecificationSection";
 import ProductTreeSection from "@/components/technology/ProductTreeSection";
 import IntelligenceLoopSection from "@/components/technology/IntelligenceLoopSection";
+import ProductSuite from "@/components/technologies/ProductSuite";
+import TechRealWorldSection from "@/components/technology/TechRealWorldSection";
 
 const OPERATING_LAYERS = [
   { step: "01", title: "Vehicle intelligence", body: "Live telematics, battery signals and asset health create one dependable vehicle record." },
@@ -60,17 +63,22 @@ export default function TechnologiesPage() {
 
       <ProductTreeSection />
 
+      {/* Our Apps & Software — the full 8-product portfolio */}
+      <ProductSuite />
+
       <EditorialMediaSection
         eyebrow="Technology in live operations"
         heading="Every signal should lead to a better decision."
         body="Zypp's technology stack is shaped inside real electric fleet operations. Vehicle health, rider action, service tickets and utilisation data come together so control rooms can see clearly and field teams can move sooner."
-        image="/media/fleet-control.webp"
-        imageAlt="Fleet operations dashboard showing connected electric vehicles"
-        caption="One connected view from vehicle to control room"
+        image="/media/zypp-fleet-real.webp"
+        imageAlt="Zypp electric scooter at an IndoFast battery-swap station"
+        caption="A Zypp EV at a battery-swap station — infrastructure in live operation"
         ctaLabel="See FleetEase in action"
         ctaHref="/fleetease"
         tags={["4G telematics", "Predictive maintenance", "Rider workflows", "Open APIs"]}
       />
+
+      <TechRealWorldSection />
 
       <section className="py-24 bg-gray-50 dark:bg-slate-900 border-y border-gray-100 dark:border-slate-800">
         <div className="container mx-auto px-4 max-w-6xl">
@@ -118,8 +126,8 @@ export default function TechnologiesPage() {
                   </MagneticButton>
                 </div>
 
-                <div className="hidden md:block w-72 h-72">
-                  <Icon3D glyph="🖥️" size={240} tint="from-cyan-500/30 to-transparent" />
+                <div className="hidden md:block w-[400px] h-[300px] relative rounded-2xl overflow-hidden border border-white/10 shadow-2xl rotate-2 hover:rotate-0 transition-all duration-500">
+                  <Image src="/media/zypp-fleetease-real.jpg" fill alt="FleetEase OS Dashboard" className="object-cover" />
                 </div>
               </div>
             </div>

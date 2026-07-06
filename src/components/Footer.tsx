@@ -28,7 +28,8 @@ const COLS = [
     links: [
       { label: "EV for Delivery", href: "/ev-for-delivery" },
       { label: "FleetEase.ai", href: "/fleetease" },
-      { label: "Franchise (FOFO)", href: "/franchise" },
+      { label: "Franchise Models", href: "/franchise" },
+      { label: "FOFO Franchise", href: "/fofo" },
       { label: "FOCO Investment", href: "/foco" },
       { label: "Advertising", href: "/advertising" },
       { label: "Technologies", href: "/technologies" },
@@ -39,9 +40,10 @@ const COLS = [
     links: [
       { label: "About Us", href: "/about" },
       { label: "HustleOS", href: "/hustleos" },
-      { label: "Impact", href: "/environment" },
+      { label: "ESG & Environment", href: "/environment" },
       { label: "Investors", href: "/investors" },
       { label: "Careers", href: "/careers" },
+      { label: "Blogs", href: "/blogs" },
       { label: "News", href: "/zyppNews" },
     ],
   },

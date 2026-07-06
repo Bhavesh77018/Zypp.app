@@ -37,16 +37,16 @@ export default function ScooterSpecificationSection() {
         <div className="grid gap-8 lg:grid-cols-[1.05fr_0.95fr]">
           <Reveal direction="right" className="relative min-h-[520px] overflow-hidden rounded-[2.5rem] border border-white/10 bg-white/[0.055] p-6 md:p-10">
             <div className="absolute inset-x-12 bottom-16 h-28 rounded-full bg-emerald-400/20 blur-3xl" />
-            <div className="relative flex h-full min-h-[440px] items-center justify-center">
+            <div className="relative flex h-full min-h-[440px] items-center justify-center overflow-hidden rounded-3xl">
               <Image
-                src="/media/zypp-connected-scooter.svg"
-                alt="Zypp connected electric delivery scooter"
-                width={720}
-                height={470}
-                className="relative z-10 w-full max-w-[580px] drop-shadow-[0_30px_35px_rgba(0,0,0,0.45)]"
+                src="/media/zypp-rider-real.jpg"
+                alt="Zypp connected electric delivery scooter in real world"
+                fill
+                className="relative z-0 object-cover object-center opacity-80 mix-blend-luminosity hover:mix-blend-normal transition-all duration-700"
               />
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent z-10" />
 
-              <div className="absolute left-0 top-2 z-20 rounded-2xl border border-white/10 bg-slate-900/85 p-4 shadow-2xl backdrop-blur-md md:left-3 md:top-8">
+              <div className="absolute left-4 top-4 z-20 rounded-2xl border border-white/10 bg-slate-900/85 p-4 shadow-2xl backdrop-blur-md">
                 <div className="mb-1 flex items-center gap-2 text-xs font-black uppercase tracking-widest text-emerald-400"><BatteryCharging size={15} /> Energy</div>
                 <div className="font-bold">Swappable battery</div>
               </div>
