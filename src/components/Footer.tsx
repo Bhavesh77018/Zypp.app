@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ArrowRight, Mail, MapPin } from "lucide-react";
 import { LogoLink } from "@/components/Logo";
+import { NAV_GROUPS, columnLinks } from "@/lib/nav-links";
 
 // lucide-react dropped brand icons, so these are small inline brand SVGs.
 const SOCIALS = [
@@ -11,43 +12,10 @@ const SOCIALS = [
   { label: "Facebook", href: "https://facebook.com/ZyppElectric", path: "M22 12a10 10 0 10-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.78-3.89 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.44 2.89h-2.34v6.99A10 10 0 0022 12z" },
 ];
 
-const COLS = [
-  {
-    title: "For Riders",
-    links: [
-      { label: "Earn with Zypp", href: "/riders" },
-      { label: "Zypp Pilot (B2B)", href: "/zypp-pilot" },
-      { label: "Zypp Rental (B2C)", href: "/zypp-rental" },
-      { label: "Rent to Own", href: "/rent-to-own" },
-      { label: "3W Loader", href: "/3w-Service-Zypp-Pilot" },
-      { label: "Find a Hub", href: "/find-hub" },
-    ],
-  },
-  {
-    title: "For Business",
-    links: [
-      { label: "EV for Delivery", href: "/ev-for-delivery" },
-      { label: "FleetEase.ai", href: "/fleetease" },
-      { label: "Franchise Models", href: "/franchise" },
-      { label: "FOFO Franchise", href: "/fofo" },
-      { label: "FOCO Investment", href: "/foco" },
-      { label: "Advertising", href: "/advertising" },
-      { label: "Technologies", href: "/technologies" },
-    ],
-  },
-  {
-    title: "Company",
-    links: [
-      { label: "About Us", href: "/about" },
-      { label: "HustleOS", href: "/hustleos" },
-      { label: "ESG & Environment", href: "/environment" },
-      { label: "Investors", href: "/investors" },
-      { label: "Careers", href: "/careers" },
-      { label: "Blogs", href: "/blogs" },
-      { label: "News", href: "/zyppNews" },
-    ],
-  },
-];
+const COLS = NAV_GROUPS.map((g) => ({
+  title: g.label,
+  links: columnLinks(g, { internalOnly: true }),
+}));
 
 export default function Footer() {
   return (

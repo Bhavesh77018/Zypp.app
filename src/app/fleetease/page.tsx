@@ -56,7 +56,7 @@ export default function FleetEasePage() {
       />
 
       {/* 3. Platform network animation */}
-      <section id="features" className="relative z-20 bg-slate-950 text-white py-24 mt-24">
+      <section id="features" className="scroll-mt-24 relative z-20 bg-slate-950 text-white py-24 mt-24">
         {/* Top/bottom edge gradients for smooth transition if needed */}
         <div className="absolute top-0 left-0 w-full h-24 bg-gradient-to-b from-background to-transparent" />
         
@@ -111,7 +111,7 @@ export default function FleetEasePage() {
       </section>
 
       {/* 5. Contact Sales Lead Gen */}
-      <div id="contact-sales">
+      <div id="contact-sales" className="scroll-mt-24">
         <GetInTouchSection
           content={{
             eyebrow: "Ready to Scale?",

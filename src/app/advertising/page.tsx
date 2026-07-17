@@ -204,7 +204,7 @@ export default function AdvertisingPage() {
       </section>
 
       {/* ── AD FORMATS ── */}
-      <section id="formats" className="py-20 bg-white dark:bg-slate-950">
+      <section id="formats" className="scroll-mt-24 py-20 bg-white dark:bg-slate-950">
         <div className="container mx-auto px-4">
           <Reveal className="mb-12">
             <div className="text-sm font-bold text-orange-500 uppercase tracking-[0.2em] mb-3">Ad Formats</div>

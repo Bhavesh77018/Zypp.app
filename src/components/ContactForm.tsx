@@ -2,8 +2,24 @@
 import { useState } from "react";
 import { Send, CheckCircle } from "lucide-react";
 
-export default function ContactForm({ heading, reasonLabel, reasons }: { heading: string; reasonLabel: string; reasons: string[] }) {
-  const [form, setForm] = useState({ name: "", phone: "", email: "", company: "", reason: reasons[0] ?? "", message: "" });
+export default function ContactForm({
+  heading,
+  reasonLabel,
+  reasons,
+  initialReason,
+  initialMessage,
+}: {
+  heading: string;
+  reasonLabel: string;
+  reasons: string[];
+  initialReason?: string;
+  initialMessage?: string;
+}) {
+  const preselected =
+    initialReason && reasons.some((r) => r.toLowerCase() === initialReason.toLowerCase())
+      ? reasons.find((r) => r.toLowerCase() === initialReason.toLowerCase())!
+      : reasons[0] ?? "";
+  const [form, setForm] = useState({ name: "", phone: "", email: "", company: "", reason: preselected, message: initialMessage ?? "" });
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
 
   const set = (k: keyof typeof form) => (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) =>

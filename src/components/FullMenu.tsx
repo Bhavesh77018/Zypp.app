@@ -5,45 +5,9 @@ import { useEffect } from "react";
 import { motion } from "framer-motion";
 import { X, ArrowRight, Smartphone } from "lucide-react";
 import { Logo } from "@/components/Logo";
+import { NAV_GROUPS, columnLinks } from "@/lib/nav-links";
 
-const COLUMNS = [
-  {
-    title: "For Riders",
-    links: [
-      { label: "Earn with Zypp", href: "/riders", icon: "🛵" },
-      { label: "Zypp Pilot (B2B)", href: "/zypp-pilot", icon: "💼" },
-      { label: "Zypp Rental (B2C)", href: "/zypp-rental", icon: "🔑" },
-      { label: "Rent to Own", href: "/rent-to-own", icon: "🏆" },
-      { label: "3W Loader", href: "/3w-Service-Zypp-Pilot", icon: "🚛" },
-      { label: "Find a Hub", href: "/find-hub", icon: "📍" },
-    ],
-  },
-  {
-    title: "For Business",
-    links: [
-      { label: "EV for Delivery", href: "/ev-for-delivery", icon: "📦" },
-      { label: "FleetEase.ai", href: "/fleetease", icon: "🖥️" },
-      { label: "Franchise Models", href: "/franchise", icon: "🏢" },
-      { label: "FOFO Franchise", href: "/fofo", icon: "🛠️" },
-      { label: "FOCO Investment", href: "/foco", icon: "📈" },
-      { label: "Advertising", href: "/advertising", icon: "📢" },
-      { label: "Technologies", href: "/technologies", icon: "⚡" },
-    ],
-  },
-  {
-    title: "Company",
-    links: [
-      { label: "About Us", href: "/about", icon: "🌱" },
-      { label: "HustleOS", href: "/hustleos", icon: "🚀" },
-      { label: "ESG & Environment", href: "/environment", icon: "🌍" },
-      { label: "Investors", href: "/investors", icon: "📈" },
-      { label: "Careers", href: "/careers", icon: "🎯" },
-      { label: "Life at Zypp", href: "/life-at-zypp", icon: "❤️" },
-      { label: "Blogs", href: "/blogs", icon: "✍️" },
-      { label: "News", href: "/zyppNews", icon: "📰" },
-    ],
-  },
-];
+const COLUMNS = NAV_GROUPS.map((g) => ({ title: g.label, links: columnLinks(g) }));
 
 const FEATURED = [
   { img: "/media/app-screen-5.png", title: "The Zypp Pilot App", desc: "Earnings, payouts & swaps", href: "/riders", external: false },
@@ -102,6 +66,7 @@ export default function FullMenu({ open, onClose }: { open: boolean; onClose: ()
                       {col.links.map((l) => (
                         <li key={l.label}>
                           <Link href={l.href} onClick={onClose}
+                            {...(l.newTab ? { target: "_blank", rel: "noopener noreferrer" } : {})}
                             className="group inline-flex items-center gap-2.5 text-base md:text-lg font-medium text-muted hover:text-foreground transition-colors py-1">
                             <span className="text-xl leading-none opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all">{l.icon}</span>
                             <span>{l.label}</span>

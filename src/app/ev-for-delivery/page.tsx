@@ -75,7 +75,7 @@ export default function EVForDeliveryPage() {
       </section>
 
       {/* Features */}
-      <section className="py-20 bg-white dark:bg-slate-950" id="how-it-works">
+      <section className="scroll-mt-24 py-20 bg-white dark:bg-slate-950" id="how-it-works">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center max-w-6xl mx-auto">
             <Reveal direction="right">

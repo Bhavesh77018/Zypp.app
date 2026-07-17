@@ -10,6 +10,7 @@ import HeroVideoBackdrop from "@/components/HeroVideoBackdrop";
 import SavingsCalculator from "@/components/home/SavingsCalculator";
 import GigKiAwaazSection from "@/components/home/GigKiAwaazSection";
 import TestimonialsSection from "@/components/home/TestimonialsSection";
+import StickyMobileCTA from "@/components/StickyMobileCTA";
 
 type Plan = { name: string; highlight: boolean; features: string };
 type FAQ = { q: string; a: string };
@@ -184,6 +185,8 @@ export default function ZyppRentalPage() {
           </Link>
         </div>
       </section>
+
+      <StickyMobileCTA label="Rent a Zypp EV — Get Started" />
     </div>
   );
 }

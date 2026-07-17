@@ -11,6 +11,7 @@ import GetInTouchSection from "@/components/home/GetInTouchSection";
 import GigKiAwaazSection from "@/components/home/GigKiAwaazSection";
 import StepsSection from "@/components/StepsSection";
 import LoaderSpecs from "@/components/LoaderSpecs";
+import StickyMobileCTA from "@/components/StickyMobileCTA";
 
 type Stat = { val: string; label: string };
 type Benefit = { icon: string; title: string; desc: string };
@@ -90,7 +91,7 @@ export default function ThreeWheelerPage() {
       </section>
 
       {/* 3. Benefits — 3-column card grid matching TailwindsSection pattern */}
-      <section id="benefits" className="py-20 bg-gray-50 dark:bg-slate-900 border-y border-gray-100 dark:border-slate-800">
+      <section id="benefits" className="scroll-mt-24 py-20 bg-gray-50 dark:bg-slate-900 border-y border-gray-100 dark:border-slate-800">
         <div className="container mx-auto px-4">
           <Reveal className="mb-12">
             <div className="text-sm font-bold text-primary uppercase tracking-[0.2em] mb-3">
@@ -169,6 +170,8 @@ export default function ThreeWheelerPage() {
 
       {/* 10. Get In Touch */}
       <GetInTouchSection />
+
+      <StickyMobileCTA label="Earn up to ₹80K/mo — Apply for 3W" />
     </div>
   );
 }

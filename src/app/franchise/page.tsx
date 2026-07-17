@@ -208,7 +208,7 @@ export default function FranchisePage() {
       </section>
 
       {/* ── TWO MODELS — FULL CARDS ── */}
-      <section id="models" className="py-24 bg-gray-50 dark:bg-slate-900 border-y border-gray-100 dark:border-slate-800">
+      <section id="models" className="scroll-mt-24 py-24 bg-gray-50 dark:bg-slate-900 border-y border-gray-100 dark:border-slate-800">
         <div className="container mx-auto px-4">
           <Reveal className="mb-14">
             <div className="text-sm font-bold text-indigo-500 uppercase tracking-[0.2em] mb-3">Two Models</div>

@@ -5,6 +5,7 @@ import { Reveal, RevealStagger, RevealItem } from "@/components/motion/Reveal";
 import { Icon3D } from "@/components/Icon3D";
 import HeroVideoBackdrop from "@/components/HeroVideoBackdrop";
 import OwnershipPath from "@/components/OwnershipPath";
+import StickyMobileCTA from "@/components/StickyMobileCTA";
 
 type Stat = { val: string; label: string };
 type Benefit = { icon: string; title: string; desc: string };
@@ -156,6 +157,8 @@ export default function RentToOwnPage() {
           </Link>
         </div>
       </section>
+
+      <StickyMobileCTA label="Own your EV in 52 weeks — Apply" />
     </div>
   );
 }

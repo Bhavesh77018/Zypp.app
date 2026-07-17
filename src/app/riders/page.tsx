@@ -13,6 +13,7 @@ import FAQSection from "@/components/home/FAQSection";
 import StepsSection from "@/components/StepsSection";
 import GetInTouchSection from "@/components/home/GetInTouchSection";
 import PartnersSection from "@/components/home/PartnersSection";
+import StickyMobileCTA from "@/components/StickyMobileCTA";
 import { getContent } from "@/lib/cms";
 
 type Help = { icon: string; title: string; href: string };
@@ -387,6 +388,8 @@ export default function RidersPage() {
 
       {/* ── GET IN TOUCH ── */}
       <GetInTouchSection />
+
+      <StickyMobileCTA label="₹35–45K/mo — Become a Pilot" />
     </div>
   );
 }

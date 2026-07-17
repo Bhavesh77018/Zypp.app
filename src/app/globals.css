@@ -4,16 +4,22 @@
 
 :root {
   --background: #ffffff;
+  --background-rgb: 255 255 255;
   --foreground: #111827;
-  
+  --foreground-rgb: 17 24 39;
+
   --primary: #00bc84;
+  --primary-rgb: 0 188 132;
   --primary-hover: #00a373;
   --primary-foreground: #ffffff;
-  
+
   --card-bg: #f9fafb;
+  --card-bg-rgb: 249 250 251;
   --card-border: #e5e7eb;
+  --card-border-rgb: 229 231 235;
 
   --text-muted: #6b7280;
+  --text-muted-rgb: 107 114 128;
   --text-secondary: #374151;
   --zypp-tint: #f0fdf6;
 
@@ -30,16 +36,22 @@
 
 [data-theme="dark"] {
   --background: #030712;
+  --background-rgb: 3 7 18;
   --foreground: #f9fafb;
-  
+  --foreground-rgb: 249 250 251;
+
   --primary: #34d399;
+  --primary-rgb: 52 211 153;
   --primary-hover: #00bc84;
   --primary-foreground: #030712;
-  
+
   --card-bg: #111827;
+  --card-bg-rgb: 17 24 39;
   --card-border: #1f2937;
+  --card-border-rgb: 31 41 55;
 
   --text-muted: #9ca3af;
+  --text-muted-rgb: 156 163 175;
   --text-secondary: #cbd5e1;
   --zypp-tint: #0c1f17;
 

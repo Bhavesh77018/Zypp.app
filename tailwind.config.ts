@@ -10,18 +10,19 @@ export default {
   theme: {
     extend: {
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+        background: "rgb(var(--background-rgb) / <alpha-value>)",
+        foreground: "rgb(var(--foreground-rgb) / <alpha-value>)",
         primary: {
-          DEFAULT: "#00bc84",
-          hover: "#00a373",
-          foreground: "#ffffff",
+          DEFAULT: "rgb(var(--primary-rgb) / <alpha-value>)",
+          hover: "var(--primary-hover)",
+          foreground: "var(--primary-foreground)",
         },
         card: {
-          DEFAULT: "var(--card-bg)",
-          border: "var(--card-border)",
+          DEFAULT: "rgb(var(--card-bg-rgb) / <alpha-value>)",
+          border: "rgb(var(--card-border-rgb) / <alpha-value>)",
         },
-        muted: "var(--text-muted)",
+        border: "rgb(var(--card-border-rgb) / <alpha-value>)",
+        muted: "rgb(var(--text-muted-rgb) / <alpha-value>)",
       },
       borderRadius: {
         lg: "var(--radius-lg)",

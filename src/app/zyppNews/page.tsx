@@ -2,7 +2,7 @@ import { ArrowRight } from "lucide-react";
 import { getContent } from "@/lib/cms";
 import { RevealStagger, RevealItem } from "@/components/motion/Reveal";
 
-type Article = { source: string; date: string; title: string; category: string };
+type Article = { source: string; date: string; title: string; category: string; url?: string };
 
 const CATEGORY_COLORS: Record<string, string> = {
   Milestone: "bg-primary/10 text-primary",
@@ -15,6 +15,49 @@ const CATEGORY_COLORS: Record<string, string> = {
   Partnership: "bg-yellow-500/10 text-yellow-600",
   Market: "bg-indigo-500/10 text-indigo-600",
 };
+
+function FeaturedCard({ article }: { article: Article }) {
+  const inner = (
+    <>
+      <div className="flex items-center gap-3 mb-4">
+        <span className={`px-3 py-1 rounded-full text-xs font-bold ${CATEGORY_COLORS[article.category] || "bg-gray-100 text-gray-500"}`}>{article.category}</span>
+        <span className="text-xs text-gray-400">{article.source} · {article.date}</span>
+      </div>
+      <h2 className="text-2xl md:text-3xl font-extrabold text-gray-900 dark:text-white group-hover:text-primary transition-colors mb-4">{article.title}</h2>
+      {article.url && (
+        <div className="inline-flex items-center gap-1 text-primary font-semibold text-sm group-hover:gap-2 transition-all">
+          Read Article <ArrowRight size={14} />
+        </div>
+      )}
+    </>
+  );
+  const cls = "block bg-gray-50 dark:bg-slate-900 border border-gray-100 dark:border-slate-800 rounded-3xl p-8 md:p-10 hover:border-primary/30 hover:shadow-xl transition-all duration-300 group max-w-4xl";
+  return article.url
+    ? <a href={article.url} target="_blank" rel="noopener noreferrer" className={cls}>{inner}</a>
+    : <div className={cls}>{inner}</div>;
+}
+
+function ArticleCard({ article }: { article: Article }) {
+  const inner = (
+    <>
+      <div className="flex items-center gap-2 mb-3">
+        <span className={`px-2.5 py-1 rounded-full text-[11px] font-bold ${CATEGORY_COLORS[article.category] || "bg-gray-100 text-gray-500"}`}>{article.category}</span>
+        <span className="text-xs text-gray-400">{article.date}</span>
+      </div>
+      <div className="text-xs font-bold text-gray-400 uppercase tracking-wider mb-2">{article.source}</div>
+      <h3 className="font-bold text-gray-900 dark:text-white leading-snug group-hover:text-primary transition-colors flex-1">{article.title}</h3>
+      {article.url && (
+        <div className="mt-4 inline-flex items-center gap-1 text-primary text-xs font-semibold group-hover:gap-2 transition-all">
+          Read <ArrowRight size={12} />
+        </div>
+      )}
+    </>
+  );
+  const cls = "h-full bg-white dark:bg-slate-900 border border-gray-100 dark:border-slate-800 rounded-2xl p-6 hover:border-primary/30 hover:shadow-md hover:-translate-y-1 transition-all duration-300 group flex flex-col";
+  return article.url
+    ? <a href={article.url} target="_blank" rel="noopener noreferrer" className={cls}>{inner}</a>
+    : <div className={cls}>{inner}</div>;
+}
 
 export default function NewsPage() {
   const c = getContent("zyppNews");
@@ -47,16 +90,7 @@ export default function NewsPage() {
           {featured && (
             <div className="mb-10">
               <div className="text-sm font-bold text-primary uppercase tracking-widest mb-6">{String(articlesSec.featuredLabel)}</div>
-              <div className="bg-gray-50 dark:bg-slate-900 border border-gray-100 dark:border-slate-800 rounded-3xl p-8 md:p-10 hover:border-primary/30 hover:shadow-xl transition-all duration-300 group cursor-pointer max-w-4xl">
-                <div className="flex items-center gap-3 mb-4">
-                  <span className={`px-3 py-1 rounded-full text-xs font-bold ${CATEGORY_COLORS[featured.category] || "bg-gray-100 text-gray-500"}`}>{featured.category}</span>
-                  <span className="text-xs text-gray-400">{featured.source} · {featured.date}</span>
-                </div>
-                <h2 className="text-2xl md:text-3xl font-extrabold text-gray-900 dark:text-white group-hover:text-primary transition-colors mb-4">{featured.title}</h2>
-                <div className="inline-flex items-center gap-1 text-primary font-semibold text-sm group-hover:gap-2 transition-all">
-                  Read Article <ArrowRight size={14} />
-                </div>
-              </div>
+              <FeaturedCard article={featured} />
             </div>
           )}
 
@@ -64,16 +98,8 @@ export default function NewsPage() {
           <div className="text-sm font-bold text-primary uppercase tracking-widest mb-6">{String(articlesSec.listLabel)}</div>
           <RevealStagger className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5" stagger={0.05}>
             {rest.map((a) => (
-              <RevealItem key={a.title} className="bg-white dark:bg-slate-900 border border-gray-100 dark:border-slate-800 rounded-2xl p-6 hover:border-primary/30 hover:shadow-md hover:-translate-y-1 transition-all duration-300 group cursor-pointer flex flex-col">
-                <div className="flex items-center gap-2 mb-3">
-                  <span className={`px-2.5 py-1 rounded-full text-[11px] font-bold ${CATEGORY_COLORS[a.category] || "bg-gray-100 text-gray-500"}`}>{a.category}</span>
-                  <span className="text-xs text-gray-400">{a.date}</span>
-                </div>
-                <div className="text-xs font-bold text-gray-400 uppercase tracking-wider mb-2">{a.source}</div>
-                <h3 className="font-bold text-gray-900 dark:text-white leading-snug group-hover:text-primary transition-colors flex-1">{a.title}</h3>
-                <div className="mt-4 inline-flex items-center gap-1 text-primary text-xs font-semibold group-hover:gap-2 transition-all">
-                  Read <ArrowRight size={12} />
-                </div>
+              <RevealItem key={a.title}>
+                <ArticleCard article={a} />
               </RevealItem>
             ))}
           </RevealStagger>

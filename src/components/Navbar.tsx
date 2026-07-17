@@ -7,70 +7,14 @@ import { Sun, Moon, Menu, X, ChevronDown, ArrowRight, MoreVertical } from "lucid
 import { LogoLink } from "@/components/Logo";
 import { EmojiIcon } from "@/components/icons/iconMap";
 import FullMenu from "@/components/FullMenu";
+import { NAV_GROUPS, type NavFeatured } from "@/lib/nav-links";
 
 interface CMSNavItem { label: string; href: string; desc: string; icon: string; openInNewTab: boolean; group: string; }
 interface GlobalCTA { enabled: boolean; label: string; link: string; openInNewTab: boolean; style: string; floatingEnabled: boolean; floatingLabel: string; floatingLink: string; floatingOpenInNewTab: boolean; floatingPosition: string; }
-interface NavItem { label: string; href: string; desc: string; icon: string; newTab?: boolean }
-interface Featured { eyebrow: string; title: string; desc: string; href: string; cta: string }
 
 const GROUP_KEY_MAP: Record<string, string> = { riders: "For Riders", partners: "For Business", company: "Company", more: "Company" };
 
-const navGroups: {
-  label: string; accentClass: string; bgClass: string; gradient: string; items: NavItem[]; featured: Featured;
-}[] = [
-  {
-    label: "For Riders",
-    accentClass: "text-primary dark:text-emerald-400",
-    bgClass: "bg-primary/10 dark:bg-primary/20",
-    gradient: "from-primary to-emerald-600",
-    items: [
-      { label: "Earn with Zypp", href: "/riders", desc: "Maximize your daily earnings effortlessly", icon: "🛵" },
-      { label: "Zypp Pilot App", href: "https://play.google.com/store/apps/details?id=com.zyppdelivery", desc: "Download and start earning in minutes", icon: "📱", newTab: true },
-      { label: "Locate a Hub", href: "/find-hub", desc: "Find the nearest Zypp station easily", icon: "📍" },
-      { label: "Zypp Pilot (B2B)", href: "/zypp-pilot", desc: "Guaranteed payouts & steady tasks", icon: "💼" },
-      { label: "Zypp Rental (B2C)", href: "/zypp-rental", desc: "Flexible rentals, total freedom", icon: "🔑" },
-      { label: "Rent to Own", href: "/rent-to-own", desc: "Own your EV scooter in just 1 year", icon: "🏆" },
-      { label: "2W Services", href: "/2w-Service-Zypp-Pilot", desc: "Compare Pilot vs Rental plans", icon: "⚖️" },
-      { label: "3W Loader", href: "/3w-Service-Zypp-Pilot", desc: "Earn up to ₹80k monthly with cargo", icon: "🚛" },
-    ],
-    featured: { eyebrow: "Pilot Program", title: "₹35–45K/mo", desc: "Zero downpayment. Zero fuel costs. Onboard and ride in 24 hours.", href: "/riders", cta: "Become a Pilot" },
-  },
-  {
-    label: "For Business",
-    accentClass: "text-blue-600 dark:text-blue-400",
-    bgClass: "bg-blue-500/10 dark:bg-blue-500/20",
-    gradient: "from-blue-500 to-indigo-600",
-    items: [
-      { label: "EV for Delivery", href: "/ev-for-delivery", desc: "Reliable last-mile delivery fleets", icon: "📦" },
-      { label: "FleetEase.ai", href: "/fleetease", desc: "AI-powered fleet management OS", icon: "🖥️" },
-      { label: "Franchise Models", href: "/franchise", desc: "Compare FOFO and FOCO franchise models", icon: "🏢" },
-      { label: "FOFO Franchise", href: "/fofo", desc: "Own a hub, high ROI potential", icon: "🛠️" },
-      { label: "FOCO Investment", href: "/foco", desc: "Invest in EVs, we handle operations", icon: "📈" },
-      { label: "Advertising", href: "/advertising", desc: "Put your brand across urban delivery routes", icon: "📢" },
-      { label: "Technologies", href: "/technologies", desc: "Explore our IoT & Deep-Tech core", icon: "⚡" },
-    ],
-    featured: { eyebrow: "Enterprise", title: "96% Uptime", desc: "21 hubs, 400+ technicians. Guaranteed 20-minute repair turnaround.", href: "/ev-for-delivery", cta: "Partner with Us" },
-  },
-  {
-    label: "Company",
-    accentClass: "text-purple-600 dark:text-purple-400",
-    bgClass: "bg-purple-500/10 dark:bg-purple-500/20",
-    gradient: "from-purple-500 to-fuchsia-600",
-    items: [
-      { label: "Our Story", href: "/about", desc: "8 years of transforming mobility", icon: "🌱" },
-      { label: "HustleOS", href: "/hustleos", desc: "The operating system for gig workers", icon: "🚀" },
-      { label: "ESG & Environment", href: "/environment", desc: "Carbon reduction & sustainability goals", icon: "🌍" },
-      { label: "Careers", href: "/careers", desc: "Join the revolution in mobility", icon: "🎯" },
-      { label: "Life at Zypp", href: "/life-at-zypp", desc: "Our culture, perks, and people", icon: "❤️" },
-      { label: "Blogs", href: "/blogs", desc: "Latest updates, stories, and EV insights", icon: "✍️" },
-      { label: "News & Media", href: "/zyppNews", desc: "Latest press and announcements", icon: "📰" },
-      { label: "Gig Ki Awaaz", href: "https://youtube.com/@GigKiAwaaz", desc: "Our official rider podcast", icon: "🎙", newTab: true },
-    ],
-    featured: { eyebrow: "Investors", title: "EBITDA Positive", desc: "On track for FY28 IPO. Join the last private entry before listing.", href: "/investors", cta: "View Investor Deck" },
-  },
-];
-
-function FeaturedCard({ f, gradient, onClick }: { f: Featured; gradient: string; onClick: () => void }) {
+function FeaturedCard({ f, gradient, onClick }: { f: NavFeatured; gradient: string; onClick: () => void }) {
   return (
     <Link
       href={f.href}
@@ -101,6 +45,20 @@ export default function Navbar() {
   const [globalCTA, setGlobalCTA] = useState<GlobalCTA>({ enabled: true, label: "Get the App", link: "/contact", openInNewTab: false, style: "primary", floatingEnabled: false, floatingLabel: "Get the App", floatingLink: "/contact", floatingOpenInNewTab: false, floatingPosition: "bottom-right" });
   const { theme, setTheme } = useTheme();
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const desktopNavRef = useRef<HTMLElement | null>(null);
+
+  // Close an open mega-menu on Escape or on any pointer-down outside the nav,
+  // so click/keyboard-opened menus don't get stuck open.
+  useEffect(() => {
+    if (openGroup === null) return;
+    const onKey = (e: KeyboardEvent) => { if (e.key === "Escape") setOpenGroup(null); };
+    const onPointerDown = (e: MouseEvent) => {
+      if (desktopNavRef.current && !desktopNavRef.current.contains(e.target as Node)) setOpenGroup(null);
+    };
+    window.addEventListener("keydown", onKey);
+    window.addEventListener("mousedown", onPointerDown);
+    return () => { window.removeEventListener("keydown", onKey); window.removeEventListener("mousedown", onPointerDown); };
+  }, [openGroup]);
 
   useEffect(() => {
     setMounted(true);
@@ -131,7 +89,7 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const mergedGroups = navGroups.map((group) => {
+  const mergedGroups = NAV_GROUPS.map((group) => {
     const groupKey = Object.entries(GROUP_KEY_MAP).find(([, v]) => v === group.label)?.[0];
     const extra = groupKey ? cmsItems.filter((i) => i.group === groupKey) : [];
     return {
@@ -166,7 +124,7 @@ export default function Navbar() {
         <LogoLink size={34} />
 
         {/* Desktop Nav */}
-        <nav className="hidden lg:flex items-center gap-1">
+        <nav ref={desktopNavRef} className="hidden lg:flex items-center gap-1">
           {mergedGroups.map((group, i) => (
             <div
               key={i}
@@ -175,6 +133,9 @@ export default function Navbar() {
               onMouseLeave={handleMouseLeave}
             >
               <button
+                onClick={() => setOpenGroup(openGroup === i ? null : i)}
+                aria-expanded={openGroup === i}
+                aria-haspopup="true"
                 className={`flex items-center gap-1 px-4 py-2 rounded-lg text-sm font-semibold transition-colors ${
                   openGroup === i ? "bg-card text-foreground" : "text-muted hover:text-foreground hover:bg-card"
                 }`}

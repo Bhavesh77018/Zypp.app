@@ -59,7 +59,7 @@ export default function CareersPage() {
       </section>
 
       {/* Open Roles */}
-      <section id="openings" className="py-20 bg-gray-50 dark:bg-slate-900 border-y border-gray-100 dark:border-slate-800">
+      <section id="openings" className="scroll-mt-24 py-20 bg-gray-50 dark:bg-slate-900 border-y border-gray-100 dark:border-slate-800">
         <div className="container mx-auto px-4">
           <Reveal className="text-center mb-14">
             <div className="text-sm font-bold text-primary uppercase tracking-widest mb-3">{String(rolesSec.eyebrow)}</div>
@@ -80,7 +80,11 @@ export default function CareersPage() {
                   </div>
                 </div>
                 <div className="pt-4 border-t border-gray-100 dark:border-slate-700">
-                  <Link href="/contact" data-track={`Apply ${r.title}`} className="inline-flex items-center gap-2 text-primary font-bold text-sm group-hover:gap-3 transition-all">
+                  <Link
+                    href={`/contact?reason=${encodeURIComponent("Career enquiry")}&role=${encodeURIComponent(r.title)}`}
+                    data-track={`Apply ${r.title}`}
+                    className="inline-flex items-center gap-2 text-primary font-bold text-sm group-hover:gap-3 transition-all"
+                  >
                     Apply for this role <ArrowRight size={16} />
                   </Link>
                 </div>
@@ -89,7 +93,7 @@ export default function CareersPage() {
           </RevealStagger>
           <div className="text-center mt-10">
             <p className="text-gray-500 dark:text-gray-400 mb-4">{String(rolesSec.openNote)}</p>
-            <Link href="/contact" data-track="Careers Open Application" className="inline-flex items-center gap-2 text-primary font-semibold hover:gap-3 transition-all">
+            <Link href={`/contact?reason=${encodeURIComponent("Career enquiry")}`} data-track="Careers Open Application" className="inline-flex items-center gap-2 text-primary font-semibold hover:gap-3 transition-all">
               {String(rolesSec.openLinkLabel)} <ArrowRight size={16} />
             </Link>
           </div>

@@ -62,7 +62,7 @@ function CorpVideoSection({ content }: { content: CorpVideoContent }) {
 }
 
 // News Section
-type NewsContent = { eyebrow: string; heading: string; items: { source: string; date: string; title: string }[] };
+type NewsContent = { eyebrow: string; heading: string; items: { source: string; date: string; title: string; url?: string }[] };
 function NewsSection({ content }: { content: NewsContent }) {
   return (
     <section className="py-20 bg-gray-50 dark:bg-slate-900 border-y border-gray-100 dark:border-slate-800">
@@ -81,15 +81,24 @@ function NewsSection({ content }: { content: NewsContent }) {
           </Link>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {(content.items ?? []).map((n) => (
-            <div
-              key={n.title}
-              className="bg-white dark:bg-slate-800 border border-gray-100 dark:border-slate-700 rounded-2xl p-6 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300 group cursor-pointer"
-            >
-              <div className="text-xs font-bold text-primary uppercase tracking-wider mb-3">{n.source} · {n.date}</div>
-              <h3 className="text-gray-900 dark:text-white font-bold leading-snug group-hover:text-primary transition-colors">{n.title}</h3>
-            </div>
-          ))}
+          {(content.items ?? []).map((n) => {
+            const card = (
+              <>
+                <div className="text-xs font-bold text-primary uppercase tracking-wider mb-3">{n.source} · {n.date}</div>
+                <h3 className="text-gray-900 dark:text-white font-bold leading-snug group-hover:text-primary transition-colors">{n.title}</h3>
+              </>
+            );
+            const cardClass = "block bg-white dark:bg-slate-800 border border-gray-100 dark:border-slate-700 rounded-2xl p-6 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300 group";
+            return n.url ? (
+              <a key={n.title} href={n.url} target="_blank" rel="noopener noreferrer" className={cardClass}>
+                {card}
+              </a>
+            ) : (
+              <div key={n.title} className={cardClass}>
+                {card}
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>

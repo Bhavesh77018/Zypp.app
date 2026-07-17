@@ -13,6 +13,7 @@ import CitiesPresence from "@/components/CitiesPresence";
 import PilotVsRental from "@/components/PilotVsRental";
 import ScooterSpecs from "@/components/ScooterSpecs";
 import HeroVideoBackdrop from "@/components/HeroVideoBackdrop";
+import StickyMobileCTA from "@/components/StickyMobileCTA";
 
 type Platform = { name: string; color: string; orders: string };
 type Step = { step: string; title: string; desc: string };
@@ -290,6 +291,8 @@ export default function ZyppPilotPage() {
       </section>
 
       <GetInTouchSection />
+
+      <StickyMobileCTA label="Join Zypp Pilot — Apply Now" />
     </div>
   );
 }

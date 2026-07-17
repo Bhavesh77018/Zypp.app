@@ -17,7 +17,12 @@ const DOORS = [
   { icon: "📈", title: "I'm an Investor", desc: "Pre-IPO round open. $25–30M. FY28 IPO. EBITDA positive — the last private entry before listing.", cta: "Investor Inquiry", href: "/investors", external: false },
 ];
 
-export default function ContactPage() {
+export default async function ContactPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ reason?: string; role?: string }>;
+}) {
+  const { reason, role } = await searchParams;
   const c = getContent("contact");
   const hero = c.hero as Record<string, string>;
   const form = c.form as Record<string, unknown>;
@@ -78,7 +83,13 @@ export default function ContactPage() {
             {/* Form */}
             <div className="lg:col-span-3">
               <div className="bg-white dark:bg-slate-900 border border-gray-100 dark:border-slate-800 rounded-3xl p-8 shadow-sm">
-                <ContactForm heading={String(form.heading)} reasonLabel={String(form.reasonLabel)} reasons={reasons} />
+                <ContactForm
+                  heading={String(form.heading)}
+                  reasonLabel={String(form.reasonLabel)}
+                  reasons={reasons}
+                  initialReason={reason}
+                  initialMessage={role ? `Applying for: ${role}` : undefined}
+                />
               </div>
             </div>
 
