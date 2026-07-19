@@ -6,6 +6,11 @@ import { Reveal, RevealStagger, RevealItem } from "@/components/motion/Reveal";
 import { Icon3D } from "@/components/Icon3D";
 import HeroVideoBackdrop from "@/components/HeroVideoBackdrop";
 
+export const metadata = {
+  title: "Life at Zypp — Culture, People & Gig Ki Awaaz",
+  description: "Inside Zypp Electric: a rider-first culture, teams that learn in the field, and Gig Ki Awaaz — India's only podcast by gig workers, for gig workers.",
+};
+
 type Culture = { icon: string; title: string; desc: string };
 type Story = { name: string; role: string; quote: string };
 

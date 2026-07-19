@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useState, useEffect, useRef } from "react";
 import { flushSync } from "react-dom";
 import { AnimatePresence, motion } from "framer-motion";
@@ -46,6 +47,7 @@ export default function Navbar() {
   const [cmsItems, setCmsItems] = useState<CMSNavItem[]>([]);
   const [globalCTA, setGlobalCTA] = useState<GlobalCTA>({ enabled: true, label: "Get the App", link: "/contact", openInNewTab: false, style: "primary", floatingEnabled: false, floatingLabel: "Get the App", floatingLink: "/contact", floatingOpenInNewTab: false, floatingPosition: "bottom-right" });
   const { theme, setTheme } = useTheme();
+  const pathname = usePathname();
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const desktopNavRef = useRef<HTMLElement | null>(null);
 
@@ -157,38 +159,58 @@ export default function Navbar() {
                 <ChevronDown size={14} className={`transition-transform duration-200 ${openGroup === i ? "rotate-180" : ""}`} />
               </button>
 
-              {/* Mega-menu dropdown */}
+              {/* Mega-menu dropdown — the pt-3 wrapper doubles as a hover
+                  bridge so the gap under the button can't trigger a close. */}
               {openGroup === i && (
-                <div
-                  className="absolute top-full left-1/2 -translate-x-1/2 mt-4 w-[850px] bg-card border border-card-border rounded-3xl shadow-2xl overflow-hidden z-50 animate-menu-in motion-reduce:animate-none"
-                  onMouseEnter={() => handleMouseEnter(i)}
-                  onMouseLeave={handleMouseLeave}
-                >
-                  <div className="grid grid-cols-[1fr_320px]">
-                    {/* item grid */}
-                    <div className="grid grid-cols-2 gap-x-6 gap-y-4 p-8">
-                      {group.items.map((item, j) => (
-                        <Link
-                          key={j}
-                          href={item.href}
-                          target={item.newTab ? "_blank" : undefined}
-                          rel={item.newTab ? "noopener noreferrer" : undefined}
-                          onClick={() => setOpenGroup(null)}
-                          className="flex items-start gap-4 p-3 rounded-2xl hover:bg-muted/30 transition-colors group/item"
-                        >
-                          <span className={`mt-0.5 shrink-0 w-11 h-11 rounded-xl flex items-center justify-center group-hover/item:scale-110 group-hover/item:shadow-md transition-all ${group.bgClass} ${group.accentClass}`}>
-                            <EmojiIcon glyph={item.icon} size={22} />
-                          </span>
-                          <div className="min-w-0 flex flex-col justify-center">
-                            <div className="font-bold text-sm text-foreground truncate group-hover/item:text-primary transition-colors">{item.label}</div>
-                            <div className="text-[13px] text-muted leading-snug mt-0.5">{item.desc}</div>
-                          </div>
-                        </Link>
-                      ))}
+                <div className="absolute top-full left-1/2 -translate-x-1/2 pt-3 z-50">
+                  {/* caret pointing at the trigger */}
+                  <div className="absolute left-1/2 -translate-x-1/2 top-[6px] w-3.5 h-3.5 rotate-45 bg-card border-l border-t border-card-border rounded-[3px] z-10 animate-menu-in motion-reduce:animate-none" />
+                  <div className="w-[850px] bg-card border border-card-border rounded-3xl shadow-2xl overflow-hidden animate-menu-in motion-reduce:animate-none">
+                    <div className="grid grid-cols-[1fr_320px]">
+                      {/* item grid */}
+                      <div className="grid grid-cols-2 gap-x-6 gap-y-3 p-7 pb-5 content-start">
+                        {group.items.map((item, j) => {
+                          const active = !item.newTab && pathname === item.href;
+                          return (
+                            <Link
+                              key={j}
+                              href={item.href}
+                              target={item.newTab ? "_blank" : undefined}
+                              rel={item.newTab ? "noopener noreferrer" : undefined}
+                              onClick={() => setOpenGroup(null)}
+                              style={{ animationDelay: `${j * 30}ms`, animationDuration: "300ms" }}
+                              className={`flex items-start gap-4 p-3 rounded-2xl transition-colors group/item animate-fade-up motion-reduce:animate-none ${
+                                active ? "bg-muted/20 ring-1 ring-inset ring-primary/25" : "hover:bg-muted/30"
+                              }`}
+                            >
+                              <span className={`mt-0.5 shrink-0 w-11 h-11 rounded-xl flex items-center justify-center group-hover/item:scale-110 group-hover/item:shadow-md transition-all ${group.bgClass} ${group.accentClass}`}>
+                                <EmojiIcon glyph={item.icon} size={22} />
+                              </span>
+                              <div className="min-w-0 flex flex-col justify-center">
+                                <div className="font-bold text-sm text-foreground truncate group-hover/item:text-primary transition-colors flex items-center gap-1.5">
+                                  {item.label}
+                                  {active && <span className="w-1.5 h-1.5 rounded-full bg-primary shrink-0" aria-label="Current page" />}
+                                </div>
+                                <div className="text-[13px] text-muted leading-snug mt-0.5">{item.desc}</div>
+                              </div>
+                              <ArrowRight size={14} className="ml-auto mt-3.5 shrink-0 text-primary opacity-0 -translate-x-1 group-hover/item:opacity-100 group-hover/item:translate-x-0 transition-all" />
+                            </Link>
+                          );
+                        })}
+                      </div>
+                      {/* featured card */}
+                      <div className="p-4 bg-muted/10 border-l border-card-border flex">
+                        <FeaturedCard f={group.featured} gradient={group.gradient} onClick={() => setOpenGroup(null)} />
+                      </div>
                     </div>
-                    {/* featured card */}
-                    <div className="p-4 bg-muted/10 border-l border-card-border flex">
-                      <FeaturedCard f={group.featured} gradient={group.gradient} onClick={() => setOpenGroup(null)} />
+                    {/* quick-links strip */}
+                    <div className="flex items-center gap-6 px-7 py-3 border-t border-card-border bg-muted/10 text-[13px] font-semibold">
+                      <Link href="/find-hub" onClick={() => setOpenGroup(null)} className="text-muted hover:text-primary transition-colors">📍 Find a Hub</Link>
+                      <a href="https://play.google.com/store/apps/details?id=com.zyppdelivery" target="_blank" rel="noopener noreferrer" className="text-muted hover:text-primary transition-colors">📱 Get the App</a>
+                      <a href="mailto:help@zypp.app" className="text-muted hover:text-primary transition-colors">✉️ help@zypp.app</a>
+                      <Link href="/investors" onClick={() => setOpenGroup(null)} className="ml-auto inline-flex items-center gap-1 text-primary hover:gap-2 transition-all">
+                        Investor Relations <ArrowRight size={13} />
+                      </Link>
                     </div>
                   </div>
                 </div>

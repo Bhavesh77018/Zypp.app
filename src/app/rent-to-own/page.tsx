@@ -8,6 +8,11 @@ import OwnershipPath from "@/components/OwnershipPath";
 import StickyMobileCTA from "@/components/StickyMobileCTA";
 import { CountUpValue } from "@/components/CountUpValue";
 
+export const metadata = {
+  title: "Rent to Own — Own Your Zypp EV Scooter in 52 Weeks",
+  description: "Pay weekly rent, own the EV in a year. Zero downpayment, maintenance and battery swaps included while you earn with any delivery platform.",
+};
+
 type Stat = { val: string; label: string };
 type Benefit = { icon: string; title: string; desc: string };
 type Phase = { phase: string; title: string; desc: string };

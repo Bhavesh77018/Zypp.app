@@ -6,6 +6,11 @@ import { Reveal, RevealStagger, RevealItem } from "@/components/motion/Reveal";
 import { Icon3D } from "@/components/Icon3D";
 import HeroVideoBackdrop from "@/components/HeroVideoBackdrop";
 
+export const metadata = {
+  title: "Zypp Evolve — EV Innovation Challenge with ₹30L Funding",
+  description: "Zypp Evolve invites EV startups, students and researchers to co-create sustainable mobility. Win up to ₹30 lakh in funding, incubation and VC access.",
+};
+
 type Feature = { icon: string; title: string; desc: string };
 type Stat = { val: string; label: string };
 type Partner = { icon: string; name: string };

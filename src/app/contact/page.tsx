@@ -4,6 +4,11 @@ import { getContent } from "@/lib/cms";
 import ContactForm from "@/components/ContactForm";
 import { Reveal, RevealStagger, RevealItem } from "@/components/motion/Reveal";
 
+export const metadata = {
+  title: "Contact Zypp Electric — Riders, Partners, Franchise & Press",
+  description: "Reach the right Zypp team fast: rider onboarding, enterprise fleets, franchise, advertising, FleetEase demos and investor relations. Offices in Gurugram.",
+};
+
 type QuickContact = { iconType: string; label: string; val: string; href: string };
 type Office = { city: string; address: string; phone: string };
 
@@ -114,6 +119,19 @@ export default async function ContactPage({
                     );
                   })}
                 </div>
+                {/* WhatsApp — the channel most riders actually use */}
+                <a
+                  href="https://wa.me/919289222111?text=Hi%20Zypp%2C%20I%27d%20like%20to%20know%20more"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  data-track="WhatsApp Contact"
+                  className="mt-5 flex items-center justify-center gap-2.5 w-full py-3.5 rounded-2xl bg-[#25D366] text-white font-bold text-sm hover:bg-[#1fb857] hover:-translate-y-0.5 transition-all shadow-lg shadow-[#25D366]/25"
+                >
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.4-1.47-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.44-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.5 0 1.47 1.07 2.89 1.22 3.09.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.7.63.71.22 1.36.19 1.87.11.57-.08 1.76-.72 2-1.41.25-.7.25-1.29.18-1.42-.07-.12-.27-.2-.57-.35zM12.05 21.79h-.01a9.87 9.87 0 01-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.83 9.83 0 01-1.51-5.24c0-5.44 4.43-9.87 9.89-9.87a9.8 9.8 0 016.98 2.9 9.8 9.8 0 012.9 6.99c0 5.44-4.44 9.86-9.88 9.86zm8.4-18.25A11.8 11.8 0 0012.04 0C5.5 0 .16 5.34.16 11.9c0 2.1.55 4.15 1.6 5.95L.06 24l6.3-1.65a11.9 11.9 0 005.69 1.45C18.6 23.8 24 18.46 24 11.9a11.82 11.82 0 00-3.54-8.36z" />
+                  </svg>
+                  Chat with us on WhatsApp
+                </a>
               </div>
 
               {/* Offices */}

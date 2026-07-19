@@ -5,6 +5,11 @@ import { Reveal, RevealStagger, RevealItem } from "@/components/motion/Reveal";
 import { Icon3D } from "@/components/Icon3D";
 import HeroVideoBackdrop from "@/components/HeroVideoBackdrop";
 
+export const metadata = {
+  title: "Careers at Zypp Electric — Build India's Gig Economy OS",
+  description: "Open roles across operations, product and engineering at Zypp Electric. Join the EBITDA-positive, pre-IPO team electrifying last-mile delivery in India.",
+};
+
 type Perk = { icon: string; title: string; desc: string };
 type Role = { title: string; dept: string; type: string; location: string };
 

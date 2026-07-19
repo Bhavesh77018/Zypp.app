@@ -1,6 +1,11 @@
 import { ArrowRight } from "lucide-react";
 import { getContent } from "@/lib/cms";
-import { RevealStagger, RevealItem } from "@/components/motion/Reveal";
+import NewsExplorer from "@/components/news/NewsExplorer";
+
+export const metadata = {
+  title: "Zypp Electric in the News — Press & Media Coverage",
+  description: "The latest press coverage of Zypp Electric: funding, milestones, partnerships and India's EV-led quick-commerce revolution. Press contact: pr@zypp.app.",
+};
 
 type Article = { source: string; date: string; title: string; category: string; url?: string };
 
@@ -32,28 +37,6 @@ function FeaturedCard({ article }: { article: Article }) {
     </>
   );
   const cls = "block bg-gray-50 dark:bg-slate-900 border border-gray-100 dark:border-slate-800 rounded-3xl p-8 md:p-10 hover:border-primary/30 hover:shadow-xl transition-all duration-300 group max-w-4xl";
-  return article.url
-    ? <a href={article.url} target="_blank" rel="noopener noreferrer" className={cls}>{inner}</a>
-    : <div className={cls}>{inner}</div>;
-}
-
-function ArticleCard({ article }: { article: Article }) {
-  const inner = (
-    <>
-      <div className="flex items-center gap-2 mb-3">
-        <span className={`px-2.5 py-1 rounded-full text-[11px] font-bold ${CATEGORY_COLORS[article.category] || "bg-gray-100 text-gray-500"}`}>{article.category}</span>
-        <span className="text-xs text-gray-400">{article.date}</span>
-      </div>
-      <div className="text-xs font-bold text-gray-400 uppercase tracking-wider mb-2">{article.source}</div>
-      <h3 className="font-bold text-gray-900 dark:text-white leading-snug group-hover:text-primary transition-colors flex-1">{article.title}</h3>
-      {article.url && (
-        <div className="mt-4 inline-flex items-center gap-1 text-primary text-xs font-semibold group-hover:gap-2 transition-all">
-          Read <ArrowRight size={12} />
-        </div>
-      )}
-    </>
-  );
-  const cls = "h-full bg-white dark:bg-slate-900 border border-gray-100 dark:border-slate-800 rounded-2xl p-6 hover:border-primary/30 hover:shadow-md hover:-translate-y-1 transition-all duration-300 group flex flex-col";
   return article.url
     ? <a href={article.url} target="_blank" rel="noopener noreferrer" className={cls}>{inner}</a>
     : <div className={cls}>{inner}</div>;
@@ -94,15 +77,8 @@ export default function NewsPage() {
             </div>
           )}
 
-          {/* All Articles */}
-          <div className="text-sm font-bold text-primary uppercase tracking-widest mb-6">{String(articlesSec.listLabel)}</div>
-          <RevealStagger className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5" stagger={0.05}>
-            {rest.map((a) => (
-              <RevealItem key={a.title}>
-                <ArticleCard article={a} />
-              </RevealItem>
-            ))}
-          </RevealStagger>
+          {/* All Articles — client-side category filtering */}
+          <NewsExplorer articles={rest} listLabel={String(articlesSec.listLabel)} />
         </div>
       </section>
 

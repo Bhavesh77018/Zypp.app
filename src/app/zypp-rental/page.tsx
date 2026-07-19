@@ -12,6 +12,11 @@ import GigKiAwaazSection from "@/components/home/GigKiAwaazSection";
 import TestimonialsSection from "@/components/home/TestimonialsSection";
 import StickyMobileCTA from "@/components/StickyMobileCTA";
 
+export const metadata = {
+  title: "Zypp Rental (B2C) — Rent an Electric Scooter, Keep the Freedom",
+  description: "Flexible EV scooter rentals with unlimited battery swaps, maintenance and insurance included. Work with any delivery app and keep 100% of your earnings.",
+};
+
 type Plan = { name: string; highlight: boolean; features: string };
 type FAQ = { q: string; a: string };
 

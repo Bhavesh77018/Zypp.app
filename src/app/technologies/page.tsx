@@ -11,6 +11,11 @@ import IntelligenceLoopSection from "@/components/technology/IntelligenceLoopSec
 import ProductSuite from "@/components/technologies/ProductSuite";
 import TechRealWorldSection from "@/components/technology/TechRealWorldSection";
 
+export const metadata = {
+  title: "Zypp Technologies — IoT, AI & Battery Intelligence for EV Fleets",
+  description: "The deep-tech stack behind India's largest EV delivery fleet: 4G telematics, predictive maintenance, battery management and the FleetEase operating system.",
+};
+
 const OPERATING_LAYERS = [
   { step: "01", title: "Vehicle intelligence", body: "Live telematics, battery signals and asset health create one dependable vehicle record." },
   { step: "02", title: "Predictive operations", body: "Maintenance and utilisation patterns help teams act before downtime becomes a delivery problem." },

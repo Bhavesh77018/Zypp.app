@@ -2,6 +2,7 @@ import { ArrowRight, Check, TrendingUp, Package, Fuel, CircleDot, Play } from "l
 import { getContent } from "@/lib/cms";
 import { Reveal, RevealStagger, RevealItem } from "@/components/motion/Reveal";
 import GrowthChart from "@/components/investors/GrowthChart";
+import DeckRequestForm from "@/components/investors/DeckRequestForm";
 import HeroVideoBackdrop from "@/components/HeroVideoBackdrop";
 
 export const metadata = {
@@ -375,6 +376,9 @@ export default function InvestorsPage() {
           <div className="flex flex-wrap gap-4 justify-center mb-10">
             <a href={finalCta.primaryLink} className="px-8 py-3.5 rounded-full bg-primary text-white font-bold hover:bg-primary/90 transition-all shadow-xl shadow-primary/30">{finalCta.primaryLabel}</a>
             <a href={finalCta.secondaryLink} className="px-8 py-3.5 rounded-full bg-white/10 text-white font-bold border border-white/20 hover:bg-white/20 transition-all">{finalCta.secondaryLabel}</a>
+          </div>
+          <div className="mb-10">
+            <DeckRequestForm />
           </div>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-2xl mx-auto">
             {(finalCta.contacts ?? []).map((ct: any) => (

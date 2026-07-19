@@ -12,6 +12,11 @@ import HowItWorksSection from "@/components/home/HowItWorksSection";
 import SavingsCalculator from "@/components/home/SavingsCalculator";
 import GigKiAwaazSection from "@/components/home/GigKiAwaazSection";
 
+export const metadata = {
+  title: "2W EV Services — Zypp Pilot vs Zypp Rental Compared",
+  description: "Compare Zypp's two-wheeler plans: Pilot (B2B, work included) vs Rental (B2C, full freedom). Find the right electric scooter plan for your delivery hustle.",
+};
+
 const TWO_MODEL_CARDS = [
   {
     key: "rental",

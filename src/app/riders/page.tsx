@@ -17,6 +17,11 @@ import StickyMobileCTA from "@/components/StickyMobileCTA";
 import { CountUpValue } from "@/components/CountUpValue";
 import { getContent } from "@/lib/cms";
 
+export const metadata = {
+  title: "Earn ₹35–45K/Month with Zypp — EV Rentals for Gig Riders",
+  description: "Join 2.5 lakh+ riders earning with Zypp Electric. Zero downpayment, zero fuel cost, 1,500+ battery-swap stations across 8 cities. Start in 24 hours.",
+};
+
 type Help = { icon: string; title: string; href: string };
 type Story = { name: string; role: string; earnings: string; quote: string };
 type Step = { step: string; title: string; desc: string };

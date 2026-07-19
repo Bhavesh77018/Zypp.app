@@ -16,6 +16,11 @@ import HeroVideoBackdrop from "@/components/HeroVideoBackdrop";
 import StickyMobileCTA from "@/components/StickyMobileCTA";
 import { CountUpValue } from "@/components/CountUpValue";
 
+export const metadata = {
+  title: "Zypp Pilot (B2B) — Guaranteed Delivery Work + EV Included",
+  description: "Ride with Zypp Pilot: we bring the delivery orders from Zomato, Swiggy, Blinkit & Zepto, you ride our EV. Guaranteed payouts, health insurance, 24/7 support.",
+};
+
 type Platform = { name: string; color: string; orders: string };
 type Step = { step: string; title: string; desc: string };
 

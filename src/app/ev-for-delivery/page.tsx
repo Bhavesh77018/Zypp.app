@@ -6,6 +6,11 @@ import { Icon3D } from "@/components/Icon3D";
 import HeroVideoBackdrop from "@/components/HeroVideoBackdrop";
 import { CountUpValue } from "@/components/CountUpValue";
 
+export const metadata = {
+  title: "EV Fleets for Delivery Businesses — 96% Uptime | Zypp",
+  description: "Dedicated electric fleets and riders for last-mile delivery. SLA-backed uptime, 20-minute repair turnaround, and ESG reporting for Zomato-scale operations.",
+};
+
 type Stat = { val: string; label: string };
 type Partner = { name: string; orders: string; color: string };
 type Tool = { icon: string; title: string; desc: string };

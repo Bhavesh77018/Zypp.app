@@ -14,6 +14,11 @@ import LoaderSpecs from "@/components/LoaderSpecs";
 import StickyMobileCTA from "@/components/StickyMobileCTA";
 import { CountUpValue } from "@/components/CountUpValue";
 
+export const metadata = {
+  title: "3W Loader — Earn up to ₹80K/Month with Electric Cargo",
+  description: "Drive Zypp's electric 3-wheeler loaders for last-mile cargo. L3 and L5 models, commercial licence support, and steady enterprise delivery demand.",
+};
+
 type Stat = { val: string; label: string };
 type Benefit = { icon: string; title: string; desc: string };
 type Step = { step: string; title: string; desc: string };
