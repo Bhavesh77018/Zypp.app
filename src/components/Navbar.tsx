@@ -6,9 +6,9 @@ import { useState, useEffect, useRef } from "react";
 import { flushSync } from "react-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import { useTheme } from "next-themes";
-import { Sun, Moon, Menu, X, ChevronDown, ArrowRight, MoreVertical } from "lucide-react";
+import { Sun, Moon, Menu, X, ChevronDown, ArrowRight, MoreVertical, MapPin, Smartphone, Mail } from "lucide-react";
 import { LogoLink } from "@/components/Logo";
-import { EmojiIcon } from "@/components/icons/iconMap";
+import { NavItemIcon } from "@/components/icons/iconMap";
 import FullMenu from "@/components/FullMenu";
 import { NAV_GROUPS, type NavFeatured } from "@/lib/nav-links";
 
@@ -184,7 +184,7 @@ export default function Navbar() {
                               }`}
                             >
                               <span className={`mt-0.5 shrink-0 w-11 h-11 rounded-xl flex items-center justify-center group-hover/item:scale-110 group-hover/item:shadow-md transition-all ${group.bgClass} ${group.accentClass}`}>
-                                <EmojiIcon glyph={item.icon} size={22} />
+                                <NavItemIcon icon={item.icon} size={21} />
                               </span>
                               <div className="min-w-0 flex flex-col justify-center">
                                 <div className="font-bold text-sm text-foreground truncate group-hover/item:text-primary transition-colors flex items-center gap-1.5">
@@ -205,9 +205,9 @@ export default function Navbar() {
                     </div>
                     {/* quick-links strip */}
                     <div className="flex items-center gap-6 px-7 py-3 border-t border-card-border bg-muted/10 text-[13px] font-semibold">
-                      <Link href="/find-hub" onClick={() => setOpenGroup(null)} className="text-muted hover:text-primary transition-colors">📍 Find a Hub</Link>
-                      <a href="https://play.google.com/store/apps/details?id=com.zyppdelivery" target="_blank" rel="noopener noreferrer" className="text-muted hover:text-primary transition-colors">📱 Get the App</a>
-                      <a href="mailto:help@zypp.app" className="text-muted hover:text-primary transition-colors">✉️ help@zypp.app</a>
+                      <Link href="/find-hub" onClick={() => setOpenGroup(null)} className="inline-flex items-center gap-1.5 text-muted hover:text-primary transition-colors"><MapPin size={14} /> Find a Hub</Link>
+                      <a href="https://play.google.com/store/apps/details?id=com.zyppdelivery" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-muted hover:text-primary transition-colors"><Smartphone size={14} /> Get the App</a>
+                      <a href="mailto:help@zypp.app" className="inline-flex items-center gap-1.5 text-muted hover:text-primary transition-colors"><Mail size={14} /> help@zypp.app</a>
                       <Link href="/investors" onClick={() => setOpenGroup(null)} className="ml-auto inline-flex items-center gap-1 text-primary hover:gap-2 transition-all">
                         Investor Relations <ArrowRight size={13} />
                       </Link>
@@ -316,7 +316,7 @@ export default function Navbar() {
                       className="flex items-center gap-4 px-4 py-3.5 mb-1 rounded-xl hover:bg-muted/10 transition-colors"
                     >
                       <span className={`shrink-0 w-10 h-10 rounded-lg flex items-center justify-center shadow-sm ${group.bgClass} ${group.accentClass}`}>
-                        <EmojiIcon glyph={item.icon} size={20} />
+                        <NavItemIcon icon={item.icon} size={19} />
                       </span>
                       <div className="flex flex-col justify-center">
                         <div className="text-sm font-bold text-foreground">{item.label}</div>

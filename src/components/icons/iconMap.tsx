@@ -127,6 +127,28 @@ export function iconFor(glyph?: string): LucideIcon | undefined {
  * Falls back to `fallback` (or nothing) when no icon mapping exists.
  * This ensures zero raw emojis appear on the public UI.
  */
+/**
+ * Renders a nav icon that is either a Lucide component (curated nav links)
+ * or an emoji string (CMS-authored pages, mapped via EmojiIcon).
+ */
+export function NavItemIcon({
+  icon,
+  size = 20,
+  className = "",
+  strokeWidth = 2,
+}: {
+  icon: LucideIcon | string;
+  size?: number;
+  className?: string;
+  strokeWidth?: number;
+}): ReactNode {
+  if (typeof icon === "string") {
+    return <EmojiIcon glyph={icon} size={size} className={className} strokeWidth={strokeWidth} />;
+  }
+  const Icon = icon;
+  return <Icon size={size} strokeWidth={strokeWidth} className={className} />;
+}
+
 export function EmojiIcon({
   glyph,
   size = 20,

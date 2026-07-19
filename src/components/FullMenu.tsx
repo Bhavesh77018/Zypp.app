@@ -5,9 +5,15 @@ import { useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { X, ArrowRight, Smartphone } from "lucide-react";
 import { Logo } from "@/components/Logo";
+import { NavItemIcon } from "@/components/icons/iconMap";
 import { NAV_GROUPS, columnLinks } from "@/lib/nav-links";
 
-const COLUMNS = NAV_GROUPS.map((g) => ({ title: g.label, links: columnLinks(g) }));
+const COLUMNS = NAV_GROUPS.map((g) => ({
+  title: g.label,
+  bgClass: g.bgClass,
+  accentClass: g.accentClass,
+  links: columnLinks(g),
+}));
 
 const FEATURED = [
   { img: "/media/app-screen-5.png", title: "The Zypp Pilot App", desc: "Earnings, payouts & swaps", href: "/riders", external: false },
@@ -66,8 +72,10 @@ export default function FullMenu({ open, onClose }: { open: boolean; onClose: ()
                         <li key={l.label}>
                           <Link href={l.href} onClick={onClose}
                             {...(l.newTab ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-                            className="group inline-flex items-center gap-2.5 text-base md:text-lg font-medium text-muted hover:text-foreground transition-colors py-1">
-                            <span className="text-xl leading-none opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all">{l.icon}</span>
+                            className="group inline-flex items-center gap-3 text-base md:text-lg font-medium text-muted hover:text-foreground transition-colors py-1">
+                            <span className={`shrink-0 w-8 h-8 rounded-lg flex items-center justify-center group-hover:scale-110 group-hover:shadow-sm transition-all ${col.bgClass} ${col.accentClass}`}>
+                              <NavItemIcon icon={l.icon} size={16} />
+                            </span>
                             <span>{l.label}</span>
                             <ArrowRight size={14} className="opacity-0 -translate-x-1 text-primary group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-200" />
                           </Link>
