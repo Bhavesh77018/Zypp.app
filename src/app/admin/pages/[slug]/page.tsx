@@ -4,6 +4,7 @@ import { useEffect, useState, useCallback, useRef } from "react";
 import { useParams } from "next/navigation";
 import { ArrowLeft, Save, Eye, Plus, Trash2, Globe, Settings, GripVertical, FileText, Type, LayoutTemplate, ChevronDown, ChevronUp, Image as ImageIcon, Video, MousePointerClick, Columns, DivideSquare, AlignLeft, Bold } from "lucide-react";
 import Link from "next/link";
+import IconPicker from "@/components/admin/IconPicker";
 
 type SectionType = "hero" | "stats" | "feature_grid" | "cta_banner" | "text_block" | "heading_h1" | "heading_h2" | "rich_text" | "image_block" | "video_block" | "gif_block" | "divider" | "button_row" | "two_col" | "image_text";
 interface Section { id: string; type: SectionType; data: Record<string, unknown>; }
@@ -229,7 +230,10 @@ function SectionEditor({ section, onChange }: { section: Section; onChange: (dat
             <div key={i} className="p-3 bg-slate-800/50 rounded-xl flex flex-col gap-2">
               <div className="text-xs text-slate-500">Feature {i + 1}</div>
               <div className="grid grid-cols-3 gap-2">
-                <FI label="Icon" value={f.icon} onChange={v => { const nf = [...features]; nf[i] = { ...nf[i], icon: v }; upd("features", nf); }} />
+                <div>
+                  <label className="text-slate-400 text-xs font-semibold uppercase mb-1 block">Icon</label>
+                  <IconPicker value={f.icon} onChange={v => { const nf = [...features]; nf[i] = { ...nf[i], icon: v }; upd("features", nf); }} />
+                </div>
                 <FI label="Title" value={f.title} onChange={v => { const nf = [...features]; nf[i] = { ...nf[i], title: v }; upd("features", nf); }} />
                 <FI label="Desc" value={f.desc} onChange={v => { const nf = [...features]; nf[i] = { ...nf[i], desc: v }; upd("features", nf); }} />
               </div>
@@ -420,7 +424,10 @@ export default function PageBuilderPage() {
                 {(page.navSettings?.showInMenu) && (
                   <>
                     <div className="grid grid-cols-2 gap-2">
-                      <FI label="Menu Icon (emoji)" value={page.navSettings.menuIcon} onChange={(v) => { setPage({ ...page, navSettings: { ...page.navSettings!, menuIcon: v } }); setSaved(false); }} />
+                      <div>
+                        <label className="text-slate-400 text-xs font-semibold uppercase mb-1 block">Menu Icon</label>
+                        <IconPicker value={page.navSettings.menuIcon} onChange={(v) => { setPage({ ...page, navSettings: { ...page.navSettings!, menuIcon: v } }); setSaved(false); }} />
+                      </div>
                       <FI label="Menu Label" value={page.navSettings.menuLabel} onChange={(v) => { setPage({ ...page, navSettings: { ...page.navSettings!, menuLabel: v } }); setSaved(false); }} />
                     </div>
                     <FI label="Short description" value={page.navSettings.menuDescription} onChange={(v) => { setPage({ ...page, navSettings: { ...page.navSettings!, menuDescription: v } }); setSaved(false); }} />

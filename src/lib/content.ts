@@ -97,7 +97,7 @@ export const PAGE_REGISTRY: PageDef[] = [
               { icon: "🤖", title: "FleetEase.ai", desc: "The Future of EV Ecosystem, Driven by AI", href: "/fleetease" },
             ],
             itemFields: [
-              { key: "icon", label: "Icon (emoji)", type: "text", default: "✨" },
+              { key: "icon", label: "Icon", type: "text", default: "✨" },
               { key: "title", label: "Title", type: "text", default: "" },
               { key: "desc", label: "Description", type: "textarea", default: "" },
               { key: "href", label: "Link", type: "url", default: "/" },
@@ -166,7 +166,7 @@ export const PAGE_REGISTRY: PageDef[] = [
               { icon: "🎧", title: "24/7 Support", desc: "AI-Enabled Chatbot for instant ticket resolution, always available" },
             ],
             itemFields: [
-              { key: "icon", label: "Icon (emoji)", type: "text", default: "✨" },
+              { key: "icon", label: "Icon", type: "text", default: "✨" },
               { key: "title", label: "Title", type: "text", default: "" },
               { key: "desc", label: "Description", type: "textarea", default: "" },
             ],
@@ -193,7 +193,7 @@ export const PAGE_REGISTRY: PageDef[] = [
             ],
             itemFields: [
               { key: "step", label: "Step number", type: "text", default: "01" },
-              { key: "icon", label: "Icon (emoji)", type: "text", default: "✨" },
+              { key: "icon", label: "Icon", type: "text", default: "✨" },
               { key: "title", label: "Title", type: "text", default: "" },
               { key: "desc", label: "Description", type: "textarea", default: "" },
             ],
@@ -457,7 +457,7 @@ export const PAGE_REGISTRY: PageDef[] = [
               { icon: "🤝", title: "1000+ Team", desc: "A tribe building India's sustainable future" },
             ],
             itemFields: [
-              { key: "icon", label: "Icon (emoji)", type: "text", default: "✨" },
+              { key: "icon", label: "Icon", type: "text", default: "✨" },
               { key: "title", label: "Title", type: "text", default: "" },
               { key: "desc", label: "Description", type: "textarea", default: "" },
             ],
@@ -606,7 +606,7 @@ export const PAGE_REGISTRY: PageDef[] = [
               { icon: "🎽", title: "Trained Branded Riders", desc: "Customize riders with your branding to boost visibility." },
             ],
             itemFields: [
-              { key: "icon", label: "Icon (emoji)", type: "text", default: "✨" },
+              { key: "icon", label: "Icon", type: "text", default: "✨" },
               { key: "title", label: "Title", type: "text", default: "" },
               { key: "desc", label: "Description", type: "textarea", default: "" },
             ],
@@ -816,7 +816,7 @@ export const PAGE_REGISTRY: PageDef[] = [
               { img: "🏍️", name: "Zypp Pro", range: "100 km", speed: "55 kmph", battery: "Swappable" },
             ],
             itemFields: [
-              { key: "img", label: "Icon (emoji)", type: "text", default: "🛵" },
+              { key: "img", label: "Icon", type: "text", default: "🛵" },
               { key: "name", label: "Name", type: "text", default: "" },
               { key: "range", label: "Range", type: "text", default: "" },
               { key: "speed", label: "Top speed", type: "text", default: "" },
@@ -897,7 +897,7 @@ export const PAGE_REGISTRY: PageDef[] = [
               { icon: "🧑‍🔧", title: "Expert Drivers", desc: "Skilled drivers ensuring timely, happy deliveries." },
             ],
             itemFields: [
-              { key: "icon", label: "Icon (emoji)", type: "text", default: "✨" },
+              { key: "icon", label: "Icon", type: "text", default: "✨" },
               { key: "title", label: "Title", type: "text", default: "" },
               { key: "desc", label: "Description", type: "textarea", default: "" },
             ],
@@ -1001,7 +1001,7 @@ export const PAGE_REGISTRY: PageDef[] = [
               { icon: "📊", title: "Performance Reports · Included", desc: "Real-time dashboard of impressions, routes, zones covered, and estimated reach. Full accountability for every rupee." },
             ],
             itemFields: [
-              { key: "icon", label: "Icon (emoji)", type: "text", default: "✨" },
+              { key: "icon", label: "Icon", type: "text", default: "✨" },
               { key: "title", label: "Title", type: "text", default: "" },
               { key: "desc", label: "Description", type: "textarea", default: "" },
             ],
@@ -1077,7 +1077,7 @@ export const PAGE_REGISTRY: PageDef[] = [
               { icon: "🧰", title: "Fleet & Inventory Management", desc: "Monitor fleet utilization down to every spare part and individual vehicle level." },
             ],
             itemFields: [
-              { key: "icon", label: "Icon (emoji)", type: "text", default: "✨" },
+              { key: "icon", label: "Icon", type: "text", default: "✨" },
               { key: "title", label: "Title", type: "text", default: "" },
               { key: "desc", label: "Description", type: "textarea", default: "" },
             ],
@@ -1178,7 +1178,7 @@ export const PAGE_REGISTRY: PageDef[] = [
               { icon: "📈", title: "Earn More, Pay Less", desc: "A flexible rental model that makes you earn more and pay less." },
             ],
             itemFields: [
-              { key: "icon", label: "Icon (emoji)", type: "text", default: "✨" },
+              { key: "icon", label: "Icon", type: "text", default: "✨" },
               { key: "title", label: "Title", type: "text", default: "" },
               { key: "desc", label: "Description", type: "textarea", default: "" },
             ],
@@ -1225,7 +1225,7 @@ export const PAGE_REGISTRY: PageDef[] = [
               { icon: "🤝", title: "52-Week Commitment", desc: "Ride with Zypp for 52 weeks to own your scooter." },
             ],
             itemFields: [
-              { key: "icon", label: "Icon (emoji)", type: "text", default: "✨" },
+              { key: "icon", label: "Icon", type: "text", default: "✨" },
               { key: "title", label: "Title", type: "text", default: "" },
               { key: "desc", label: "Description", type: "textarea", default: "" },
             ],
@@ -1303,7 +1303,7 @@ export const PAGE_REGISTRY: PageDef[] = [
               { icon: "☁️", title: "Multi-Hub Management", desc: "Manage 1 hub or 100 from a single dashboard. City-level and hub-level views with role-based access." },
             ],
             itemFields: [
-              { key: "icon", label: "Icon (emoji)", type: "text", default: "✨" },
+              { key: "icon", label: "Icon", type: "text", default: "✨" },
               { key: "title", label: "Title", type: "text", default: "" },
               { key: "desc", label: "Description", type: "textarea", default: "" },
             ],
@@ -1481,7 +1481,7 @@ export const PAGE_REGISTRY: PageDef[] = [
               { icon: "📈", title: "ESOPs Available", desc: "Senior hires get equity in a pre-IPO company. Build the business, own a piece of it — the listing creates a real liquidity event." },
             ],
             itemFields: [
-              { key: "icon", label: "Icon (emoji)", type: "text", default: "✨" },
+              { key: "icon", label: "Icon", type: "text", default: "✨" },
               { key: "title", label: "Title", type: "text", default: "" },
               { key: "desc", label: "Description", type: "textarea", default: "" },
             ],
@@ -1694,7 +1694,7 @@ export const PAGE_REGISTRY: PageDef[] = [
               { icon: "📈", title: "Grow Together", desc: "Your growth is our growth. We invest in our people." },
             ],
             itemFields: [
-              { key: "icon", label: "Icon (emoji)", type: "text", default: "✨" },
+              { key: "icon", label: "Icon", type: "text", default: "✨" },
               { key: "title", label: "Title", type: "text", default: "" },
               { key: "desc", label: "Description", type: "textarea", default: "" },
             ],
@@ -1790,7 +1790,7 @@ export const PAGE_REGISTRY: PageDef[] = [
               { icon: "📜", title: "Certificate of Recognition", desc: "Official Zypp Electric certificate for the top 5 finalists." },
             ],
             itemFields: [
-              { key: "icon", label: "Icon (emoji)", type: "text", default: "✨" },
+              { key: "icon", label: "Icon", type: "text", default: "✨" },
               { key: "title", label: "Title", type: "text", default: "" },
               { key: "desc", label: "Description", type: "textarea", default: "" },
             ],
@@ -1833,7 +1833,7 @@ export const PAGE_REGISTRY: PageDef[] = [
               { icon: "🔌", name: "Okinawa" },
             ],
             itemFields: [
-              { key: "icon", label: "Icon (emoji)", type: "text", default: "⚡" },
+              { key: "icon", label: "Icon", type: "text", default: "⚡" },
               { key: "name", label: "Name", type: "text", default: "" },
             ],
           },
@@ -2191,7 +2191,7 @@ export const PAGE_REGISTRY: PageDef[] = [
               { icon: "🏆", title: "India's Largest EV Rental Co.", desc: "Zypp has ~26,000 EVs and 25+ clients like Zomato, Blinkit, Swiggy and Zepto." },
             ],
             itemFields: [
-              { key: "icon", label: "Icon (emoji)", type: "text", default: "✨" },
+              { key: "icon", label: "Icon", type: "text", default: "✨" },
               { key: "title", label: "Title", type: "text", default: "" },
               { key: "desc", label: "Description", type: "textarea", default: "" },
             ],
@@ -2211,7 +2211,7 @@ export const PAGE_REGISTRY: PageDef[] = [
               { icon: "🧠", title: "Predictive Maintenance", desc: "Maintenance alerts keep the fleet up and running." },
             ],
             itemFields: [
-              { key: "icon", label: "Icon (emoji)", type: "text", default: "✨" },
+              { key: "icon", label: "Icon", type: "text", default: "✨" },
               { key: "title", label: "Title", type: "text", default: "" },
               { key: "desc", label: "Description", type: "textarea", default: "" },
             ],
@@ -2253,7 +2253,7 @@ export const PAGE_REGISTRY: PageDef[] = [
               { icon: "📍", title: "Live Fleet Location", desc: "Track the location and return status of your scooters." },
             ],
             itemFields: [
-              { key: "icon", label: "Icon (emoji)", type: "text", default: "✨" },
+              { key: "icon", label: "Icon", type: "text", default: "✨" },
               { key: "title", label: "Title", type: "text", default: "" },
               { key: "desc", label: "Description", type: "textarea", default: "" },
             ],
@@ -2321,7 +2321,7 @@ export const PAGE_REGISTRY: PageDef[] = [
               { icon: "🌍", title: "Planet", desc: "41,043 tonnes of CO₂ avoided — 18.85 L trees equivalent." },
             ],
             itemFields: [
-              { key: "icon", label: "Icon (emoji)", type: "text", default: "✨" },
+              { key: "icon", label: "Icon", type: "text", default: "✨" },
               { key: "title", label: "Title", type: "text", default: "" },
               { key: "desc", label: "Description", type: "textarea", default: "" },
             ],
@@ -2398,7 +2398,7 @@ export const PAGE_REGISTRY: PageDef[] = [
               { icon: "🎧", title: "24x7 Support", desc: "Always here to help" },
             ],
             itemFields: [
-              { key: "icon", label: "Icon (emoji)", type: "text", default: "✨" },
+              { key: "icon", label: "Icon", type: "text", default: "✨" },
               { key: "title", label: "Title", type: "text", default: "" },
               { key: "desc", label: "Sub-text", type: "text", default: "" },
             ],
@@ -2419,7 +2419,7 @@ export const PAGE_REGISTRY: PageDef[] = [
               { icon: "🤝", title: "I Want a Franchise", href: "/franchise" },
             ],
             itemFields: [
-              { key: "icon", label: "Icon (emoji)", type: "text", default: "✨" },
+              { key: "icon", label: "Icon", type: "text", default: "✨" },
               { key: "title", label: "Title", type: "text", default: "" },
               { key: "href", label: "Link", type: "url", default: "/" },
             ],
@@ -2493,7 +2493,7 @@ export const PAGE_REGISTRY: PageDef[] = [
               { icon: "🛡️", title: "Insurance Coverage", desc: "Complete safety and peace of mind" },
             ],
             itemFields: [
-              { key: "icon", label: "Icon (emoji)", type: "text", default: "✨" },
+              { key: "icon", label: "Icon", type: "text", default: "✨" },
               { key: "title", label: "Title", type: "text", default: "" },
               { key: "desc", label: "Description", type: "text", default: "" },
             ],

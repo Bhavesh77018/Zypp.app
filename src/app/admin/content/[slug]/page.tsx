@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useParams } from "next/navigation";
 import { ArrowLeft, Save, Plus, Trash2, ChevronUp, ChevronDown, ExternalLink, Upload, X } from "lucide-react";
 import { getPageDef, type FieldDef } from "@/lib/content";
+import IconPicker from "@/components/admin/IconPicker";
 
 type Content = Record<string, Record<string, unknown>>;
 
@@ -85,6 +86,10 @@ function ImageField({ value, onChange }: { value: string; onChange: (v: string) 
 
 // ─── A single (non-list) field ─────────────────────────────────────────────
 function ScalarField({ field, value, onChange }: { field: FieldDef; value: unknown; onChange: (v: unknown) => void }) {
+  // Icon fields get the professional icon picker (stores an icon name; legacy emoji still render).
+  if (field.key === "icon" || /\bicon\b/i.test(field.label)) {
+    return <IconPicker value={String(value ?? "")} onChange={onChange} />;
+  }
   if (field.type === "image") return <ImageField value={String(value ?? "")} onChange={onChange} />;
   if (field.type === "toggle") {
     const checked = Boolean(value);
