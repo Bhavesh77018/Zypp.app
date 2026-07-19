@@ -2,7 +2,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useEffect } from "react";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { X, ArrowRight, Smartphone } from "lucide-react";
 import { Logo } from "@/components/Logo";
 import { NAV_GROUPS, columnLinks } from "@/lib/nav-links";
@@ -26,13 +26,12 @@ export default function FullMenu({ open, onClose }: { open: boolean; onClose: ()
     return () => { document.body.style.overflow = ""; window.removeEventListener("keydown", onKey); };
   }, [open, onClose]);
 
-  if (!open) return null;
-
   return (
-    <>
+    <AnimatePresence>
+      {open && (
         <motion.div
           key="full-menu"
-          initial={{ opacity: 0 }} animate={{ opacity: 1 }}
+          initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
           transition={{ duration: 0.18 }}
           className="fixed inset-0 z-[100] bg-background overflow-y-auto overscroll-contain"
           role="dialog" aria-modal="true" aria-label="Full menu"
@@ -129,6 +128,7 @@ export default function FullMenu({ open, onClose }: { open: boolean; onClose: ()
             </motion.div>
           </div>
         </motion.div>
-    </>
+      )}
+    </AnimatePresence>
   );
 }

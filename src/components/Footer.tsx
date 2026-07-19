@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ArrowRight, Mail, MapPin } from "lucide-react";
 import { LogoLink } from "@/components/Logo";
 import { NAV_GROUPS, columnLinks } from "@/lib/nav-links";
+import { Reveal } from "@/components/motion/Reveal";
 
 // lucide-react dropped brand icons, so these are small inline brand SVGs.
 const SOCIALS = [
@@ -25,7 +26,7 @@ export default function Footer() {
 
       {/* Top CTA band */}
       <div className="relative border-b border-card-border/60 bg-gradient-to-b from-transparent to-primary/[0.04]">
-        <div className="container mx-auto px-4 py-12 md:py-16 flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-12">
+        <Reveal className="container mx-auto px-4 py-12 md:py-16 flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-12">
           <div className="text-center lg:text-left max-w-2xl">
             <h3 className="text-2xl md:text-3xl font-black text-foreground tracking-tight">Ready to ride the gig economy?</h3>
             <p className="text-muted mt-3 text-base md:text-lg">Download the Zypp Pilot app or partner with India&apos;s leading gig OS.</p>
@@ -40,11 +41,11 @@ export default function Footer() {
               Partner with Us
             </Link>
           </div>
-        </div>
+        </Reveal>
       </div>
 
       <div className="relative container mx-auto px-4 py-16 md:py-20">
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-12 mb-16">
+        <Reveal className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-12 mb-16">
           {/* Brand column */}
           <div className="col-span-2 sm:col-span-3 lg:col-span-2 flex flex-col gap-6">
             <div className="transform hover:scale-105 transition-transform origin-left inline-block w-fit">
@@ -83,7 +84,7 @@ export default function Footer() {
               </ul>
             </div>
           ))}
-        </div>
+        </Reveal>
 
         <div className="flex flex-col md:flex-row items-center justify-between gap-6 pt-8 border-t border-card-border/60 text-muted text-sm">
           <p className="text-center md:text-left">© {new Date().getFullYear()} Zypp · Bicyshare Technologies Pvt. Ltd. · Made with ❤️ in India 🇮🇳</p>

@@ -6,6 +6,7 @@ import GetInTouchSection from "@/components/home/GetInTouchSection";
 import EditorialMediaSection from "@/components/EditorialMediaSection";
 import HeroVideoBackdrop from "@/components/HeroVideoBackdrop";
 import FoundersSection from "@/components/about/FoundersSection";
+import { CountUpValue } from "@/components/CountUpValue";
 
 export const metadata = {
   title: "About Zypp Electric — 8 Years, 22 Pivots, India's Gig Economy OS",
@@ -91,7 +92,7 @@ export default function AboutPage() {
               { n: "176M+", l: "Deliveries Done" },
             ].map((s) => (
               <RevealItem key={s.l} className="bg-white dark:bg-slate-950 border border-gray-100 dark:border-slate-800 rounded-2xl p-6 text-center shadow-sm hover:border-primary/30 transition-colors">
-                <div className="text-3xl md:text-4xl font-black text-primary mb-2">{s.n}</div>
+                <div className="text-3xl md:text-4xl font-black text-primary mb-2"><CountUpValue value={s.n} /></div>
                 <div className="text-sm font-semibold text-gray-500 dark:text-gray-400">{s.l}</div>
               </RevealItem>
             ))}

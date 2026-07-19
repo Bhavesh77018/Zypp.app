@@ -14,6 +14,7 @@ import StepsSection from "@/components/StepsSection";
 import GetInTouchSection from "@/components/home/GetInTouchSection";
 import PartnersSection from "@/components/home/PartnersSection";
 import StickyMobileCTA from "@/components/StickyMobileCTA";
+import { CountUpValue } from "@/components/CountUpValue";
 import { getContent } from "@/lib/cms";
 
 type Help = { icon: string; title: string; href: string };
@@ -130,7 +131,7 @@ export default function RidersPage() {
                 { n: "8 Cities", l: "Pan-India Coverage" },
               ].map((s) => (
                 <div key={s.l} className="py-8 px-6 text-center">
-                  <div className="text-3xl md:text-4xl font-black text-primary mb-1">{s.n}</div>
+                  <div className="text-3xl md:text-4xl font-black text-primary mb-1"><CountUpValue value={s.n} /></div>
                   <div className="text-sm font-semibold text-gray-900 dark:text-white">{s.l}</div>
                 </div>
               ))}

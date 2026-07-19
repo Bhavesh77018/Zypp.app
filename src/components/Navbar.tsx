@@ -2,6 +2,8 @@
 
 import Link from "next/link";
 import { useState, useEffect, useRef } from "react";
+import { flushSync } from "react-dom";
+import { AnimatePresence, motion } from "framer-motion";
 import { useTheme } from "next-themes";
 import { Sun, Moon, Menu, X, ChevronDown, ArrowRight, MoreVertical } from "lucide-react";
 import { LogoLink } from "@/components/Logo";
@@ -113,6 +115,17 @@ export default function Navbar() {
     setMobileOpenGroup(null);
   };
 
+  // Cross-fade the whole page on theme switch where the browser supports it.
+  const toggleTheme = () => {
+    const next = theme === "dark" ? "light" : "dark";
+    const doc = document as Document & { startViewTransition?: (cb: () => void) => void };
+    if (doc.startViewTransition && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      doc.startViewTransition(() => flushSync(() => setTheme(next)));
+    } else {
+      setTheme(next);
+    }
+  };
+
   return (
     <>
     <header
@@ -147,7 +160,7 @@ export default function Navbar() {
               {/* Mega-menu dropdown */}
               {openGroup === i && (
                 <div
-                  className="absolute top-full left-1/2 -translate-x-1/2 mt-4 w-[850px] bg-card border border-card-border rounded-3xl shadow-2xl overflow-hidden z-50 animate-in fade-in slide-in-from-top-4 duration-200"
+                  className="absolute top-full left-1/2 -translate-x-1/2 mt-4 w-[850px] bg-card border border-card-border rounded-3xl shadow-2xl overflow-hidden z-50 animate-menu-in motion-reduce:animate-none"
                   onMouseEnter={() => handleMouseEnter(i)}
                   onMouseLeave={handleMouseLeave}
                 >
@@ -197,7 +210,7 @@ export default function Navbar() {
         <div className="flex items-center gap-3">
           {mounted && (
             <button
-              onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+              onClick={toggleTheme}
               className="flex items-center justify-center w-9 h-9 rounded-full text-muted hover:text-foreground hover:bg-card transition-colors"
               aria-label="Toggle theme"
             >
@@ -243,8 +256,14 @@ export default function Navbar() {
       </div>
 
       {/* Mobile Menu */}
+      <AnimatePresence>
       {isMobileOpen && (
-        <div className="lg:hidden border-t border-card-border bg-background max-h-[82vh] overflow-y-auto">
+        <motion.div
+          initial={{ height: 0, opacity: 0 }}
+          animate={{ height: "auto", opacity: 1 }}
+          exit={{ height: 0, opacity: 0 }}
+          transition={{ duration: 0.25, ease: "easeOut" }}
+          className="lg:hidden border-t border-card-border bg-background max-h-[82vh] overflow-y-auto overflow-x-hidden">
           {mergedGroups.map((group, i) => (
             <div key={i} className="border-b border-card-border last:border-0">
               <button
@@ -255,7 +274,15 @@ export default function Navbar() {
                 <ChevronDown size={16} className={`transition-transform duration-200 ${mobileOpenGroup === i ? "rotate-180" : ""}`} />
               </button>
 
+              <AnimatePresence initial={false}>
               {mobileOpenGroup === i && (
+                <motion.div
+                  initial={{ height: 0, opacity: 0 }}
+                  animate={{ height: "auto", opacity: 1 }}
+                  exit={{ height: 0, opacity: 0 }}
+                  transition={{ duration: 0.22, ease: "easeOut" }}
+                  className="overflow-hidden"
+                >
                 <div className="pb-4 bg-muted/5 px-2">
                   {group.items.map((item, j) => (
                     <Link
@@ -282,7 +309,9 @@ export default function Navbar() {
                     </Link>
                   </div>
                 </div>
+                </motion.div>
               )}
+              </AnimatePresence>
             </div>
           ))}
 
@@ -307,8 +336,9 @@ export default function Navbar() {
               </Link>
             )}
           </div>
-        </div>
+        </motion.div>
       )}
+      </AnimatePresence>
 
     </header>
 

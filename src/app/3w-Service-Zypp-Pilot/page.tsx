@@ -12,6 +12,7 @@ import GigKiAwaazSection from "@/components/home/GigKiAwaazSection";
 import StepsSection from "@/components/StepsSection";
 import LoaderSpecs from "@/components/LoaderSpecs";
 import StickyMobileCTA from "@/components/StickyMobileCTA";
+import { CountUpValue } from "@/components/CountUpValue";
 
 type Stat = { val: string; label: string };
 type Benefit = { icon: string; title: string; desc: string };
@@ -81,7 +82,7 @@ export default function ThreeWheelerPage() {
             <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-y md:divide-y-0 divide-gray-100 dark:divide-slate-800">
               {stats.map((s) => (
                 <div key={s.label} className="py-8 px-6 text-center">
-                  <div className="text-3xl md:text-4xl font-black text-primary mb-1">{s.val}</div>
+                  <div className="text-3xl md:text-4xl font-black text-primary mb-1"><CountUpValue value={s.val} /></div>
                   <div className="text-sm font-semibold text-gray-900 dark:text-white">{s.label}</div>
                 </div>
               ))}

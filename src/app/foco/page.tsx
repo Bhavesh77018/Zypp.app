@@ -7,6 +7,7 @@ import {
 import { Reveal, RevealItem, RevealStagger } from "@/components/motion/Reveal";
 import HeroVideoBackdrop from "@/components/HeroVideoBackdrop";
 import GetInTouchSection from "@/components/home/GetInTouchSection";
+import { CountUpValue } from "@/components/CountUpValue";
 
 export const metadata = {
   title: "FOCO Franchise — Passive EV Investment with Zypp | Zypp Electric",
@@ -254,7 +255,7 @@ export default function FocoPage() {
               { n: "Zero",     l: "Operational Effort" },
             ].map((s) => (
               <div key={s.l}>
-                <div className="text-2xl md:text-3xl font-black">{s.n}</div>
+                <div className="text-2xl md:text-3xl font-black"><CountUpValue value={s.n} /></div>
                 <div className="text-sm opacity-80 mt-1">{s.l}</div>
               </div>
             ))}

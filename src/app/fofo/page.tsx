@@ -7,6 +7,7 @@ import {
 import { Reveal, RevealItem, RevealStagger } from "@/components/motion/Reveal";
 import HeroVideoBackdrop from "@/components/HeroVideoBackdrop";
 import GetInTouchSection from "@/components/home/GetInTouchSection";
+import { CountUpValue } from "@/components/CountUpValue";
 
 export const metadata = {
   title: "FOFO Franchise — Own & Operate a Zypp EV City | Zypp Electric",
@@ -195,7 +196,7 @@ export default function FofoPage() {
             { n: "500 EVs",   l: "Minimum Fleet Size" },
           ].map((s) => (
             <div key={s.l} className="text-center py-4">
-              <div className="text-2xl md:text-3xl font-black text-blue-600 mb-1">{s.n}</div>
+              <div className="text-2xl md:text-3xl font-black text-blue-600 mb-1"><CountUpValue value={s.n} /></div>
               <div className="text-sm font-semibold text-foreground/70">{s.l}</div>
             </div>
           ))}

@@ -14,6 +14,7 @@ import PilotVsRental from "@/components/PilotVsRental";
 import ScooterSpecs from "@/components/ScooterSpecs";
 import HeroVideoBackdrop from "@/components/HeroVideoBackdrop";
 import StickyMobileCTA from "@/components/StickyMobileCTA";
+import { CountUpValue } from "@/components/CountUpValue";
 
 type Platform = { name: string; color: string; orders: string };
 type Step = { step: string; title: string; desc: string };
@@ -118,7 +119,7 @@ export default function ZyppPilotPage() {
             <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-y md:divide-y-0 divide-gray-100 dark:divide-slate-800">
               {STATS.map((s) => (
                 <div key={s.label} className="py-8 px-6 text-center">
-                  <div className="text-3xl md:text-4xl font-black text-primary mb-1">{s.val}</div>
+                  <div className="text-3xl md:text-4xl font-black text-primary mb-1"><CountUpValue value={s.val} /></div>
                   <div className="text-sm font-semibold text-gray-900 dark:text-white">{s.label}</div>
                 </div>
               ))}

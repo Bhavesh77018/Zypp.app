@@ -4,6 +4,7 @@ import { getContent } from "@/lib/cms";
 import { Reveal, RevealStagger, RevealItem } from "@/components/motion/Reveal";
 import { Icon3D } from "@/components/Icon3D";
 import HeroVideoBackdrop from "@/components/HeroVideoBackdrop";
+import { CountUpValue } from "@/components/CountUpValue";
 
 type Stat = { val: string; label: string };
 type Partner = { name: string; orders: string; color: string };
@@ -66,7 +67,7 @@ export default function EVForDeliveryPage() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-white text-center">
             {stats.map((s) => (
               <div key={s.label}>
-                <div className="text-2xl md:text-3xl font-black">{s.val}</div>
+                <div className="text-2xl md:text-3xl font-black"><CountUpValue value={s.val} /></div>
                 <div className="text-sm opacity-80 mt-1">{s.label}</div>
               </div>
             ))}

@@ -42,11 +42,18 @@ export default {
           "0%": { opacity: "0" },
           "100%": { opacity: "1" },
         },
+        // Mega-menu dropdown: keeps the -translate-x-1/2 centering while sliding in.
+        "menu-in": {
+          "0%": { opacity: "0", transform: "translate(-50%, -10px)" },
+          "100%": { opacity: "1", transform: "translate(-50%, 0)" },
+        },
       },
       animation: {
         marquee: "marquee 20s linear infinite",
         "fade-up": "fade-up 0.6s ease both",
         "fade-in": "fade-in 0.5s ease both",
+        "menu-in": "menu-in 0.2s ease-out both",
+        "spin-slow": "spin 8s linear infinite",
       },
     },
   },
