@@ -54,7 +54,7 @@ export const PAGE_REGISTRY: PageDef[] = [
           { key: "badge", label: "Badge text", type: "text", default: "India's Gig Economy Operating System" },
           { key: "titleLine1", label: "Headline (line 1)", type: "text", default: "Every Delivery." },
           { key: "titleHighlight", label: "Headline (highlighted word)", type: "text", default: "Powered by Zypp.", hint: "Shown in the brand colour." },
-          { key: "titleLine2", label: "Sub-headline", type: "textarea", default: "The OS for India's 100 million gig entrepreneurs" },
+          { key: "titleLine2", label: "Sub-headline", type: "textarea", default: "The OS for India's 25 lakh gig entrepreneurs" },
           { key: "subtitle", label: "Paragraph", type: "textarea", default: "The infrastructure that makes 10-minute delivery possible — 26,000+ electric vehicles across 8 cities, serving India's largest quick-commerce platforms." },
           { key: "primaryCtaLabel", label: "Primary button label", type: "text", default: "Download the Zypp App" },
           { key: "primaryCtaLink", label: "Primary button link", type: "url", default: "https://play.google.com/store/apps/details?id=com.zyppdelivery" },
@@ -441,8 +441,8 @@ export const PAGE_REGISTRY: PageDef[] = [
         label: "Mission & Vision",
         fields: [
           { key: "eyebrow", label: "Eyebrow", type: "text", default: "Our Mission" },
-          { key: "heading", label: "Heading", type: "text", default: "Zero Pollution Mobility for 100M Gig Entrepreneurs" },
-          { key: "body1", label: "Paragraph 1 (Mission)", type: "textarea", default: "We started with EVs because mobility is where the gig worker's income begins and ends. Zero-pollution mobility for India's 100 million gig entrepreneurs is our foundation." },
+          { key: "heading", label: "Heading", type: "text", default: "Zero Pollution Mobility for 25L Gig Entrepreneurs" },
+          { key: "body1", label: "Paragraph 1 (Mission)", type: "textarea", default: "We started with EVs because mobility is where the gig worker's income begins and ends. Zero-pollution mobility for India's 25 lakh gig entrepreneurs is our foundation." },
           { key: "body2", label: "Paragraph 2 (Vision)", type: "textarea", default: "We're expanding into financial identity, credit, housing, and AI — because the gig worker deserves a full economic platform, not just a vehicle. That's HustleOS: India's first gig economy operating system." },
           { key: "linkLabel", label: "Link label", type: "text", default: "Our Environmental Impact" },
           { key: "linkHref", label: "Link href", type: "url", default: "/environment" },
@@ -2516,7 +2516,7 @@ export const PAGE_REGISTRY: PageDef[] = [
         key: "hero", label: "Hero",
         fields: [
           { key: "badge", label: "Badge", type: "text", default: "Pre-IPO Round Open · FY28 IPO Track" },
-          { key: "titleLine1", label: "Heading line 1", type: "text", default: "India's 100M Gig Workers" },
+          { key: "titleLine1", label: "Heading line 1", type: "text", default: "India's 25L Gig Workers" },
           { key: "titleHighlight", label: "Heading line 2 (green)", type: "text", default: "Finally Have Their OS." },
           { key: "subtitle", label: "Subtitle", type: "textarea", default: "Every Zomato order. Every Blinkit delivery. Every Zepto bag at your door — carried by a gig entrepreneur who, until now, had no vehicle infra, no financial identity, and no way up." },
           { key: "primaryCtaLabel", label: "Primary button", type: "text", default: "Request a Meeting" },
@@ -2649,7 +2649,7 @@ export const PAGE_REGISTRY: PageDef[] = [
           { key: "heading1", label: "Heading line 1", type: "text", default: "This Is Not" },
           { key: "heading2", label: "Heading line 2", type: "text", default: "a Vehicle Company." },
           { key: "intro", label: "Intro", type: "textarea", default: "Zepto gave the kirana store an intelligence layer. Zypp is doing the same for India's gig economy. Mobility is just Layer 1." },
-          { key: "quote", label: "Quote", type: "textarea", default: "Zypp is not a vehicle rental company. It is the operating system for India's 100 million gig entrepreneurs." },
+          { key: "quote", label: "Quote", type: "textarea", default: "Zypp is not a vehicle rental company. It is the operating system for India's 25 lakh gig entrepreneurs." },
           { key: "quoteName", label: "Quote attribution", type: "text", default: "— Akash Gupta, Co-Founder & CEO" },
           {
             key: "layers", label: "Layers", type: "list",

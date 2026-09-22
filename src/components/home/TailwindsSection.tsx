@@ -23,7 +23,7 @@ const FORCES: { n: string; Icon: LucideIcon; title: string; body: string; accent
     n: "03",
     Icon: TrendingUp,
     title: "The New Middle Class Is Gig",
-    body: "A Zypp rider earning ₹35–45K/month is a micro-entrepreneur. 100 million Indians are choosing hustle over heritage. Zypp makes it scalable, safe, and financially upward.",
+    body: "A Zypp rider earning ₹35–45K/month is a micro-entrepreneur. 25 lakh Indians are choosing hustle over heritage. Zypp makes it scalable, safe, and financially upward.",
     accent: "text-blue-500",
   },
 ];

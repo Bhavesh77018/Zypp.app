@@ -44,7 +44,7 @@ export default function PlatformOSSection() {
             </h2>
             <p className="text-gray-500 dark:text-gray-400 text-lg leading-relaxed max-w-lg">
               Zypp started with mobility. We are becoming the full operating system for India&apos;s gig economy —
-              connecting 100 million gig workers to vehicles, credit, identity, and opportunity.{" "}
+              connecting 25 lakh gig workers to vehicles, credit, identity, and opportunity.{" "}
               <strong className="text-gray-900 dark:text-white">What Zepto did for kirana, Zypp is doing for gig.</strong>
             </p>
           </Reveal>

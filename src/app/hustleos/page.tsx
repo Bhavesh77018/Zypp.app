@@ -8,7 +8,7 @@ import HeroSection from "@/components/home/HeroSection";
 export const metadata: Metadata = {
   title: "HustleOS — The Full Stack for Gig | Zypp Electric",
   description:
-    "Mobility was Layer 1. Zypp is building the complete economic operating system for India's 100 million gig entrepreneurs — vehicles, credit, housing, and AI.",
+    "Mobility was Layer 1. Zypp is building the complete economic operating system for India's 25 lakh gig entrepreneurs — vehicles, credit, housing, and AI.",
 };
 
 type Layer = { tag: string; Icon: LucideIcon; title: string; desc: string; status: string; tone: "live" | "building" | "roadmap" };
@@ -46,7 +46,7 @@ export default function HustleOSPage() {
           titleLine1: "HustleOS —",
           titleHighlight: "The Full Stack for Gig",
           titleLine2: "",
-          subtitle: "Mobility was Layer 1. We are building the complete economic operating system for India's 100 million gig entrepreneurs — from vehicles to credit to housing to AI.",
+          subtitle: "Mobility was Layer 1. We are building the complete economic operating system for India's 25 lakh gig entrepreneurs — from vehicles to credit to housing to AI.",
           primaryCtaLabel: "Start with Mobility",
           primaryCtaLink: "/riders",
           secondaryCtaLabel: "Partner with Us",
@@ -83,7 +83,7 @@ export default function HustleOSPage() {
                 </p>
                 <div className="w-12 h-1 bg-primary/20 rounded-full mb-6" />
                 <p className="text-muted font-medium text-lg relative z-10">
-                  Same playbook. 100× bigger market — 100 million gig workers vs a few million kirana stores. The infrastructure play of the decade.
+                  Same playbook. 25 lakh gig workers vs a few million kirana stores. The infrastructure play of the decade.
                 </p>
               </div>
             </Reveal>

@@ -74,7 +74,7 @@ export default function AboutPage() {
             <div className="bg-gray-50 dark:bg-slate-900 border-l-4 border-primary rounded-r-3xl p-8 md:p-12 shadow-sm">
               <h2 className="text-2xl md:text-4xl font-black text-gray-900 dark:text-white leading-tight mb-5">
                 Zero pollution mobility for India&apos;s<br />
-                <span className="text-primary">100 million gig entrepreneurs.</span>
+                <span className="text-primary">25 lakh gig entrepreneurs.</span>
               </h2>
               <p className="text-gray-500 dark:text-gray-400 text-lg">
                 We started with EVs because mobility is where the gig worker&apos;s income begins and ends. We&apos;re expanding into financial identity, credit, housing, and AI because the gig worker deserves a full economic platform — not just a vehicle.
@@ -172,7 +172,7 @@ export default function AboutPage() {
           <Reveal>
             <div className="bg-white dark:bg-slate-950 border-l-4 border-primary rounded-r-3xl p-8 md:p-10 shadow-sm text-left max-w-3xl mx-auto">
               <p className="text-lg font-medium text-gray-900 dark:text-white italic mb-4">
-                &ldquo;Zypp is building infrastructure for India&apos;s new economy — not just delivering packages, but delivering dignity and economic mobility to 100 million gig workers.&rdquo;
+                &ldquo;Zypp is building infrastructure for India&apos;s new economy — not just delivering packages, but delivering dignity and economic mobility to 25 lakh gig workers.&rdquo;
               </p>
               <div className="text-sm font-bold text-gray-400">— Investor Perspective</div>
             </div>
