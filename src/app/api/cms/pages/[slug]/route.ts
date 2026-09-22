@@ -24,7 +24,12 @@ export async function PATCH(req: NextRequest, context: RouteContext) {
   const idx = config.dynamicPages.findIndex((p) => p.slug === slug);
   if (idx === -1) return NextResponse.json({ error: "Not found" }, { status: 404 });
   config.dynamicPages[idx] = { ...config.dynamicPages[idx], ...body, updatedAt: new Date().toISOString() };
-  writeCMS(config);
+  if (!writeCMS(config)) {
+    return NextResponse.json(
+      { error: "Storage isn't writable in this environment — your changes were not saved." },
+      { status: 503 }
+    );
+  }
   try { revalidatePath(`/${slug}`); } catch { /* noop */ }
   return NextResponse.json({ success: true, page: config.dynamicPages[idx] });
 }
@@ -34,7 +39,12 @@ export async function DELETE(req: NextRequest, context: RouteContext) {
   const { slug } = await context.params;
   const config = readCMS();
   config.dynamicPages = config.dynamicPages.filter((p) => p.slug !== slug);
-  writeCMS(config);
+  if (!writeCMS(config)) {
+    return NextResponse.json(
+      { error: "Storage isn't writable in this environment — the page was not deleted." },
+      { status: 503 }
+    );
+  }
   try { revalidatePath(`/${slug}`); } catch { /* noop */ }
   return NextResponse.json({ success: true });
 }

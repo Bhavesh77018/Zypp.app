@@ -156,16 +156,25 @@ function ensureFile() {
 }
 
 export function readCMS(): CMSConfig {
-  ensureFile();
-  const raw = fs.readFileSync(DATA_PATH, "utf-8");
-  const parsed = JSON.parse(raw) as Partial<CMSConfig>;
-  return {
-    announcementBars: parsed.announcementBars ?? [],
-    dynamicPages: parsed.dynamicPages ?? [],
-    globalCTA: parsed.globalCTA ?? DEFAULT_GLOBAL_CTA,
-    pageContent: parsed.pageContent ?? {},
-    cities: parsed.cities ?? DEFAULT_CITIES,
-  };
+  // data/cms/config.json ships committed in the repo, so this file exists in
+  // every deployment already — ensureFile()'s write-if-missing path (which
+  // would throw on a read-only filesystem) should never actually run here.
+  // Guard it anyway so a read can never 500 the page that called getContent().
+  try {
+    ensureFile();
+    const raw = fs.readFileSync(DATA_PATH, "utf-8");
+    const parsed = JSON.parse(raw) as Partial<CMSConfig>;
+    return {
+      announcementBars: parsed.announcementBars ?? [],
+      dynamicPages: parsed.dynamicPages ?? [],
+      globalCTA: parsed.globalCTA ?? DEFAULT_GLOBAL_CTA,
+      pageContent: parsed.pageContent ?? {},
+      cities: parsed.cities ?? DEFAULT_CITIES,
+    };
+  } catch (e) {
+    console.error("[cms] readCMS failed, serving built-in defaults:", e);
+    return { announcementBars: [], dynamicPages: [], globalCTA: DEFAULT_GLOBAL_CTA, pageContent: {}, cities: DEFAULT_CITIES };
+  }
 }
 
 /** Server-only: all operational cities (with hubs). */
@@ -180,7 +189,19 @@ export function getContent(slug: string): Record<string, Record<string, unknown>
   return resolveContent(slug, stored);
 }
 
-export function writeCMS(data: CMSConfig): void {
-  ensureFile();
-  fs.writeFileSync(DATA_PATH, JSON.stringify(data, null, 2));
+/**
+ * Persists the CMS config to disk. Serverless platforms (Vercel etc.) ship a
+ * read-only filesystem outside /tmp, so this throws there — callers MUST
+ * check the return value and tell the admin honestly rather than assuming
+ * the write landed. Returns false (never throws) on failure.
+ */
+export function writeCMS(data: CMSConfig): boolean {
+  try {
+    ensureFile();
+    fs.writeFileSync(DATA_PATH, JSON.stringify(data, null, 2));
+    return true;
+  } catch (e) {
+    console.error("[cms] writeCMS failed — filesystem likely read-only in this environment:", e);
+    return false;
+  }
 }

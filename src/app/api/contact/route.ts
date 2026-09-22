@@ -16,9 +16,9 @@ export async function POST(req: NextRequest) {
       status: "new",
       createdAt: new Date().toISOString(),
     };
-    appendContact(submission);
+    const saved = appendContact(submission);
 
-    // Track as analytics event
+    // Track as analytics event (best-effort, never blocks the response)
     appendEvent({
       id: randomUUID(),
       type: "form_submit",
@@ -27,8 +27,20 @@ export async function POST(req: NextRequest) {
       ts: submission.createdAt,
     });
 
+    if (!saved) {
+      // Storage isn't writable in this environment — do not tell the visitor
+      // their message was sent when it wasn't; a lost lead is a real cost.
+      return NextResponse.json(
+        { error: "We couldn't save your message right now. Please email help@zypp.app or WhatsApp us instead." },
+        { status: 503 }
+      );
+    }
+
     return NextResponse.json({ success: true, id: submission.id });
   } catch {
-    return NextResponse.json({ error: "Failed to save submission" }, { status: 500 });
+    return NextResponse.json(
+      { error: "We couldn't save your message right now. Please email help@zypp.app or WhatsApp us instead." },
+      { status: 500 }
+    );
   }
 }

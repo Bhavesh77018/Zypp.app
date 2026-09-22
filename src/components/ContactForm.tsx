@@ -21,6 +21,7 @@ export default function ContactForm({
       : reasons[0] ?? "";
   const [form, setForm] = useState({ name: "", phone: "", email: "", company: "", reason: preselected, message: initialMessage ?? "" });
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [errorMsg, setErrorMsg] = useState("");
 
   const set = (k: keyof typeof form) => (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) =>
     setForm((f) => ({ ...f, [k]: e.target.value }));
@@ -30,8 +31,17 @@ export default function ContactForm({
     setStatus("loading");
     try {
       const res = await fetch("/api/contact", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(form) });
-      setStatus(res.ok ? "success" : "error");
-    } catch { setStatus("error"); }
+      if (res.ok) {
+        setStatus("success");
+        return;
+      }
+      const data = await res.json().catch(() => null);
+      setErrorMsg(data?.error || "Something went wrong. Please try again or email help@zypp.app.");
+      setStatus("error");
+    } catch {
+      setErrorMsg("Something went wrong. Please try again or email help@zypp.app.");
+      setStatus("error");
+    }
   };
 
   const cls = "w-full px-4 py-3.5 rounded-xl bg-gray-50 dark:bg-slate-800 border border-gray-200 dark:border-slate-700 text-gray-900 dark:text-white text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent placeholder-gray-400 transition-all";
@@ -72,7 +82,7 @@ export default function ContactForm({
         </div>
       </div>
       <textarea value={form.message} onChange={set("message")} rows={4} placeholder="Your message..." className={cls + " resize-none"} />
-      {status === "error" && <p className="text-red-500 text-sm">Something went wrong. Try again.</p>}
+      {status === "error" && <p className="text-red-500 text-sm">{errorMsg}</p>}
       <button type="submit" disabled={status === "loading"} data-track="Contact Form Submit" className="flex items-center justify-center gap-2 py-4 rounded-xl bg-primary text-white font-bold hover:bg-primary/90 disabled:opacity-60 transition-all shadow-lg shadow-primary/20">
         {status === "loading" ? <span className="flex items-center gap-2"><span className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" /> Sending…</span> : <><Send size={18} /> Send Message</>}
       </button>

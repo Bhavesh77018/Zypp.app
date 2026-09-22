@@ -16,8 +16,11 @@ export async function POST(req: NextRequest) {
       sessionId: body.sessionId,
       ts: new Date().toISOString(),
     };
-    appendEvent(event);
-    return NextResponse.json({ success: true });
+    // appendEvent never throws — it returns false if the write couldn't be
+    // persisted (e.g. a read-only serverless filesystem). Telemetry is
+    // non-critical, so the client always gets a clean 200 either way.
+    const persisted = appendEvent(event);
+    return NextResponse.json({ success: true, persisted });
   } catch {
     return NextResponse.json({ error: "Failed to log event" }, { status: 500 });
   }

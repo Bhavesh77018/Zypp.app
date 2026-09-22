@@ -21,20 +21,45 @@ function ensure() {
 }
 
 export function readContacts(): ContactSubmission[] {
-  ensure();
-  try { return JSON.parse(fs.readFileSync(FILE, "utf-8")); } catch { return []; }
+  try {
+    ensure();
+    return JSON.parse(fs.readFileSync(FILE, "utf-8"));
+  } catch (e) {
+    console.error("[contacts] readContacts failed:", e);
+    return [];
+  }
 }
 
-export function appendContact(c: ContactSubmission): void {
-  ensure();
-  const all = readContacts();
-  all.push(c);
-  fs.writeFileSync(FILE, JSON.stringify(all, null, 2));
+/**
+ * Persists a new lead. Serverless platforms (Vercel etc.) ship a read-only
+ * filesystem outside /tmp, so this throws there — the caller MUST check the
+ * return value: a real business lead is at stake, never assume it saved.
+ * Returns false (never throws) on failure.
+ */
+export function appendContact(c: ContactSubmission): boolean {
+  try {
+    ensure();
+    const all = readContacts();
+    all.push(c);
+    fs.writeFileSync(FILE, JSON.stringify(all, null, 2));
+    return true;
+  } catch (e) {
+    console.error("[contacts] appendContact failed — filesystem likely read-only in this environment:", e);
+    return false;
+  }
 }
 
-export function updateContactStatus(id: string, status: ContactSubmission["status"]): void {
-  ensure();
-  const all = readContacts();
-  const idx = all.findIndex((c) => c.id === id);
-  if (idx !== -1) { all[idx].status = status; fs.writeFileSync(FILE, JSON.stringify(all, null, 2)); }
+export function updateContactStatus(id: string, status: ContactSubmission["status"]): boolean {
+  try {
+    ensure();
+    const all = readContacts();
+    const idx = all.findIndex((c) => c.id === id);
+    if (idx === -1) return false;
+    all[idx].status = status;
+    fs.writeFileSync(FILE, JSON.stringify(all, null, 2));
+    return true;
+  } catch (e) {
+    console.error("[contacts] updateContactStatus failed:", e);
+    return false;
+  }
 }

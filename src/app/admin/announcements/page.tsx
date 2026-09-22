@@ -31,6 +31,7 @@ export default function AnnouncementsPage() {
   const [bars, setBars] = useState<Bar[]>([]);
   const [saving, setSaving] = useState(false);
   const [saved, setSaved] = useState(false);
+  const [saveError, setSaveError] = useState("");
 
   const token = typeof window !== "undefined" ? localStorage.getItem("zypp_admin_token") ?? "" : "";
 
@@ -50,12 +51,18 @@ export default function AnnouncementsPage() {
 
   const saveAll = async () => {
     setSaving(true);
-    await fetch("/api/cms/config", {
+    setSaveError("");
+    const res = await fetch("/api/cms/config", {
       method: "PATCH",
       headers: { "Content-Type": "application/json", "x-admin-token": token },
       body: JSON.stringify({ announcementBars: bars }),
     });
     setSaving(false);
+    if (!res.ok) {
+      const data = await res.json().catch(() => null);
+      setSaveError(data?.error || "Save failed — please try again.");
+      return;
+    }
     setSaved(true);
     setTimeout(() => setSaved(false), 3000);
   };
@@ -67,13 +74,16 @@ export default function AnnouncementsPage() {
           <h2 className="text-2xl font-black text-white mb-1">Announcement Bars</h2>
           <p className="text-slate-400 text-sm">Create scrolling top banners for promotions, events, or alerts.</p>
         </div>
-        <div className="flex gap-3">
-          <button onClick={addBar} className="flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-800 text-slate-200 font-semibold text-sm hover:bg-slate-700 transition-colors">
-            <Plus size={16} /> Add Bar
-          </button>
-          <button onClick={saveAll} disabled={saving} className="flex items-center gap-2 px-5 py-2 rounded-xl bg-primary text-primary-foreground font-bold text-sm hover:bg-primary/90 transition-colors disabled:opacity-60">
-            <Save size={16} /> {saving ? "Saving…" : saved ? "Saved ✓" : "Save All"}
-          </button>
+        <div className="flex flex-col items-end gap-1.5">
+          <div className="flex gap-3">
+            <button onClick={addBar} className="flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-800 text-slate-200 font-semibold text-sm hover:bg-slate-700 transition-colors">
+              <Plus size={16} /> Add Bar
+            </button>
+            <button onClick={saveAll} disabled={saving} className="flex items-center gap-2 px-5 py-2 rounded-xl bg-primary text-primary-foreground font-bold text-sm hover:bg-primary/90 transition-colors disabled:opacity-60">
+              <Save size={16} /> {saving ? "Saving…" : saved ? "Saved ✓" : "Save All"}
+            </button>
+          </div>
+          {saveError && <p className="text-red-400 text-xs max-w-xs text-right">{saveError}</p>}
         </div>
       </div>
 

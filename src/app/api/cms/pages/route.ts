@@ -31,6 +31,11 @@ export async function POST(req: NextRequest) {
     navSettings: body.navSettings ?? { ...DEFAULT_NAV_SETTINGS },
   };
   config.dynamicPages.push(newPage);
-  writeCMS(config);
+  if (!writeCMS(config)) {
+    return NextResponse.json(
+      { error: "Storage isn't writable in this environment — the page was not saved." },
+      { status: 503 }
+    );
+  }
   return NextResponse.json({ success: true, page: newPage });
 }

@@ -20,7 +20,12 @@ export async function PATCH(req: NextRequest) {
   }
   const cms = readCMS();
   cms.cities = body.cities;
-  writeCMS(cms);
+  if (!writeCMS(cms)) {
+    return NextResponse.json(
+      { error: "Storage isn't writable in this environment — your changes were not saved." },
+      { status: 503 }
+    );
+  }
   // Reflect changes live on the pages that render cities.
   try {
     revalidatePath("/find-hub");

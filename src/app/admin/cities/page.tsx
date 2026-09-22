@@ -21,6 +21,7 @@ export default function CitiesAdminPage() {
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
   const [saved, setSaved] = useState(false);
+  const [saveError, setSaveError] = useState("");
 
   useEffect(() => {
     fetch("/api/cms/cities")
@@ -31,14 +32,20 @@ export default function CitiesAdminPage() {
   }, []);
 
   const save = async () => {
-    setSaving(true); setSaved(false);
+    setSaving(true); setSaved(false); setSaveError("");
     const token = localStorage.getItem("zypp_admin_token") ?? "";
-    await fetch("/api/cms/cities", {
+    const res = await fetch("/api/cms/cities", {
       method: "PATCH",
       headers: { "Content-Type": "application/json", "x-admin-token": token },
       body: JSON.stringify({ cities }),
     });
-    setSaving(false); setSaved(true); setTimeout(() => setSaved(false), 2500);
+    setSaving(false);
+    if (!res.ok) {
+      const data = await res.json().catch(() => null);
+      setSaveError(data?.error || "Save failed — please try again.");
+      return;
+    }
+    setSaved(true); setTimeout(() => setSaved(false), 2500);
   };
 
   const updateCity = (id: string, patch: Partial<City>) => setCities((cs) => cs.map((c) => (c.id === id ? { ...c, ...patch } : c)));
@@ -64,9 +71,12 @@ export default function CitiesAdminPage() {
     <div className="max-w-4xl mx-auto pb-24">
       <div className="flex items-center justify-between mb-2 gap-4 flex-wrap">
         <h2 className="text-2xl font-black text-white flex items-center gap-2"><MapPin size={24} className="text-primary" /> Cities & Hubs</h2>
-        <button onClick={save} disabled={saving} className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-primary text-primary-foreground font-bold text-sm hover:bg-primary/90 disabled:opacity-50 transition-colors">
-          <Save size={16} /> {saving ? "Saving…" : saved ? "Saved!" : "Save Changes"}
-        </button>
+        <div className="flex flex-col items-end gap-1.5">
+          <button onClick={save} disabled={saving} className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-primary text-primary-foreground font-bold text-sm hover:bg-primary/90 disabled:opacity-50 transition-colors">
+            <Save size={16} /> {saving ? "Saving…" : saved ? "Saved!" : "Save Changes"}
+          </button>
+          {saveError && <p className="text-red-400 text-xs max-w-xs text-right">{saveError}</p>}
+        </div>
       </div>
       <p className="text-slate-400 text-sm mb-6">Add, edit or remove cities and their hubs. Changes power the <strong className="text-white">Find a Hub</strong> page and city counts across the site. {cities.length} cities · {activeCount} active · {hubCount} hubs.</p>
 

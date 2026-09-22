@@ -32,11 +32,16 @@ export default function ContactsAdminPage() {
   useEffect(() => { load(); }, []);
 
   const setStatus = async (id: string, status: Submission["status"]) => {
-    await fetch("/api/cms/contacts", {
+    const res = await fetch("/api/cms/contacts", {
       method: "PATCH",
       headers: { "Content-Type": "application/json", "x-admin-token": token },
       body: JSON.stringify({ id, status }),
     });
+    if (!res.ok) {
+      const data = await res.json().catch(() => null);
+      alert(data?.error || "Update failed — please try again.");
+      return;
+    }
     setContacts((prev) => prev.map((c) => c.id === id ? { ...c, status } : c));
   };
 

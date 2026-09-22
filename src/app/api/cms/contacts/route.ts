@@ -13,6 +13,11 @@ export async function GET(req: NextRequest) {
 export async function PATCH(req: NextRequest) {
   if (!checkAuth(req)) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   const { id, status } = await req.json();
-  updateContactStatus(id, status);
+  if (!updateContactStatus(id, status)) {
+    return NextResponse.json(
+      { error: "Storage isn't writable in this environment — the status was not updated." },
+      { status: 503 }
+    );
+  }
   return NextResponse.json({ success: true });
 }

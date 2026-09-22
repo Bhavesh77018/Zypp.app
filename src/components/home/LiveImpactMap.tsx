@@ -90,7 +90,7 @@ export default function LiveImpactMap() {
                     {/* Ring animation */}
                     {!reduce && (
                       <motion.circle
-                        cx={c.x} cy={c.y} r="6" fill="transparent" stroke="#00bc84" strokeWidth="1"
+                        cx={c.x} cy={c.y} r={6} fill="transparent" stroke="#00bc84" strokeWidth="1"
                         animate={{ r: [6, 16], opacity: [0.8, 0] }}
                         transition={{ duration: 2, repeat: Infinity, ease: "easeOut", delay: i * 0.2 }}
                       />

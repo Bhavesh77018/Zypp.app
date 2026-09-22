@@ -138,7 +138,12 @@ export default function PagesListPage() {
 
   const deletePage = async (slug: string) => {
     if (!confirm(`Delete page "/${slug}"? This cannot be undone.`)) return;
-    await fetch(`/api/cms/pages/${slug}`, { method: "DELETE", headers: { "x-admin-token": token } });
+    const res = await fetch(`/api/cms/pages/${slug}`, { method: "DELETE", headers: { "x-admin-token": token } });
+    if (!res.ok) {
+      const data = await res.json().catch(() => null);
+      alert(data?.error || "Delete failed — please try again.");
+      return;
+    }
     setPages((p) => p.filter((pg) => pg.slug !== slug));
   };
 
@@ -150,8 +155,13 @@ export default function PagesListPage() {
       headers: { "Content-Type": "application/json", "x-admin-token": token },
       body: JSON.stringify({ slug, title, sections }),
     });
-    const data = await res.json();
-    if (data.page) { setShowModal(false); window.location.href = `/admin/pages/${data.page.slug}`; }
+    const data = await res.json().catch(() => null);
+    if (!res.ok || !data?.page) {
+      alert(data?.error || "Create failed — please try again.");
+      return;
+    }
+    setShowModal(false);
+    window.location.href = `/admin/pages/${data.page.slug}`;
   };
 
   return (

@@ -69,6 +69,7 @@ export default function CTASettingsPage() {
   const [cta, setCta] = useState<GlobalCTA>(DEFAULT);
   const [saving, setSaving] = useState(false);
   const [saved, setSaved] = useState(false);
+  const [saveError, setSaveError] = useState("");
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -85,13 +86,19 @@ export default function CTASettingsPage() {
   const handleSave = async () => {
     setSaving(true);
     setSaved(false);
+    setSaveError("");
     const token = localStorage.getItem("zypp_admin_token") ?? "";
-    await fetch("/api/cms/config", {
+    const res = await fetch("/api/cms/config", {
       method: "PATCH",
       headers: { "Content-Type": "application/json", "x-admin-token": token },
       body: JSON.stringify({ globalCTA: cta }),
     });
     setSaving(false);
+    if (!res.ok) {
+      const data = await res.json().catch(() => null);
+      setSaveError(data?.error || "Save failed — please try again.");
+      return;
+    }
     setSaved(true);
     setTimeout(() => setSaved(false), 2500);
   };
@@ -116,14 +123,17 @@ export default function CTASettingsPage() {
           </h2>
           <p className="text-slate-400 mt-1 text-sm">Configure the Call-to-Action button shown sitewide. Changes go live instantly.</p>
         </div>
-        <button
-          onClick={handleSave}
-          disabled={saving}
-          className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-primary text-primary-foreground font-bold text-sm hover:bg-primary/90 disabled:opacity-50 transition-colors"
-        >
-          <Save size={16} />
-          {saving ? "Saving…" : saved ? "Saved!" : "Save Changes"}
-        </button>
+        <div className="flex flex-col items-end gap-1.5">
+          <button
+            onClick={handleSave}
+            disabled={saving}
+            className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-primary text-primary-foreground font-bold text-sm hover:bg-primary/90 disabled:opacity-50 transition-colors"
+          >
+            <Save size={16} />
+            {saving ? "Saving…" : saved ? "Saved!" : "Save Changes"}
+          </button>
+          {saveError && <p className="text-red-400 text-xs max-w-xs text-right">{saveError}</p>}
+        </div>
       </div>
 
       {/* Navbar CTA */}

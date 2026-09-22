@@ -29,7 +29,12 @@ export async function PATCH(req: NextRequest) {
   }
   const cms = readCMS();
   cms.pageContent = { ...cms.pageContent, [body.slug]: body.content as Record<string, Record<string, unknown>> };
-  writeCMS(cms);
+  if (!writeCMS(cms)) {
+    return NextResponse.json(
+      { error: "Storage isn't writable in this environment — your changes were not saved." },
+      { status: 503 }
+    );
+  }
 
   // Push the edit live instantly (invalidate the prerendered page).
   const def = getPageDef(body.slug);

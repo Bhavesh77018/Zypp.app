@@ -17,7 +17,12 @@ export async function PATCH(req: NextRequest) {
   const body = await req.json();
   const current = readCMS();
   const updated = { ...current, ...body };
-  writeCMS(updated);
+  if (!writeCMS(updated)) {
+    return NextResponse.json(
+      { error: "Storage isn't writable in this environment — your changes were not saved." },
+      { status: 503 }
+    );
+  }
   return NextResponse.json({ success: true, data: updated });
 }
 

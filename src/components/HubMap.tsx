@@ -21,7 +21,7 @@ export default function HubMap() {
           {INDIA_CITIES.map((c, i) => (
             <g key={c.name}>
               {!reduce && (
-                <motion.circle cx={c.x} cy={c.y} r="6" fill="#34d399" fillOpacity="0.4"
+                <motion.circle cx={c.x} cy={c.y} r={6} fill="#34d399" fillOpacity="0.4"
                   animate={{ r: [6, 16], opacity: [0.5, 0] }}
                   transition={{ duration: 2.2, repeat: Infinity, ease: "easeOut", delay: i * 0.3 }} />
               )}

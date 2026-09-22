@@ -289,6 +289,7 @@ export default function PageBuilderPage() {
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
   const [saved, setSaved] = useState(false);
+  const [saveError, setSaveError] = useState("");
   const [activeSection, setActiveSection] = useState<string | null>(null);
   const [activeTab, setActiveTab] = useState<"builder" | "settings">("builder");
   const token = typeof window !== "undefined" ? localStorage.getItem("zypp_admin_token") ?? "" : "";
@@ -301,11 +302,17 @@ export default function PageBuilderPage() {
   const save = async (pub?: boolean) => {
     if (!page) return;
     setSaving(true);
+    setSaveError("");
     const payload = pub !== undefined ? { ...page, published: pub } : page;
     const res = await fetch(`/api/cms/pages/${slug}`, { method: "PATCH", headers: { "Content-Type": "application/json", "x-admin-token": token }, body: JSON.stringify(payload) });
-    const data = await res.json();
-    if (data.page) setPage(data.page);
-    setSaving(false); setSaved(true); setTimeout(() => setSaved(false), 3000);
+    const data = await res.json().catch(() => null);
+    setSaving(false);
+    if (!res.ok || !data?.page) {
+      setSaveError(data?.error || "Save failed — please try again.");
+      return;
+    }
+    setPage(data.page);
+    setSaved(true); setTimeout(() => setSaved(false), 3000);
   };
 
   const addSection = (type: SectionType) => {
@@ -393,6 +400,7 @@ export default function PageBuilderPage() {
           </button>
         </div>
       </div>
+      {saveError && <p className="text-red-400 text-xs mb-4 -mt-2">{saveError}</p>}
 
       {/* Tabs */}
       <div className="flex gap-2 mb-4 border-b border-slate-800 pb-0">

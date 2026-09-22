@@ -34,17 +34,27 @@ function ensure() {
 }
 
 // ─── Write ────────────────────────────────────────────────────────────────
-export function appendEvent(event: AnalyticsEvent): void {
-  ensure();
-  const file = dayFile(event.ts.slice(0, 10));
-  let events: AnalyticsEvent[] = [];
-  if (fs.existsSync(file)) {
-    try { events = JSON.parse(fs.readFileSync(file, "utf-8")); } catch {}
+// Serverless platforms (Vercel etc.) ship a read-only filesystem, so this
+// write will throw there. Analytics is non-critical telemetry — swallow the
+// failure (logged server-side for visibility) instead of surfacing a 500 to
+// the client. Returns whether the event was actually persisted.
+export function appendEvent(event: AnalyticsEvent): boolean {
+  try {
+    ensure();
+    const file = dayFile(event.ts.slice(0, 10));
+    let events: AnalyticsEvent[] = [];
+    if (fs.existsSync(file)) {
+      try { events = JSON.parse(fs.readFileSync(file, "utf-8")); } catch {}
+    }
+    events.push(event);
+    // Keep max 50 000 events per day to avoid unbounded growth
+    if (events.length > 50_000) events = events.slice(-50_000);
+    fs.writeFileSync(file, JSON.stringify(events));
+    return true;
+  } catch (e) {
+    console.error("[analytics] appendEvent failed — filesystem likely read-only in this environment:", e);
+    return false;
   }
-  events.push(event);
-  // Keep max 50 000 events per day to avoid unbounded growth
-  if (events.length > 50_000) events = events.slice(-50_000);
-  fs.writeFileSync(file, JSON.stringify(events));
 }
 
 // ─── Read ─────────────────────────────────────────────────────────────────
