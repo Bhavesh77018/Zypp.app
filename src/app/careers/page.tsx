@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { getContent } from "@/lib/cms";
@@ -12,6 +13,14 @@ export const metadata = {
 
 type Perk = { icon: string; title: string; desc: string };
 type Role = { title: string; dept: string; type: string; location: string };
+
+// "Moments" gallery — same photos/captions as the Life at Zypp photo wall.
+const MOMENTS = [
+  { image: "/media/life-team.webp", label: "Teams learning in the field" },
+  { image: "/media/life-rider.webp", label: "Rider moments from the road" },
+  { image: "/media/gig-ki-awaaz.webp", label: "Conversations that give gig work a voice" },
+  { image: "/media/rider-roshan.jpg", label: "Everyday people, real momentum" },
+];
 
 export default function CareersPage() {
   const c = getContent("careers");
@@ -101,6 +110,25 @@ export default function CareersPage() {
             <Link href={`/contact?reason=${encodeURIComponent("Career enquiry")}`} data-track="Careers Open Application" className="inline-flex items-center gap-2 text-primary font-semibold hover:gap-3 transition-all">
               {String(rolesSec.openLinkLabel)} <ArrowRight size={16} />
             </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Moments — Life in Pictures */}
+      <section className="py-20 bg-white dark:bg-slate-950">
+        <div className="container mx-auto px-4">
+          <Reveal className="text-center mb-14">
+            <div className="text-sm font-bold text-primary uppercase tracking-widest mb-3">Moments</div>
+            <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 dark:text-white">Life in Pictures</h2>
+          </Reveal>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 max-w-6xl mx-auto">
+            {MOMENTS.map((item) => (
+              <figure key={item.label} className="group relative aspect-[3/4] overflow-hidden rounded-3xl border border-gray-100 dark:border-slate-800 bg-slate-950">
+                <Image src={item.image} alt={item.label} fill sizes="(max-width: 768px) 100vw, 25vw" className="object-cover group-hover:scale-105 transition-transform duration-500" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
+                <figcaption className="absolute left-5 right-5 bottom-5 text-sm font-bold text-white leading-snug">{item.label}</figcaption>
+              </figure>
+            ))}
           </div>
         </div>
       </section>

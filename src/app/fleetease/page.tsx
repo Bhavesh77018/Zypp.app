@@ -78,7 +78,48 @@ export default function FleetEasePage() {
       {/* 4. Real stats, client logos, features and deployment paths */}
       <FleetEaseFeatures />
 
-      {/* 4b. Company Fleet Package — apps + master wallet */}
+      {/* 4a. What Our Partners Say */}
+      <section className="py-24 bg-gray-50 dark:bg-slate-900 border-y border-gray-100 dark:border-slate-800">
+        <div className="container mx-auto px-4 max-w-6xl">
+          <Reveal className="text-center mb-14">
+            <div className="text-sm font-bold text-primary uppercase tracking-[0.2em] mb-3">What Our Partners Say</div>
+            <h2 className="text-3xl md:text-5xl font-black text-gray-900 dark:text-white">Trusted by Fleet Operators Across India</h2>
+            <p className="text-gray-500 dark:text-gray-400 text-lg max-w-2xl mx-auto mt-4">
+              Empowering modern logistics networks with reliable EV performance, predictive monitoring, and optimized asset lifecycle.
+            </p>
+          </Reveal>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {[
+              { quote: "Implementing FleetEase.ai across our delivery hubs was an instant win. We've seen an incredible 40% reduction in vehicle downtime thanks to predictive maintenance alerts. It's completely changed how we run our daily dispatch.", name: "Rajesh Kumar", role: "Fleet Manager · QuickDeliver" },
+              { quote: "Real-time battery diagnostics and driver behavior tracking have completely transformed our fleet operations. We now have 100% visibility into every route, drastically cutting delivery delays and optimizing range.", name: "Priya Sharma", role: "Operations Head · GreenMove Logistics" },
+              { quote: "With complete P&L clarity and automated carbon offset reporting, FleetEase.ai gave us the confidence to scale our operations rapidly from 200 to over 2,000 electric vehicles. It's the ultimate EV operations operating system.", name: "Amit Patel", role: "COO · Urban Dash" },
+            ].map((t) => (
+              <div key={t.name} className="h-full bg-white dark:bg-slate-950 border border-gray-100 dark:border-slate-800 rounded-3xl p-7 shadow-sm">
+                <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed mb-6">&ldquo;{t.quote}&rdquo;</p>
+                <div className="font-bold text-gray-900 dark:text-white">{t.name}</div>
+                <div className="text-xs text-gray-400">{t.role}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 4b. Our Clients */}
+      <section className="py-12 bg-white dark:bg-slate-950 border-b border-gray-100 dark:border-slate-800">
+        <div className="container mx-auto px-4">
+          <p className="text-center text-xs font-bold uppercase tracking-[0.2em] text-primary mb-2">Our Clients</p>
+          <h2 className="text-center text-lg font-black text-gray-900 dark:text-white mb-6">Trusted by Industry Leaders</h2>
+          <div className="flex flex-wrap items-center justify-center gap-3">
+            {["Zomato", "Blinkit", "Swiggy", "Zepto", "Rapido", "Porter", "Flipkart", "ONDC"].map((name) => (
+              <span key={name} className="px-5 py-2 rounded-full border border-gray-200 dark:border-slate-700 bg-gray-50 dark:bg-slate-900 text-sm font-bold text-gray-700 dark:text-gray-300">
+                {name}
+              </span>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 4c. Company Fleet Package — apps + master wallet */}
       <section className="py-24 bg-slate-950 text-white relative overflow-hidden">
         <div className="absolute -top-32 right-0 w-[480px] h-[480px] bg-blue-500/10 rounded-full blur-[110px]" />
         <div className="container relative mx-auto px-4 max-w-6xl">

@@ -465,6 +465,21 @@ export default function FranchisePage() {
       {/* ── FAQ ── */}
       <FAQSection />
 
+      {/* ── OUR CLIENTS ── */}
+      <section className="py-12 bg-white dark:bg-slate-950 border-b border-gray-100 dark:border-slate-800">
+        <div className="container mx-auto px-4">
+          <p className="text-center text-xs font-bold uppercase tracking-[0.2em] text-indigo-500 mb-2">Our Clients</p>
+          <h2 className="text-center text-lg font-black text-gray-900 dark:text-white mb-6">Trusted by Industry Leaders</h2>
+          <div className="flex flex-wrap items-center justify-center gap-3">
+            {["Zomato", "Blinkit", "Swiggy", "Zepto", "Rapido", "Porter", "Flipkart", "ONDC"].map((name) => (
+              <span key={name} className="px-5 py-2 rounded-full border border-gray-200 dark:border-slate-700 bg-gray-50 dark:bg-slate-900 text-sm font-bold text-gray-700 dark:text-gray-300">
+                {name}
+              </span>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ── FINAL CTA ── */}
       <section className="py-24 bg-gradient-to-br from-slate-900 via-blue-950 to-slate-900 text-white text-center relative overflow-hidden">
         <div className="absolute inset-0 opacity-10" style={{ backgroundImage: "radial-gradient(circle at 50% 50%, #3B82F6 0%, transparent 60%)" }} />

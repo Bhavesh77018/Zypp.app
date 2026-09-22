@@ -16,7 +16,6 @@ export const metadata = {
 const TEAM = [
   { initials: "AG", name: "Akash Gupta", role: "Co-Founder & CEO", img: "/media/akash-gupta.jpg", bio: "8 years, 22 pivots. IMT Ghaziabad Distinguished Alumni. 500K+ followers. HarperCollins book deal. Host of Gig Ki Awaaz." },
   { initials: "RA", name: "Rashi Agarwal", role: "Co-Founder & CBO", img: "/media/rashi-agarwal.jpg", bio: "Drives business development, enterprise partnerships, and revenue strategy. Built Zypp's platform relationships with India's largest delivery apps." },
-  { initials: "TM", name: "Tushar Mehta", role: "Co-Founder & COO", img: "", bio: "Runs Zypp's 8-city operations, 21 hubs, 400-person field team. The architect of Zypp's 96% fleet uptime and 20-minute breakdown response." },
   { initials: "MS", name: "Mukesh Singla", role: "CFO", img: "", bio: "Leads financial strategy, IPO readiness, and investor relations. Driving Zypp toward PAT positivity and the FY28 public listing." },
 ];
 
@@ -130,7 +129,7 @@ export default function AboutPage() {
             </h2>
           </Reveal>
 
-          <RevealStagger className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+          <RevealStagger className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
             {TEAM.map((t) => (
               <RevealItem key={t.initials} className="bg-gray-50 dark:bg-slate-900 border border-gray-100 dark:border-slate-800 rounded-3xl p-8 hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
                 {t.img ? (

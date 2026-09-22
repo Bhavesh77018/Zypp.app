@@ -2407,17 +2407,13 @@ export const PAGE_REGISTRY: PageDef[] = [
       },
       {
         key: "help", label: "How Can We Help",
+        description: "Hidden on the live page (empty by default) — the Figma design merges this into the Our Services section below. Add items here to bring it back.",
         fields: [
           { key: "heading", label: "Heading", type: "text", default: "How can we help you?" },
           { key: "subheading", label: "Sub-heading", type: "text", default: "Choose what you're looking for:" },
           {
             key: "items", label: "Path cards", type: "list",
-            default: [
-              { icon: "🛵", title: "I Want To Earn as a Rider", href: "/zypp-pilot" },
-              { icon: "🏍️", title: "I Need an EV on Rent", href: "/zypp-rental" },
-              { icon: "🏢", title: "I Need Delivery Riders", href: "/ev-for-delivery" },
-              { icon: "🤝", title: "I Want a Franchise", href: "/franchise" },
-            ],
+            default: [],
             itemFields: [
               { key: "icon", label: "Icon", type: "text", default: "✨" },
               { key: "title", label: "Title", type: "text", default: "" },

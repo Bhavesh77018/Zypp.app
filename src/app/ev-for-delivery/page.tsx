@@ -5,6 +5,7 @@ import { Reveal, RevealStagger, RevealItem } from "@/components/motion/Reveal";
 import { Icon3D } from "@/components/Icon3D";
 import HeroVideoBackdrop from "@/components/HeroVideoBackdrop";
 import { CountUpValue } from "@/components/CountUpValue";
+import GigKiAwaazSection from "@/components/home/GigKiAwaazSection";
 
 export const metadata = {
   title: "EV Fleets for Delivery Businesses — 96% Uptime | Zypp",
@@ -216,6 +217,9 @@ export default function EVForDeliveryPage() {
           </Reveal>
         </div>
       </section>
+
+      {/* Gig Ki Awaaz */}
+      <GigKiAwaazSection />
 
       {/* CTA */}
       <section className="py-20 bg-primary text-white text-center">
