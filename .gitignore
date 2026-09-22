@@ -42,3 +42,6 @@ next-env.d.ts
 
 # local design exports for Figma (large PNGs)
 /design-export/
+
+.vercel
+.env*

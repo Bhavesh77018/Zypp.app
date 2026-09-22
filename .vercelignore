@@ -1,0 +1,6 @@
+# Large local-only Figma reference export — not needed for deployment.
+design-export/
+
+# Local dev artifacts
+dev.log
+*.tsbuildinfo
